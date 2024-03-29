@@ -1,5 +1,82 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# igraph 2.0.3.9008
+
+## Refactoring
+
+- Less if else in vertex_attr() (#1324).
+
+- Add assert_named_list() helper to assert the value is a named list with no duplicate names (#1322).
+
+## Testing
+
+- Use largest_component() and expect_equal() in test files (#1323).
+
+## Uncategorized
+
+- Sample_forestfire() tests and example 🔥 (#1318).
+
+
+# igraph 2.0.3.9007
+
+## Features
+
+- Weight support for `eccentricity()` and `radius()` (@krlmlr, #1211).
+
+## Refactoring
+
+- Early return() in graph_attr() (#1320).
+
+
+# igraph 2.0.3.9006
+
+## Documentation
+
+- Fix `sample_degseq()` example (#1297).
+
+- Fix `graph_from_adjacency_matrix()` examples to avoid warnings (#1302).
+
+- Replace `\dontrun{}` with `@examplesIf` (#1307).
+
+## Testing
+
+- Add skip condition for `rglplot` test (#1306).
+
+
+# igraph 2.0.3.9005
+
+## Documentation
+
+- Update `igraph.Rmd`, fix manual page typo (#1313).
+
+
+# igraph 2.0.3.9004
+
+## Continuous integration
+
+- Remove running examples in sanitizer (#1314).
+
+
+# igraph 2.0.3.9003
+
+## Continuous integration
+
+- Update lock.yaml.
+
+- Update lock.yaml (#1309).
+
+
+# igraph 2.0.3.9002
+
+## Chore
+
+- Work around https://github.com/igraph/igraph/pull/2527.
+
+- Apply patch after vendoring.
+
+- Update vendored sources to igraph/igraph@68522c3fbac0bdc375611cd711251223c2e76472.
+
+
 # igraph 2.0.3.9001
 
 - Internal changes only.
