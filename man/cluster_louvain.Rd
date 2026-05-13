@@ -7,7 +7,7 @@
 cluster_louvain(graph, weights = NULL, resolution = 1)
 }
 \arguments{
-\item{graph}{The input graph.}
+\item{graph}{The input graph. It must be undirected.}
 
 \item{weights}{The weights of the edges. It must be a positive numeric vector,
 \code{NULL} or \code{NA}. If it is \code{NULL} and the input graph has a
@@ -50,6 +50,10 @@ vertices are processed in a random order.
 
 This function was contributed by Tom Gregorovic.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Community.html#igraph_community_multilevel}{\code{community_multilevel()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 # This is so simple that we will have only one level

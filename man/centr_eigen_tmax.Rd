@@ -2,9 +2,14 @@
 % Please edit documentation in R/centralization.R
 \name{centr_eigen_tmax}
 \alias{centr_eigen_tmax}
-\title{Theoretical maximum for betweenness centralization}
+\title{Theoretical maximum for eigenvector centralization}
 \usage{
-centr_eigen_tmax(graph = NULL, nodes = 0, directed = FALSE, scale = TRUE)
+centr_eigen_tmax(
+  graph = NULL,
+  nodes = 0,
+  directed = FALSE,
+  scale = deprecated()
+)
 }
 \arguments{
 \item{graph}{The input graph. It can also be \code{NULL}, if
@@ -13,20 +18,24 @@ centr_eigen_tmax(graph = NULL, nodes = 0, directed = FALSE, scale = TRUE)
 \item{nodes}{The number of vertices. This is ignored if the graph is
 given.}
 
-\item{directed}{logical scalar, whether to use directed shortest paths
-for calculating betweenness.}
+\item{directed}{logical scalar, whether to consider edge directions
+during the calculation. Ignored in undirected graphs.}
 
-\item{scale}{Whether to rescale the eigenvector centrality scores,
-such that the maximum score is one.}
+\item{scale}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Ignored. Computing
+eigenvector centralization requires normalized eigenvector centrality scores.}
 }
 \value{
 Real scalar, the theoretical maximum (unnormalized) graph
-betweenness centrality score for graphs with given order and other
-parameters.
+eigenvector centrality score for graphs with given vertex count and
+other parameters.
 }
 \description{
 See \code{\link[=centralize]{centralize()}} for a summary of graph centralization.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_centralization_eigenvector_centrality_tmax}{\code{centralization_eigenvector_centrality_tmax()}}
+}
+
 \examples{
 # A BA graph is quite centralized
 g <- sample_pa(1000, m = 4)

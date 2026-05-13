@@ -11,7 +11,8 @@ assortativity.nominal(graph, types, directed = TRUE, normalized = TRUE)
 
 \item{types}{Vector giving the vertex types. They as assumed to be integer
 numbers, starting with one. Non-integer values are converted to integers
-with \code{\link[=as.integer]{as.integer()}}.}
+with \code{\link[=as.integer]{as.integer()}}. Character vectors are converted to integers using
+\code{\link[=as.factor]{as.factor()}}.}
 
 \item{directed}{Logical scalar, whether to consider edge directions for
 directed graphs.
@@ -29,7 +30,11 @@ values at the two ends of edges.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{assortativity.nominal()} was renamed to \code{assortativity_nominal()} to create a more
+\code{assortativity.nominal()} was renamed to \code{\link[=assortativity_nominal]{assortativity_nominal()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_assortativity_nominal}{\code{assortativity_nominal()}}
+}
+
 \keyword{internal}

@@ -10,10 +10,16 @@ bipartite_mapping(graph)
 \item{graph}{The input graph.}
 }
 \value{
-A named list with two elements: \item{res}{A logical scalar,
-\code{TRUE} if the can be bipartite, \code{FALSE} otherwise.} \item{type}{A
-possible vertex type mapping, a logical vector. If no such mapping exists,
-then an empty vector.}
+A named list with two elements:
+\describe{
+\item{res}{
+A logical scalar, \code{TRUE} if the can be bipartite, \code{FALSE} otherwise.
+}
+\item{type}{
+A possible vertex type mapping, a logical vector.
+If no such mapping exists, then an empty vector.
+}
+}
 }
 \description{
 This function decides whether the vertices of a network can be mapped to two
@@ -35,6 +41,10 @@ Note that the mapping is not necessarily unique, e.g. if the graph has at
 least two components, then the vertices in the separate components can be
 mapped independently.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Bipartite.html#igraph_is_bipartite}{\code{is_bipartite()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 ## Rings with an even number of vertices are bipartite

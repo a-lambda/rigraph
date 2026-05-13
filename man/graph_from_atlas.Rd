@@ -2,18 +2,15 @@
 % Please edit documentation in R/make.R
 \name{graph_from_atlas}
 \alias{graph_from_atlas}
-\alias{graph.atlas}
 \alias{atlas}
 \title{Create a graph from the Graph Atlas}
 \usage{
 graph_from_atlas(n)
 
-atlas(...)
+atlas(n)
 }
 \arguments{
 \item{n}{The id of the graph to create.}
-
-\item{...}{Passed to \code{graph_from_atlas()}.}
 }
 \value{
 An igraph graph.
@@ -34,6 +31,10 @@ the degree sequence, for example 111223 < 112222;
 automorphisms.
 }
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_atlas}{\code{atlas()}}
+}
+
 \examples{
 ## Some randomly picked graphs from the atlas
 graph_from_atlas(sample(0:1252, 1))
@@ -43,15 +44,20 @@ graph_from_atlas(sample(0:1252, 1))
 Other deterministic constructors: 
 \code{\link{graph_from_edgelist}()},
 \code{\link{graph_from_literal}()},
+\code{\link{make_}()},
 \code{\link{make_chordal_ring}()},
+\code{\link{make_circulant}()},
 \code{\link{make_empty_graph}()},
 \code{\link{make_full_citation_graph}()},
 \code{\link{make_full_graph}()},
+\code{\link{make_full_multipartite}()},
 \code{\link{make_graph}()},
 \code{\link{make_lattice}()},
 \code{\link{make_ring}()},
 \code{\link{make_star}()},
-\code{\link{make_tree}()}
+\code{\link{make_tree}()},
+\code{\link{make_turan}()},
+\code{\link{make_wheel}()}
 }
 \concept{Graph Atlas.}
 \concept{deterministic constructors}

@@ -30,7 +30,8 @@ perform these checks, as they can be done quickly compared to the
 connectivity calculation itself.  They were suggested by Peter McMahan,
 thanks Peter.}
 
-\item{...}{Ignored.}
+\item{...}{Additional arguments passed to methods. Not used by \code{vertex_connectivity()}
+directly but may be used by other methods that implement \code{cohesion()}.}
 }
 \value{
 A scalar real value.
@@ -74,6 +75,10 @@ These three functions essentially calculate the same measure(s), more
 precisely \code{vertex_connectivity()} is the most general, the other two are
 included only for the ease of using more descriptive function names.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_st_vertex_connectivity}{\code{st_vertex_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_vertex_connectivity}{\code{vertex_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_vertex_disjoint_paths}{\code{vertex_disjoint_paths()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_cohesion}{\code{cohesion()}}
+}
+
 \examples{
 
 g <- sample_pa(100, m = 1)
@@ -85,7 +90,7 @@ vertex_connectivity(g2, 100, 1)
 vertex_disjoint_paths(g2, 100, 1)
 
 g <- sample_gnp(50, 5 / 50)
-g <- as.directed(g)
+g <- as_directed(g)
 g <- induced_subgraph(g, subcomponent(g, 1))
 cohesion(g)
 

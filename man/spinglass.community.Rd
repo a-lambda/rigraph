@@ -20,8 +20,7 @@ spinglass.community(
 )
 }
 \arguments{
-\item{graph}{The input graph, can be directed but the direction of the edges
-is neglected.}
+\item{graph}{The input graph. Edge directions are ignored in directed graphs.}
 
 \item{weights}{The weights of the edges. It must be a positive numeric vector,
 \code{NULL} or \code{NA}. If it is \code{NULL} and the input graph has a
@@ -88,7 +87,11 @@ is ignored if the \sQuote{orig} implementation is chosen.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{spinglass.community()} was renamed to \code{cluster_spinglass()} to create a more
+\code{spinglass.community()} was renamed to \code{\link[=cluster_spinglass]{cluster_spinglass()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \keyword{internal}

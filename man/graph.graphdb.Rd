@@ -50,7 +50,11 @@ suffix is added to the filename.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{graph.graphdb()} was renamed to \code{graph_from_graphdb()} to create a more
+\code{graph.graphdb()} was renamed to \code{\link[=graph_from_graphdb]{graph_from_graphdb()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_read_graph_graphdb}{\code{read_graph_graphdb()}}
+}
+
 \keyword{internal}

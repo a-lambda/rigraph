@@ -73,6 +73,10 @@ endogenous versus exogenous factors.
 algorithm, the routine may fail is certain cases.
 }
 
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify}{\code{simplify()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency}{\code{get_adjacency()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency_sparse}{\code{get_adjacency_sparse()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 # The examples from Bonacich's paper
@@ -93,12 +97,13 @@ measures of centrality for asymmetric relations'' \emph{Social Networks},
 \code{\link[=eigen_centrality]{eigen_centrality()}} and \code{\link[=power_centrality]{power_centrality()}}
 
 Centrality measures
+\code{\link{authority_score}()},
 \code{\link{betweenness}()},
 \code{\link{closeness}()},
 \code{\link{diversity}()},
 \code{\link{eigen_centrality}()},
 \code{\link{harmonic_centrality}()},
-\code{\link{hub_score}()},
+\code{\link{hits_scores}()},
 \code{\link{page_rank}()},
 \code{\link{power_centrality}()},
 \code{\link{spectrum}()},

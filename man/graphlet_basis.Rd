@@ -34,15 +34,27 @@ projection.}
 \item{Mu}{Starting weights for the projection.}
 }
 \value{
-\code{graphlets()} returns a list with two members: \item{cliques}{A
-list of subgraphs, the candidate graphlet basis. Each subgraph is give by a
-vector of vertex ids.} \item{Mu}{The weights of the subgraphs in graphlet
-basis.}
+\code{graphlets()} returns a list with two members:
+\describe{
+\item{cliques}{
+A list of subgraphs, the candidate graphlet basis.
+Each subgraph is give by a vector of vertex ids.
+}
+\item{Mu}{
+The weights of the subgraphs in graphlet basis.
+}
+}
 
-\code{graphlet_basis()} returns a list of two elements: \item{cliques}{A list
-of subgraphs, the candidate graphlet basis. Each subgraph is give by a
-vector of vertex ids.} \item{thresholds}{The weight thresholds used for
-finding the subgraphs.}
+\code{graphlet_basis()} returns a list of two elements:
+\describe{
+\item{cliques}{
+A list of subgraphs, the candidate graphlet basis.
+Each subgraph is give by a vector of vertex ids.
+}
+\item{thresholds}{
+The weight thresholds used for finding the subgraphs.
+}
+}
 
 \code{graphlet_proj()} return a numeric vector, the weights of the graphlet
 basis subgraphs.
@@ -63,6 +75,10 @@ The second and third functions correspond to the first and second steps of
 the algorithm, and they are useful if the user wishes to perform them
 individually: \code{graphlet_basis()} and \code{graphlet_proj()}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Graphlets.html#igraph_graphlets_candidate_basis}{\code{graphlets_candidate_basis()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Graphlets.html#igraph_graphlets_project}{\code{graphlets_project()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Graphlets.html#igraph_graphlets}{\code{graphlets()}}
+}
+
 \examples{
 
 ## Create an example graph first

@@ -15,7 +15,11 @@ vertices, in absolute coordinates.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{tkplot.setcoords()} was renamed to \code{tk_set_coords()} to create a more
+\code{tkplot.setcoords()} was renamed to \code{\link[=tk_set_coords]{tk_set_coords()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

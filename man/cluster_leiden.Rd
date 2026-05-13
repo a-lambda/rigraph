@@ -8,8 +8,10 @@ van Eck & Waltman.}
 cluster_leiden(
   graph,
   objective_function = c("CPM", "modularity"),
+  ...,
   weights = NULL,
-  resolution_parameter = 1,
+  resolution = 1,
+  resolution_parameter = deprecated(),
   beta = 0.01,
   initial_membership = NULL,
   n_iterations = 2,
@@ -17,10 +19,12 @@ cluster_leiden(
 )
 }
 \arguments{
-\item{graph}{The input graph, only undirected graphs are supported.}
+\item{graph}{The input graph. It must be undirected.}
 
 \item{objective_function}{Whether to use the Constant Potts Model (CPM) or
 modularity. Must be either \code{"CPM"} or \code{"modularity"}.}
+
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{weights}{The weights of the edges. It must be a positive numeric vector,
 \code{NULL} or \code{NA}. If it is \code{NULL} and the input graph has a
@@ -30,9 +34,11 @@ weights. Set this to \code{NA} if the graph was a \sQuote{weight} edge
 attribute, but you don't want to use it for community detection. A larger
 edge weight means a stronger connection for this function.}
 
-\item{resolution_parameter}{The resolution parameter to use. Higher
+\item{resolution}{The resolution parameter to use. Higher
 resolutions lead to more smaller communities, while lower resolutions lead
 to fewer larger communities.}
+
+\item{resolution_parameter}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}} Use \code{resolution} instead.}
 
 \item{beta}{Parameter affecting the randomness in the Leiden algorithm.
 This affects only the refinement step of the algorithm.}
@@ -58,7 +64,7 @@ The Leiden algorithm is similar to the Louvain algorithm,
 \code{\link[=cluster_louvain]{cluster_louvain()}}, but it is faster and yields higher quality
 solutions. It can optimize both modularity and the Constant Potts Model,
 which does not suffer from the resolution-limit (see preprint
-http://arxiv.org/abs/1104.3083).
+\url{https://arxiv.org/abs/1104.3083}).
 }
 \details{
 The Leiden algorithm consists of three phases: (1) local moving of nodes,
@@ -99,13 +105,17 @@ specify any \code{vertex_weights}, the correct vertex weights and scaling of
 \eqn{\gamma}{gamma} is determined automatically by the
 \code{objective_function} argument.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Community.html#igraph_community_leiden}{\code{community_leiden()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_strength}{\code{strength()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 g <- make_graph("Zachary")
 # By default CPM is used
 r <- quantile(strength(g))[2] / (gorder(g) - 1)
 # Set seed for sake of reproducibility
 set.seed(1)
-ldc <- cluster_leiden(g, resolution_parameter = r)
+ldc <- cluster_leiden(g, resolution = r)
 print(ldc)
 plot(ldc, g)
 }

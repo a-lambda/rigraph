@@ -18,7 +18,11 @@ The default ordering is given by the vertex ids.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{layout.star()} was renamed to \code{layout_as_star()} to create a more
+\code{layout.star()} was renamed to \code{\link[=layout_as_star]{layout_as_star()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_star}{\code{layout_star()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_circle}{\code{layout_circle()}}
+}
+
 \keyword{internal}

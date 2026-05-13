@@ -1,148 +1,471 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# igraph 2.0.3.9012
-
-## Continuous integration
-
-- Remove conflict action again.
-
-## Refactoring
-
-- Handle `null` names for `R_igraph_mybracket2_names` (#1342).
-
-
-# igraph 2.0.3.9011
-
-## Continuous integration
-
-- Use other conflict checker action.
-
-- Add conflicts checker for PRs.
-
-
-# igraph 2.0.3.9010
-
-## Features
-
-- Generate all bindings (#1044).
+# igraph 2.3.1.9002
 
 ## Chore
 
-- Use and explain `getNamespaceInfo()` (#1339).
+- Add ccache to `.gitignore` and `.Rbuildignore`.
 
 ## Continuous integration
 
-- Run examples with comment `\dontrun{}` (#1310).
+- Create snapshot update PR against correct branch.
 
-## Refactoring
+- Add reference to `/apply-patch` workflow in commit message.
 
-- Names in `update-cigraph.sh` script (#1287).
+- Clarify rationale for not deploying on schedule.
 
+- Really deploy pkgdown only on push.
 
-# igraph 2.0.3.9009
+- Disable vendoring workflow to avoid noise.
 
-## Continuous integration
+- Only run fledge on pushes to main.
 
-- Install R (#1335).
+- Tweak fledge workflow and ccache action.
 
-## Refactoring
+- Cosmetics.
 
-- Move variables closer to their usage, add explaining variables (#1336).
+- Bump action versions.
 
-- Breaking change: use `rlang::arg_match()` in `igraph.match.arg()` (#1165).
+- Install clang-format-21.
 
-- Explaining variables (#1326).
+- Align fledge workflow.
 
-## Breaking changes
-
-- Breaking change: use `rlang::arg_match()` in `igraph.match.arg()` (#1165).
-
-
-# igraph 2.0.3.9008
-
-## Refactoring
-
-- Less if else in vertex_attr() (#1324).
-
-- Add assert_named_list() helper to assert the value is a named list with no duplicate names (#1322).
-
-## Testing
-
-- Use largest_component() and expect_equal() in test files (#1323).
+- Harmonize.
 
 ## Uncategorized
 
-- Sample_forestfire() tests and example 🔥 (#1318).
+- Merge branch 'krlmlr-main'.
 
 
-# igraph 2.0.3.9007
-
-## Features
-
-- Weight support for `eccentricity()` and `radius()` (@krlmlr, #1211).
-
-## Refactoring
-
-- Early return() in graph_attr() (#1320).
-
-
-# igraph 2.0.3.9006
-
-## Documentation
-
-- Fix `sample_degseq()` example (#1297).
-
-- Fix `graph_from_adjacency_matrix()` examples to avoid warnings (#1302).
-
-- Replace `\dontrun{}` with `@examplesIf` (#1307).
-
-## Testing
-
-- Add skip condition for `rglplot` test (#1306).
-
-
-# igraph 2.0.3.9005
-
-## Documentation
-
-- Update `igraph.Rmd`, fix manual page typo (#1313).
-
-
-# igraph 2.0.3.9004
-
-## Continuous integration
-
-- Remove running examples in sanitizer (#1314).
-
-
-# igraph 2.0.3.9003
-
-## Continuous integration
-
-- Update lock.yaml.
-
-- Update lock.yaml (#1309).
-
-
-# igraph 2.0.3.9002
+# igraph 2.3.1.9001
 
 ## Chore
 
-- Work around https://github.com/igraph/igraph/pull/2527.
-
-- Apply patch after vendoring.
-
-- Update vendored sources to igraph/igraph@68522c3fbac0bdc375611cd711251223c2e76472.
+- Auto-update from GitHub Actions (#2624).
 
 
-# igraph 2.0.3.9001
+# igraph 2.3.1.9000
 
-- Internal changes only.
+- Switching to development version.
 
 
-# igraph 2.0.3.9000
+# igraph 2.3.1
 
-- Merge branch 'cran-2.0.3'.
+## Bug fixes
+
+- Fix mismatches between C function signatures and function calls. This only affects private functions that are defined but not yet used (#2620).
+
+
+# igraph 2.3.0
+
+## New features
+
+- Add `make_wheel()` to expose `igraph_wheel()` (#1561, #2409).
+
+- Add `transitive_closure()` function to compute the transitive closure of a graph (#1350, #2413).
+
+- Add `make_full_multipartite()` and `make_turan()` graph constructors (#1562, #2406).
+
+- Add `count_loops()` (#1379, #2414).
+
+- Add `make_circulant()` to expose `igraph_circulant()` (#1563, #2407).
+
+- Add `mean_degree()` (#1380, #2415).
+
+- Add `count_reachable()` function (#1349, #2412).
+
+- Add `invalidate_cache()` (#1387, #2416).
+
+- `graphlet_basis()` returns a list of vertices in the `"cliques"` component instead of a raw integer matrix (#2470, #2472).
+
+- `vertices()` now errors on duplicate attribute names (#1248, #2430).
+
+- Implement generic mechanism for `layout_()` modifiers, allowing layout algorithms to be composed and adjusted uniformly (#1473, #2435).
+
+- Change graph constructors to use explicit named arguments instead of positional ones (#2466, #2467).
+
+- Improve formatting of error messages originating from the C library (#2202, #2515).
+
+- Functions that accept a single vertex now check that exactly one vertex is passed (#2556).
+
+## Bug fixes
+
+- Error call in `with_vertex_()`/`with_edge_()` should report the public `make_()` function, not the internal helper (#2609).
+
+- Not all loops are plotted when a graph has multiple loops at the same vertex (#2594, #2595).
+
+- Fix `hrg_game_impl()` which produced incorrect results (#2577, #2578).
+
+- `graphlet_proj()` no longer erroneously assigns class `"igraphHRG"` to the returned graph.
+
+- Support character labels in `assortativity_nominal()` in addition to integer type codes (#1283, #2432).
+
+- Fix uninitialized variable warnings when building with R 4.5 on Windows (#2526, #2527).
+
+- `modularity()` now uses the `"weights"` edge attribute automatically when no `weights` argument is supplied.
+
+- Fix `alpha_centrality()` crash when `weights` is set to a custom edge attribute name rather than a numeric vector (#915, #2403).
+
+- Fix matrix lists for output when returning multiple matrices from C.
+
+## Documentation
+
+- Error messages throughout the package now use the `cli` package for consistent, styled output instead of base R `stop()` (#731, #2588).
+
+- The R Consortium is listed as a funder with its ROR ID in the package metadata (#2587).
+
+- Fixes to the pkgdown reference index (#2590, #2592).
+
+- Documentation pages for R functions now automatically link to the corresponding C library documentation (#2518).
+
+## Testing
+
+- Structured unit tests alongside snapshot tests have been added for all autogenerated `_impl` functions in `test-aaa-auto.R`, verifying argument passing and return values (#2448, #2449).
+
+## Internal
+
+- The R interface for most C library functions is now autogenerated using the py-stimulus framework, covering 108+ functions including BFS and DFS callbacks, leading-eigenvector community detection, motif callbacks, sparse matrix operations, and graph-list constructors. Arguments use snake_case naming throughout for consistency (#2152, #2424, #2442, #2461, #2462, #2464, #2465, #2484, #2485, #2531, #2532, #2533, #2534, #2540, #2550, #2551, #2552, #2553, #2554, #2555).
+
+- Most direct `.Call()` invocations to C library functions have been replaced with autogenerated `_impl()` wrapper functions that use explicit named arguments, covering all R source files (`R/assortativity.R`, `R/bipartite.R`, `R/centrality.R`, `R/centralization.R`, `R/cliques.R`, `R/coloring.R`, `R/embedding.R`, `R/flow.R`, `R/games.R`, `R/layout.R`, `R/make.R`, `R/other.R`, `R/simple.R`, `R/structural-properties.R`, `R/topology.R`, `R/trees.R`, `R/triangles.R`, and others) (#2332, #2334, #2345, #2347, #2348, #2351, #2352, #2355, #2357, #2358, #2359, #2361, #2362, #2363, #2364, #2365, #2366, #2367, #2368, #2369, #2370, #2372, #2373, #2374, #2379, #2380, #2382, #2383, #2384, #2386, #2388, #2398, #2422, #2423, #2428, #2429, #2434, #2443, #2471, #2476, #2477, #2478, #2539, #2541, #2545, #2546).
+
+
+# igraph 2.2.3
+
+## Chore
+
+- Remove calls to non-API functions.
+
+
+# igraph 2.2.2
+
+## Chore
+
+- Remove calls to unused APIs only used in the conversion of very old graph objects.
+
+
+# igraph 2.2.1
+
+## Chore
+
+- Fix ASAN checks.
+
+- Add protection to fix rchk error.
+
+## Testing
+
+- Improve centralitystress test (#2214).
+
+- Fix flaky test.
+
+
+# igraph 2.2.0
+
+Update C core to version 0.10.17. See <https://github.com/igraph/rigraph/blob/20552ef94aed6ae4b23465ae8c7e4d3b0e558c71/src/vendor/cigraph/CHANGELOG.md> for a complete changelog, in particular the section "Breaking changes".
+
+## Features
+
+- Generate almost all R implementations (#2047).
+
+- Expose `align_layout()` and add to `layout_nicely()` to align layout with axis automatically (#1907, #1957, #1958).
+
+- Expose `simple_cycles()` which lists all simple cycles (#1573, #1580).
+
+- Expose `is_complete()`, `is_clique()` and `is_ivs()` (#1316, #1388, #1581).
+
+- Expose `find_cycle()` (#1471, #1571).
+
+- Expose `feedback_vertex_set()` to find a minimum feedback vertex set in a graph (#1446, #1447, #1560).
+
+- Add `weights` parameter to `local_scan()` (#1082, #1448, #1982).
+
+- Add more layouts to `tkplot()` (#160, #1967).
+
+- Add `plot(mark.lwd = )` to change line width of mark.groups (#306, #1898).
+
+- Add `plot(vertex.label.angle = , vertex.label.adj = )` arguments to rotate vertex labels (#106, #1899).
+
+- Add relative size scaling to vertices in `plot()` (@gvegayon, #172).
+
+- Split `sample_bipartite()` into two functions for the G(n, m) and G(n, p) case (#630, #1692).
+
+- Implement multi attribute assignment (#55, #1916) and adding attributes via data frames (#1373, #1669, #1716). Support factors in `graph_from_data_frame()` (#34, #1829).
+
+- All `_hrg()` functions check their argument (#1074, #1699).
+
+- HRG printing with `type = "auto"` uses `"plain"` for large trees (#1879).
+
+- `get_edge_ids()` accepts data frames and matrices (#1663).
+
+- `igraph_version()` returns version of C core in an attribute (#1208, #1781).
+
+## Breaking changes
+
+- Breaking change: change arguments default and order for `graph_from_lcf()` (#1858, #1872).
+
+- Breaking change: Subset assignment of a graph avoids addition of double edges and ignores loops unless the new `loops` argument is set to `TRUE` (#1662, #1661).
+
+- Breaking change: remove deprecated `neimode` parameter from `bfs()` and `dfs()` (#1105, #1526).
+
+- Breaking change: stricter deprecation of non-functional parameters of `layout_with_kk()` and `layout_with_fr()` (#1108, #1628).
+
+## Bug fixes
+
+- `NA` attribute values are replaced with default values in `plot()` (#293, #1707).
+
+- `NA` checking only in from/to columns of edge data frame (#1906).
+
+- Keep vertex attribute type for `disjoint_union()` (#1640, #1909).
+
+- Error in bipartite projection if `type` is not a vertex attribute (#898, #1889).
+
+- Do not try to destroy non-initialized SIR objects upon error (#1888).
+
+- Added proper `NA` handling for matrix inputs (#917, #918, #1828).
+
+- Remove string matrix support from functions operating on biadjacency matrices (#1540, #1542, #1803).
+
+- Integer vectors are validated before transferring them to the C library (#1434, #1582).
+
+- Changed base location for `graph_from_graphdb()` and added tests (#1712, #1732).
+
+- Recycling of logical vectors when indexing into edge/vertex selectors now throws an error (#848, #1731).
+
+- Use `function()` instead of `(x)` in `arrow.mode` (#1722).
+
+- Temporarily disable generating an interface for `igraph_simple_cycles_callback()` as the framework for handling callback functions is not yet present.
+
+## Plotting bug fixes
+
+- Adjust loop position to vertex size in `plot()` (#1980).
+
+- Don't rescale plot coordinates to `[-1,1] x [-1,1]` by default (#1492, #1956, #1962).
+
+- Fail if `"layout"` attribute doesn't match the number of vertices (#1880).
+
+- Automatically arrange loops in `plot()` (#407, #556, #1881).
+
+- Vectorized drawing of arrows in `plot()` (#257, #1904).
+
+- Allow more than one edge label font family in `plot()` (#37, #1896).
+
+- Pie shapes now work as intended (#1882, #1883).
+
+- Loops not plotted on canvas (#1799, #1800).
+
+- Replace `NA` values in `label` attributes in `plot()` with default values (#1796, #1797).
+
+- Removed duplicated plotting of arrow heads (#640, #1709).
+
+- Correct mapping of edge label properties in plots when loops are present (#157, #1706).
+
+## Documentation
+
+- Welcome Maëlle Salmon and David Schoch as authors (#1733), add author links (#1821).
+
+- Remove demos (#2008).
+
+- Add 2023 preprint (#1240, #1984).
+
+- Update allcontributors info (#1975).
+
+- Link to replacements of deprecated functions (#1823).
+
+- Add documentation of all file formats to `read_graph()` and `write_graph()` (#777, #1969). Recommend `saveRDS()` and `readRDS()` for saving and loading graphs (#1242, #1700).
+
+- Document return value of `make_clusters()` (#1794).
+
+- Clarify that `girth()` returns `Inf` for acyclic graphs (@eqmooring, #1831).
+
+- Clarify the use of weights in `layout_with_kk()`.
+
+- Refer to current latest version of R in troubleshooting page.
+
+- Fix typos in `laplacian_matrix()` documentation.
+
+- Document ellipsis in `cohesion()` (#971, #1985).
+
+- Correct the description of the `weights` parameter of `hits_scores()`.
+
+- Better describe output of `all_shortest_paths()` (#1029, #1778).
+
+- `make_graph()` now supports `"Groetzsch"` as an alias of `"Grotzsch"`. This change was implemented in the C core.
+
+- Update description of `order` parameter of `ego()` and related functions (#1746).
+
+- Added lifecycle table (#1525).
+
+- Add more about igraph.r2cdocs in the contributing guide (#1686, #1697).
+
+## Performance
+
+- Accelerate check if an index sequence corresponds to the entire list of vertices (#1427, #1818).
+
+- Faster single bracket querying of a graph (#1465, #1658).
+
+
+# igraph 2.1.4
+
+## Testing
+
+- Tweak tests that use the graph package.
+
+
+# igraph 2.1.3
+
+## Features
+
+- Use `_pv` destroy functions to satisfy ASAN checks (#1630).
+
+- Use safe accessor to vector elements (#1633).
+
+## Chore
+
+- Replace `graph.isomorphic()` with `isomorphic()` (#1583, #1623).
+
+## Documentation
+
+- Convert `plot.common.Rd` to roxygen2 (#1424, #1636).
+
+- Remove broken example from `graph_from_graphdb()` manual page (#1622, #1637).
+
+- Document argument for NCOL format in `read_graph()` (#1621).
+
+- Make documentation of `disjoint_union()` consistent with behavior (#1587, #1641).
+
+- Add central note about experimental functions (#1624).
+
+
+# igraph 2.1.2
+
+## Bug fixes
+
+- `adjacent_vertices()` and `incident_edges()` are now correct if the `"return.vs.es"` option is `FALSE` (@stibu81, #1605, #1606).
+
+- Fix protection errors reported by rchk (#1592).
+
+- Fix the incorrect handling of the `sample` parameter in `sample_motifs()` and ensure that the default `sample.size` is integer (#1568).
+
+## Documentation
+
+- Clarify what type of graph each community detection function supports.
+
+- Improve `?read_graph` and `?write_graph` documentation.
+
+- Improve `all_simple_paths()` documentation.
+
+- `cluster_optimal()` does support directed graphs.
+
+## Testing
+
+- Test handling of `"return.vs.es"` in several functions (@stibu81, #1610).
+
+
+# igraph 2.1.1
+
+See <https://github.com/igraph/rigraph/blob/9828d7b11be330f994f07ae93a071b356eced903/src/vendor/cigraph/CHANGELOG.md> for a complete changelog, in particular the section "Breaking changes".
+
+## Features
+
+- Add `p.value` and `p.precision` arguments to `fit_power_law()` to control the computation of the p-value (#1546).
+
+## Bug fixes
+
+- Preserve `as.undirected()` signature thanks to @jhollway, regression introduced in igraph 2.1.0 (#1536).
+
+## Lifecycle
+
+- Deprecate `eigen_centrality(scale = )` (#1543).
+- Put deprecation message at the beginning not the end of the similarity functions (#1549).
+
+## Documentation
+
+- Update allcontributors table (#1552).
+- Use mathjax for now (#1538).
+
+## Internal
+
+- Prepare for libxml2 depending on bcrypt, use pkg-config (#1556, @kalibera).
+
+
+# igraph 2.1.0
+
+See <https://github.com/igraph/rigraph/blob/05973441b83decdeab8cc9c500a642c00b924770/src/vendor/cigraph/CHANGELOG.md> for a complete changelog, in particular the section "Breaking changes".
+
+## Lifecycle
+
+### Breaking changes
+
+- Breaking change: remove tkigraph from {igraph} proper (#1474).
+- Breaking change: Hard-deprecate `get.edge()` and `layout.grid.3d()` which have been deprecated for 10 years (#1398).
+- Breaking change: use `rlang::arg_match()` in `igraph.match.arg()` (#1165).
+
+### In-progress deprecations
+
+We are working towards a more consistent interface, especially as regards function naming: ultimately we want the igraph functions to use snake case.
+Please update your scripts and codebases as soon as you can.
+
+- Add `independence_number()` as an alias of `ivs_size()` (#1522).
+- Add `get_edge_ids()` as an alias of `get.edge.ids()` (#1510).
+- Increase the deprecation signal to a warning for `hub.score()` and `authority.score()` both replaced by `hits_scores()` (#1352).
+- Soft-deprecate `erdos.renyi.game()` and `random.graph.game()` (#1509).
+
+## Features
+
+### C library
+
+- Update vendored C/igraph sources to igraph/igraph@d2e0f4eb567dfc505227c346a015bef574c4ccd1.
+
+### New functionality
+
+- Support `fit_power_law(implementation = "plfit.p")` to compute the P-value (#1386).
+- Add `max_degree()` (#1403).
+- Add experimental `sample_chung_lu()` (#1416).
+- Rename methods available for `sample_degseq()` and add the `"edge.switching.simple"` method (#1376).
+- Weight support for `eccentricity()` and `radius()` (#1211).
+- Add some argument checking to `add_shape()` (#1478).
+
+### More informative errors
+
+- Export `.from()` etc. with behavior similar to `dplyr::across()` (#1436): functions like `.from()` are meant to be used inside `[` but now if an user misuses them, the error is more informative.
+
+## Bug fixes
+
+- Fix including diagonal elements in dense adjacency matrices (#1437).
+- Align the body of `graph.lattice()` with its replacement `make_lattice()` (#1439).
+- Use `deprecated()` as default value for `circular` argument to `make_lattice()` (#1431).
+- `subgraph_centrality()` now ignores edge directions (#1414).
+- Remove unintended type conversions when using `disjoint_union()` (#1375).
+- Add missing `PROTECT()` (#1382).
+- Fix reading of LGL and NCOL files (broken in 2.0.0) (#1347).
+- Fixed potential memory leak in `R_igraph_community_to_membership2()` (#1367).
+
+## Documentation
+
+- Improve the manual page of `sample_()` (#1477).
+- Improve cross-links from `make_()` manual page (#1476).
+- Update `is_separator()` documentation based on C docs (#1467).
+- Add DOI to citation (#1450).
+- Improve documentation of normalization methods for laplacian_matrix() (#1420).
+- Fix typos in `?plot.common` (@gvegayon) (#1413).
+- Fix `sample_degseq()` example (#1297).
+- Fix `graph_from_adjacency_matrix()` examples to avoid warnings (#1302).
+- Replace `\dontrun{}` with `@examplesIf` (#1307).
+- Improve `sample_gnp()` examples.
+- Improve centralization docs.
+- Further clarifications for `betweenness()` (#1489).
+- Clarify how betweenness with cutoff is normalized.
+- Fix `centr_eigen_tmax()` docs.
+- Make `edge_density()` examples relevant.
+- Improve `eigen_centrality()` documentation.
+- Improved `cluster_edge_betweenness()` documentation.
+- `sample_forestfire()` tests and example (#1318).
+
+### Developer-facing docs
+
+- Add slightly tweaked boilerplate `CONTRIBUTING.md` (#1423).
+- Update troubleshooting document.
+- Use {devtag} for internal function docs (#1507).
+- Make `.igraph.progress()` and `.igraph.status()` more internal (#1516).
 
 
 # igraph 2.0.3
@@ -513,7 +836,7 @@ The internal format of graph objects has changed in a mostly backward-compatible
 This graph was created by an old(er) igraph version.
   Call upgrade_graph() on it to use with the current igraph version
   For now we convert it on the fly...
-Error in is_directed(object) : 
+Error in is_directed(object) :
   REAL() can only be applied to a 'numeric', not a 'NULL'
 ```
 

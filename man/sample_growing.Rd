@@ -5,21 +5,21 @@
 \alias{growing}
 \title{Growing random graph generation}
 \usage{
-sample_growing(n, m = 1, directed = TRUE, citation = FALSE)
+sample_growing(n, m = 1, ..., directed = TRUE, citation = FALSE)
 
-growing(...)
+growing(n, m = 1, ..., directed = TRUE, citation = FALSE)
 }
 \arguments{
 \item{n}{Numeric constant, number of vertices in the graph.}
 
 \item{m}{Numeric constant, number of edges added in each time step.}
 
+\item{...}{These dots are for future extensions and must be empty.}
+
 \item{directed}{Logical, whether to create a directed graph.}
 
 \item{citation}{Logical. If \code{TRUE} a citation graph is created, i.e. in
 each time step the added edges are originating from the new vertex.}
-
-\item{...}{Passed to \code{sample_growing()}.}
 }
 \value{
 A new graph object.
@@ -34,6 +34,10 @@ the graph and \code{m} new edges are created. If \code{citation} is
 vertices, otherwise the edges are connecting new vertex to uniformly
 randomly chosen old vertices.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_growing_random_game}{\code{growing_random_game()}}
+}
+
 \examples{
 
 g <- sample_growing(500, citation = FALSE)
@@ -42,9 +46,11 @@ g2 <- sample_growing(500, citation = TRUE)
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

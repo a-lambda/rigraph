@@ -38,8 +38,12 @@ Because graphNEL graphs poorly support multiple edges, the edge
 attributes of the multiple edges are lost: they are all replaced by the
 attributes of the first of the multiple edges.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_adjlist}{\code{adjlist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
-\dontshow{if (rlang::is_installed("graph")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rlang::is_installed("graph")) withAutoprint(\{ # examplesIf}
 ## Undirected
 g <- make_ring(10)
 V(g)$name <- letters[1:10]
@@ -57,17 +61,17 @@ g4
 }
 \seealso{
 \code{\link[=as_graphnel]{as_graphnel()}} for the other direction,
-\code{\link[=as_adj]{as_adj()}}, \code{\link[=graph_from_adjacency_matrix]{graph_from_adjacency_matrix()}},
-\code{\link[=as_adj_list]{as_adj_list()}} and \code{\link[=graph.adjlist]{graph.adjlist()}} for other
+\code{\link[=as_adjacency_matrix]{as_adjacency_matrix()}}, \code{\link[=graph_from_adjacency_matrix]{graph_from_adjacency_matrix()}},
+\code{\link[=as_adj_list]{as_adj_list()}} and \code{\link[=graph_from_adj_list]{graph_from_adj_list()}} for other
 graph representations.
 
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as.matrix.igraph}()},
 \code{\link{as_adj_list}()},
 \code{\link{as_adjacency_matrix}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{as_long_data_frame}()},

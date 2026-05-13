@@ -25,7 +25,11 @@ generated graph.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{watts.strogatz.game()} was renamed to \code{sample_smallworld()} to create a more
+\code{watts.strogatz.game()} was renamed to \code{\link[=sample_smallworld]{sample_smallworld()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_watts_strogatz_game}{\code{watts_strogatz_game()}}
+}
+
 \keyword{internal}

@@ -49,13 +49,22 @@ them.}
 \item{...}{Passed to \code{layout_with_sugiyama()}.}
 }
 \value{
-A list with the components: \item{layout}{The layout, a two-column
-matrix, for the original graph vertices.} \item{layout.dummy}{The layout for
-the dummy vertices, a two column matrix.} \item{extd_graph}{The original
-graph, extended with dummy vertices.  The \sQuote{dummy} vertex attribute is
-set on this graph, it is a logical attributes, and it tells you whether the
-vertex is a dummy vertex. The \sQuote{layout} graph attribute is also set,
-and it is the layout matrix for all (original and dummy) vertices.}
+A list with the components:
+\describe{
+\item{layout}{
+The layout, a two-column matrix, for the original graph vertices.
+}
+\item{layout.dummy}{
+The layout for the dummy vertices, a two column matrix.
+}
+\item{extd_graph}{
+The original graph, extended with dummy vertices.
+The \sQuote{dummy} vertex attribute is set on this graph,
+it is a logical attributes, and it tells you whether the vertex is a dummy vertex.
+The \sQuote{layout} graph attribute is also set,
+and it is the layout matrix for all (original and dummy) vertices.
+}
+}
 }
 \description{
 Sugiyama layout algorithm for layered directed acyclic graphs. The algorithm
@@ -82,6 +91,10 @@ the dummy nodes.
 
 For more details, see the reference below.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_sugiyama}{\code{layout_sugiyama()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 ## Data taken from http://tehnick-8.narod.ru/dc_clients/

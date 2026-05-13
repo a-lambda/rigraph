@@ -20,7 +20,11 @@ graphs.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{assortativity.degree()} was renamed to \code{assortativity_degree()} to create a more
+\code{assortativity.degree()} was renamed to \code{\link[=assortativity_degree]{assortativity_degree()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_assortativity_degree}{\code{assortativity_degree()}}
+}
+
 \keyword{internal}

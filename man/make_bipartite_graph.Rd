@@ -2,13 +2,12 @@
 % Please edit documentation in R/make.R
 \name{make_bipartite_graph}
 \alias{make_bipartite_graph}
-\alias{graph.bipartite}
 \alias{bipartite_graph}
 \title{Create a bipartite graph}
 \usage{
 make_bipartite_graph(types, edges, directed = FALSE)
 
-bipartite_graph(...)
+bipartite_graph(types, edges, directed = FALSE)
 }
 \arguments{
 \item{types}{A vector giving the vertex types. It will be coerced into
@@ -17,15 +16,13 @@ When the vector is a named vector, the names will be attached to the graph
 as the \code{name} vertex attribute.}
 
 \item{edges}{A vector giving the edges of the graph, the same way as for the
-regular \code{\link[=graph]{graph()}} function. It is checked that the edges indeed
+regular \code{\link[=make_graph]{make_graph()}} function. It is checked that the edges indeed
 connect vertices of different kind, according to the supplied \code{types}
 vector. The vector may be a string vector if \code{types} is a named vector.}
 
 \item{directed}{Whether to create a directed graph, boolean constant. Note
 that by default undirected graphs are created, as this is more common for
 bipartite graphs.}
-
-\item{...}{Passed to \code{make_bipartite_graph()}.}
 }
 \value{
 \code{make_bipartite_graph()} returns a bipartite igraph graph. In other
@@ -49,6 +46,10 @@ a vertex attribute called \code{type}. \code{edges} may contain strings as
 vertex names; in this case, \code{types} must be a named vector that specifies
 the type for each vertex name that occurs in \code{edges}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Bipartite.html#igraph_create_bipartite}{\code{create_bipartite()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 g <- make_bipartite_graph(rep(0:1, length.out = 10), c(1:10))
@@ -56,7 +57,7 @@ print(g, v = TRUE)
 
 }
 \seealso{
-\code{\link[=graph]{graph()}} to create one-mode networks
+\code{\link[=make_graph]{make_graph()}} to create one-mode networks
 
 Bipartite graphs
 \code{\link{bipartite_mapping}()},

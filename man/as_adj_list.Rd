@@ -55,6 +55,10 @@ If \code{igraph_opt("return.vs.es")} is true (default), the numeric
 vectors of the adjacency lists are coerced to \code{igraph.vs}, this can be
 a very expensive operation on large graphs.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 g <- make_ring(10)
@@ -63,14 +67,14 @@ as_adj_edge_list(g)
 
 }
 \seealso{
-\code{\link[=as_edgelist]{as_edgelist()}}, \code{\link[=as_adj]{as_adj()}}
+\code{\link[=as_edgelist]{as_edgelist()}}, \code{\link[=as_adjacency_matrix]{as_adjacency_matrix()}}
 
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as.matrix.igraph}()},
 \code{\link{as_adjacency_matrix}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{as_long_data_frame}()},

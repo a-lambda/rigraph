@@ -1,4 +1,3 @@
-
 ## ----------------------------------------------------------------
 ##
 ##   IGraph R package
@@ -44,9 +43,15 @@
 #' @return For `has_eulerian_path()` and `has_eulerian_cycle()`, a logical
 #'   value that indicates whether the graph contains an Eulerian path or cycle.
 #'   For `eulerian_path()` and `eulerian_cycle()`, a named list with two
-#'   entries: \item{epath}{A vector containing the edge ids along the Eulerian
-#'   path or cycle.} \item{vpath}{A vector containing the vertex ids along the
-#'   Eulerian path or cycle.}
+#'   entries:
+#'   \describe{
+#'     \item{epath}{
+#'       A vector containing the edge ids along the Eulerian path or cycle.
+#'     }
+#'     \item{vpath}{
+#'       A vector containing the vertex ids along the Eulerian path or cycle.
+#'     }
+#'   }
 #'
 #' @keywords graphs
 #' @examples
@@ -62,19 +67,33 @@
 #' @family cycles
 #' @export
 has_eulerian_path <- function(graph) {
-  is_eulerian_impl(graph)$has_path
+  res <- is_eulerian_impl(
+    graph = graph
+  )
+  res$has_path
 }
 
 #' @rdname has_eulerian_path
 #' @export
 has_eulerian_cycle <- function(graph) {
-  is_eulerian_impl(graph)$has_cycle
+  res <- is_eulerian_impl(
+    graph = graph
+  )
+  res$has_cycle
 }
 
 #' @rdname has_eulerian_path
 #' @export
-eulerian_path <- eulerian_path_impl
+eulerian_path <- function(graph) {
+  eulerian_path_impl(
+    graph = graph
+  )
+}
 
 #' @rdname has_eulerian_path
 #' @export
-eulerian_cycle <- eulerian_cycle_impl
+eulerian_cycle <- function(graph) {
+  eulerian_cycle_impl(
+    graph = graph
+  )
+}

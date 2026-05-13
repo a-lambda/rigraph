@@ -34,6 +34,10 @@ shuffling its vertices.
 \details{
 Please see the reference given below.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_correlated_pair_game}{\code{correlated_pair_game()}}
+}
+
 \examples{
 gg <- sample_correlated_gnp_pair(
   n = 10, corr = .8, p = .5,
@@ -49,9 +53,11 @@ graph matching for correlated Erdős-Rényi graphs.
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_degseq}()},
 \code{\link{sample_dot_product}()},

@@ -7,7 +7,7 @@
 \usage{
 sample_gnp(n, p, directed = FALSE, loops = FALSE)
 
-gnp(...)
+gnp(n, p, directed = FALSE, loops = FALSE)
 }
 \arguments{
 \item{n}{The number of vertices in the graph.}
@@ -19,8 +19,6 @@ arbitrary vertices (\eqn{G(n,p)} graph).}
 \code{FALSE}.}
 
 \item{loops}{Logical, whether to add loop edges, defaults to \code{FALSE}.}
-
-\item{...}{Passed to \code{sample_gnp()}.}
 }
 \value{
 A graph object.
@@ -38,10 +36,19 @@ the average number of edges, \eqn{p m_\text{max}}, where \eqn{m_\text{max}}
 is the largest possible number of edges, which depends on whether the
 graph is directed or undirected and whether self-loops are allowed.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_erdos_renyi_game_gnp}{\code{erdos_renyi_game_gnp()}}
+}
+
 \examples{
 
-g <- sample_gnp(1000, 1 / 1000)
+# Random graph with expected mean degree of 2
+g <- sample_gnp(1000, 2 / 1000)
+mean(degree(g))
 degree_distribution(g)
+
+# Pick a simple graph on 6 vertices uniformly at random
+plot(sample_gnp(6, 0.5))
 }
 \references{
 Erdős, P. and Rényi, A., On random graphs, \emph{Publicationes
@@ -49,9 +56,11 @@ Mathematicae} 6, 290--297 (1959).
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

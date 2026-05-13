@@ -21,7 +21,11 @@ probability is calculated as \code{bw.factor*fw.prob}.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{forest.fire.game()} was renamed to \code{sample_forestfire()} to create a more
+\code{forest.fire.game()} was renamed to \code{\link[=sample_forestfire]{sample_forestfire()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_forest_fire_game}{\code{forest_fire_game()}}
+}
+
 \keyword{internal}

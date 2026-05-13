@@ -22,6 +22,10 @@ The first two columns are always named \code{from} and \code{to} and
 they contain the numeric ids of the incident vertices. The rows are
 listed in the order of numeric vertex ids.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 g <- make_(
   ring(10),
@@ -32,12 +36,12 @@ as_long_data_frame(g)
 }
 \seealso{
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as.matrix.igraph}()},
 \code{\link{as_adj_list}()},
 \code{\link{as_adjacency_matrix}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{graph_from_adj_list}()},

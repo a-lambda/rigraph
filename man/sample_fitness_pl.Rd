@@ -29,11 +29,10 @@ undirected. If greater than or equal to 2, this argument specifies the
 exponent of the in-degree distribution. If non-negative but less than 2, an
 error will be generated.}
 
-\item{loops}{Logical scalar, whether to allow loop edges in the generated
-graph.}
+\item{loops}{Logical scalar, whether to allow loop edges in the graph.}
 
 \item{multiple}{Logical scalar, whether to allow multiple edges in the
-generated graph.}
+graph.}
 
 \item{finite.size.correction}{Logical scalar, whether to use the proposed
 finite size correction of Cho et al., see references below.}
@@ -69,6 +68,10 @@ constant chosen appropriately to ensure that the maximum degree is less than
 the square root of the number of edges times the average degree; see the
 paper of Chung and Lu, and Cho et al for more details.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_static_power_law_game}{\code{static_power_law_game()}}
+}
+
 \examples{
 
 g <- sample_fitness_pl(10000, 30000, 2.2, 2.3)
@@ -88,9 +91,11 @@ scale-free networks under the Achlioptas process. \emph{Phys Rev Lett}
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

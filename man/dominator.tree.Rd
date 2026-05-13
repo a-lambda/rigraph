@@ -21,7 +21,11 @@ the original one in the input graph.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{dominator.tree()} was renamed to \code{dominator_tree()} to create a more
+\code{dominator.tree()} was renamed to \code{\link[=dominator_tree]{dominator_tree()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_dominator_tree}{\code{dominator_tree()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

@@ -24,7 +24,11 @@ whenever possible, before adding them to the igraph graph.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{igraph.from.graphNEL()} was renamed to \code{graph_from_graphnel()} to create a more
+\code{igraph.from.graphNEL()} was renamed to \code{\link[=graph_from_graphnel]{graph_from_graphnel()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_adjlist}{\code{adjlist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \keyword{internal}

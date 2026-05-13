@@ -16,7 +16,11 @@ should be \code{NULL}. For directed graphs it specifies the in-degrees.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{is.degree.sequence()} was renamed to \code{is_degseq()} to create a more
+\code{is.degree.sequence()} was renamed to \code{\link[=is_degseq]{is_degseq()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_graphical}{\code{is_graphical()}}
+}
+
 \keyword{internal}

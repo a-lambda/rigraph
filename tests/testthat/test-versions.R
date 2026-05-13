@@ -6,7 +6,7 @@ test_that("we create graphs of the current version", {
 })
 
 test_that("we can't upgrade from 0.1.1 to 1.5.0, on the fly", {
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     oldsample_0_1_1()
   })
 })
@@ -16,13 +16,13 @@ test_that("we can't upgrade from 0.1.1 to 1.5.0, explicitly", {
 
   expect_equal(graph_version(g), ver_0_1_1)
 
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     upgrade_graph(g)
   })
 })
 
 test_that("we can't upgrade from 0.2 to 1.5.0, on the fly", {
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     oldsample_0_2()
   })
 })
@@ -37,7 +37,7 @@ test_that("we can upgrade from 0.2 to 1.5.0, explicitly", {
 })
 
 test_that("we can't upgrade from 0.5 to 1.5.0, on the fly", {
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     oldsample_0_5()
   })
 })
@@ -52,7 +52,7 @@ test_that("we can upgrade from 0.5 to 1.5.0, explicitly", {
 })
 
 test_that("we can't upgrade from 0.6 to 1.5.0, on the fly", {
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     oldsample_0_6()
   })
 })
@@ -95,16 +95,16 @@ test_that("reading of old igraph formats", {
   local_igraph_options(print.id = FALSE)
 
   s <- oldsamples()
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     s[["0.1.1"]]
   })
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     s[["0.2"]]
   })
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     s[["0.5"]]
   })
-  expect_snapshot(error = TRUE, {
+  expect_snapshot_igraph_error({
     s[["0.6"]]
   })
   expect_snapshot({
@@ -113,4 +113,32 @@ test_that("reading of old igraph formats", {
   expect_snapshot({
     s[["1.5.0"]]
   })
+})
+
+test_that("igraph_version returns a version string", {
+  ## This is essentially a semver regex, we do not allow a
+  ## leading 'v' and space after
+  regex <- paste0(
+    "\\b", # word boundary
+    "(?:0|[1-9][0-9]*)\\.", # major
+    "(?:0|[1-9][0-9]*)\\.", # minor
+    "(?:0|[1-9][0-9]*)", # patch
+    "(?:-[\\da-zA-Z\\-]+(?:\\.[\\da-zA-Z\\-]+)*)?", # prerelease
+    "(?:\\+[\\da-zA-Z\\-]+(?:\\.[\\da-zA-Z\\-]+)*)?", # word boundary
+    "\\b"
+  )
+
+  version <- igraph_version()
+
+  expect_match(version, regex)
+
+  c_regex <- paste0(
+    "\\b", # word boundary
+    "(?:0|[1-9][0-9]*)\\.", # major
+    "(?:0|[1-9][0-9]*)\\.", # minor
+    "(?:0|[1-9][0-9]*)", # subminor
+    "\\b"
+  )
+
+  expect_match(attr(version, "c_version"), c_regex)
 })

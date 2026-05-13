@@ -22,6 +22,10 @@ A list of vertex sequences.
 This function is similar to \code{\link[=neighbors]{neighbors()}}, but it queries
 the adjacent vertices for multiple vertices at once.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 g <- make_graph("Zachary")
 adjacent_vertices(g, c(1, 34))
@@ -32,7 +36,7 @@ Other structural queries:
 \code{\link{[[.igraph}()},
 \code{\link{are_adjacent}()},
 \code{\link{ends}()},
-\code{\link{get.edge.ids}()},
+\code{\link{get_edge_ids}()},
 \code{\link{gorder}()},
 \code{\link{gsize}()},
 \code{\link{head_of}()},

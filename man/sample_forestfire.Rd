@@ -50,9 +50,13 @@ all the newly cited vertices.  }
 The version of the model in the published paper is incorrect in the
 sense that it cannot generate the kind of graphs the authors claim. A
 corrected version is available from
-\url{http://www.cs.cmu.edu/~jure/pubs/powergrowth-tkdd.pdf}, our
+\url{https://www.cs.cmu.edu/~jure/pubs/powergrowth-tkdd.pdf}, our
 implementation is based on this.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_forest_fire_game}{\code{forest_fire_game()}}
+}
+
 \examples{
 
 fire <- sample_forestfire(50, fw.prob = 0.37, bw.factor = 0.32 / 0.37)
@@ -73,13 +77,15 @@ time: densification laws, shrinking diameters and possible explanations.
 conference on Knowledge discovery in data mining}, 177--187, 2005.
 }
 \seealso{
-\code{\link[=barabasi.game]{barabasi.game()}} for the basic preferential attachment
+\code{\link[=sample_pa]{sample_pa()}} for the basic preferential attachment
 model.
 
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

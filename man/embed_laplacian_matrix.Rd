@@ -62,14 +62,26 @@ computation algorithm in ARPACK. By default, the list of values is assigned
 the values given by \code{\link[=arpack_defaults]{arpack_defaults()}}.}
 }
 \value{
-A list containing with entries: \item{X}{Estimated latent positions,
-an \code{n} times \code{no} matrix, \code{n} is the number of vertices.}
-\item{Y}{\code{NULL} for undirected graphs, the second half of the latent
+A list containing with entries:
+\describe{
+\item{X}{
+Estimated latent positions,
+an \code{n} times \code{no} matrix, \code{n} is the number of vertices.
+}
+\item{Y}{
+\code{NULL} for undirected graphs, the second half of the latent
 positions for directed graphs, an \code{n} times \code{no} matrix, \code{n}
-is the number of vertices.} \item{D}{The eigenvalues (for undirected graphs)
-or the singular values (for directed graphs) calculated by the algorithm.}
-\item{options}{A named list, information about the underlying ARPACK
-computation. See \code{\link[=arpack]{arpack()}} for the details.}
+is the number of vertices.
+}
+\item{D}{
+The eigenvalues (for undirected graphs)
+or the singular values (for directed graphs) calculated by the algorithm.
+}
+\item{options}{
+A named list, information about the underlying ARPACK
+computation. See \code{\link[=arpack]{arpack()}} for the details.
+}
+}
 }
 \description{
 Spectral decomposition of Laplacian matrices of graphs.
@@ -82,6 +94,10 @@ computed via the singular value decomposition of the Laplacian matrix.
 They are essentially doing the same as \code{\link[=embed_adjacency_matrix]{embed_adjacency_matrix()}},
 but work on the Laplacian matrix, instead of the adjacency matrix.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Embedding.html#igraph_laplacian_spectral_embedding}{\code{laplacian_spectral_embedding()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 ## A small graph

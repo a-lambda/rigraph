@@ -7,13 +7,16 @@
 maximal.independent.vertex.sets(graph)
 }
 \arguments{
-\item{graph}{The input graph, directed graphs are considered as undirected,
-loop edges and multiple edges are ignored.}
+\item{graph}{The input graph.}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{maximal.independent.vertex.sets()} was renamed to \code{maximal_ivs()} to create a more
+\code{maximal.independent.vertex.sets()} was renamed to \code{\link[=max_ivs]{max_ivs()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Cliques.html#igraph_maximal_independent_vertex_sets}{\code{maximal_independent_vertex_sets()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

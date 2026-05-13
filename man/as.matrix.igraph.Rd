@@ -7,7 +7,7 @@
 \method{as.matrix}{igraph}(x, matrix.type = c("adjacency", "edgelist"), ...)
 }
 \arguments{
-\item{x}{object of class igraph, the network}
+\item{x}{object of class \code{igraph}, the network}
 
 \item{matrix.type}{character, type of matrix to return, currently "adjacency"
 or "edgelist" are supported}
@@ -35,6 +35,10 @@ Other arguments passed through \code{...} are passed to either
 \code{\link[=as_adjacency_matrix]{as_adjacency_matrix()}} or \code{\link[=as_edgelist]{as_edgelist()}}
 depending on the value of \code{matrix.type}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency}{\code{get_adjacency()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency_sparse}{\code{get_adjacency_sparse()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 g <- make_graph("zachary")
@@ -47,11 +51,11 @@ as.matrix(g, "adjacency", sparse = FALSE, attr = "weight")
 }
 \seealso{
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as_adj_list}()},
 \code{\link{as_adjacency_matrix}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{as_long_data_frame}()},

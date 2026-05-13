@@ -20,9 +20,15 @@ or also a possible root (\code{TRUE})}
 \value{
 When \code{details} is \code{FALSE}, a logical value that indicates
 whether the graph is a tree. When \code{details} is \code{TRUE}, a named
-list with two entries: \item{res}{Logical value that indicates whether the
-graph is a tree.} \item{root}{The root vertex of the tree; undefined if
-the graph is not a tree.}
+list with two entries:
+\describe{
+\item{res}{
+Logical value that indicates whether the graph is a tree.
+}
+\item{root}{
+The root vertex of the tree; undefined if the graph is not a tree.
+}
+}
 }
 \description{
 \code{is_forest()} decides whether a graph is a forest, and optionally returns a
@@ -38,9 +44,13 @@ controlled using the mode parameter.
 By convention, the null graph (i.e. the graph with no vertices) is considered
 to be a forest.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_forest}{\code{is_forest()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
-g <- make_tree(3) + make_tree(5,3)
+g <- make_tree(3) + make_tree(5, 3)
 is_forest(g)
 is_forest(g, details = TRUE)
 

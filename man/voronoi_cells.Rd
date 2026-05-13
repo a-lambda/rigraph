@@ -38,10 +38,14 @@ and \code{"last"} takes the last one.}
 }
 \value{
 A named list with two components:
-\item{membership}{numeric vector giving the cluster id to which each vertex
-belongs.}
-\item{distances}{numeric vector giving the distance of each vertex from its
-generator}
+\describe{
+\item{membership}{
+numeric vector giving the cluster id to which each vertex belongs.
+}
+\item{distances}{
+numeric vector giving the distance of each vertex from its generator
+}
+}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -52,12 +56,16 @@ it is closest.
 
 \code{\link[=groups]{groups()}} may be used on the output of this function.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_voronoi}{\code{voronoi()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
-g <- make_lattice(c(10,10))
+g <- make_lattice(c(10, 10))
 clu <- voronoi_cells(g, c(25, 43, 67))
 groups(clu)
-plot(g, vertex.color=clu$membership)
+plot(g, vertex.color = clu$membership)
 
 }
 \seealso{

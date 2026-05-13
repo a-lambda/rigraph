@@ -31,7 +31,11 @@ isolate vertices.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{decompose.graph()} was renamed to \code{decompose()} to create a more
+\code{decompose.graph()} was renamed to \code{\link[=decompose]{decompose()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_decompose}{\code{decompose()}}
+}
+
 \keyword{internal}

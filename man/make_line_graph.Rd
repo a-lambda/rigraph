@@ -2,18 +2,15 @@
 % Please edit documentation in R/make.R
 \name{make_line_graph}
 \alias{make_line_graph}
-\alias{line.graph}
 \alias{line_graph}
 \title{Line graph of a graph}
 \usage{
 make_line_graph(graph)
 
-line_graph(...)
+line_graph(graph)
 }
 \arguments{
 \item{graph}{The input graph, it can be directed or undirected.}
-
-\item{...}{Passed to \code{make_line_graph()}.}
 }
 \value{
 A new graph object.
@@ -33,6 +30,10 @@ vertices in \code{L(G)} are connected by a directed edge if the target of
 the first vertex's corresponding edge is the same as the source of the
 second vertex's corresponding edge.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_linegraph}{\code{linegraph()}}
+}
+
 \examples{
 
 # generate the first De-Bruijn graphs

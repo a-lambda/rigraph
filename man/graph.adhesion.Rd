@@ -20,7 +20,11 @@ thanks Peter.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{graph.adhesion()} was renamed to \code{adhesion()} to create a more
+\code{graph.adhesion()} was renamed to \code{\link[=adhesion]{adhesion()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_adhesion}{\code{adhesion()}}
+}
+
 \keyword{internal}

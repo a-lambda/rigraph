@@ -2,13 +2,12 @@
 % Please edit documentation in R/make.R
 \name{make_full_graph}
 \alias{make_full_graph}
-\alias{graph.full}
 \alias{full_graph}
 \title{Create a full graph}
 \usage{
 make_full_graph(n, directed = FALSE, loops = FALSE)
 
-full_graph(...)
+full_graph(n, directed = FALSE, loops = FALSE)
 }
 \arguments{
 \item{n}{Number of vertices.}
@@ -16,8 +15,6 @@ full_graph(...)
 \item{directed}{Whether to create a directed graph.}
 
 \item{loops}{Whether to add self-loops to the graph.}
-
-\item{...}{Passed to \code{make_full_graph()}.}
 }
 \value{
 An igraph graph
@@ -25,6 +22,10 @@ An igraph graph
 \description{
 Create a full graph
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_full}{\code{full()}}
+}
+
 \examples{
 make_full_graph(5)
 print_all(make_full_graph(4, directed = TRUE))
@@ -34,14 +35,19 @@ Other deterministic constructors:
 \code{\link{graph_from_atlas}()},
 \code{\link{graph_from_edgelist}()},
 \code{\link{graph_from_literal}()},
+\code{\link{make_}()},
 \code{\link{make_chordal_ring}()},
+\code{\link{make_circulant}()},
 \code{\link{make_empty_graph}()},
 \code{\link{make_full_citation_graph}()},
+\code{\link{make_full_multipartite}()},
 \code{\link{make_graph}()},
 \code{\link{make_lattice}()},
 \code{\link{make_ring}()},
 \code{\link{make_star}()},
-\code{\link{make_tree}()}
+\code{\link{make_tree}()},
+\code{\link{make_turan}()},
+\code{\link{make_wheel}()}
 }
 \concept{Full graph}
 \concept{deterministic constructors}

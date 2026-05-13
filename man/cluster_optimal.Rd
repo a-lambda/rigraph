@@ -7,11 +7,10 @@
 cluster_optimal(graph, weights = NULL)
 }
 \arguments{
-\item{graph}{The input graph. Edge directions are ignored for directed
-graphs.}
+\item{graph}{The input graph. It may be undirected or directed.}
 
-\item{weights}{The weights of the edges. It must be a positive numeric vector,
-\code{NULL} or \code{NA}. If it is \code{NULL} and the input graph has a
+\item{weights}{The weights of the edges. It must be a positive numeric
+vector, \code{NULL} or \code{NA}. If it is \code{NULL} and the input graph has a
 \sQuote{weight} edge attribute, then that attribute will be used. If
 \code{NULL} and no such attribute is present, then the edges will have equal
 weights. Set this to \code{NA} if the graph was a \sQuote{weight} edge
@@ -61,6 +60,10 @@ print(modularity(g, membership(oc)))
 fc <- cluster_fast_greedy(g)
 print(modularity(fc))
 }
+}
+
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Community.html#igraph_community_optimal_modularity}{\code{community_optimal_modularity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
 }
 
 \references{

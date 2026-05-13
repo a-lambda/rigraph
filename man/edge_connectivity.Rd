@@ -8,7 +8,7 @@
 \usage{
 edge_connectivity(graph, source = NULL, target = NULL, checks = TRUE)
 
-edge_disjoint_paths(graph, source, target)
+edge_disjoint_paths(graph, source = NULL, target = NULL)
 
 adhesion(graph, checks = TRUE)
 }
@@ -81,6 +81,10 @@ more precisely the most general is \code{edge_connectivity()}, the others are
 included only for having more descriptive function names.
 }
 
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_st_edge_connectivity}{\code{st_edge_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_edge_connectivity}{\code{edge_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_edge_disjoint_paths}{\code{edge_disjoint_paths()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_adhesion}{\code{adhesion()}}
+}
+
 \examples{
 
 g <- sample_pa(100, m = 1)
@@ -90,14 +94,15 @@ edge_connectivity(g2, 100, 1)
 edge_disjoint_paths(g2, 100, 1)
 
 g <- sample_gnp(50, 5 / 50)
-g <- as.directed(g)
+g <- as_directed(g)
 g <- induced_subgraph(g, subcomponent(g, 1))
 adhesion(g)
 
 }
 \references{
-Douglas R. White and Frank Harary: The cohesiveness of blocks in
-social networks: node connectivity and conditional density, TODO: citation
+Douglas R. White and Frank Harary (2001): The cohesiveness of blocks in
+social networks: node connectivity and conditional density,
+Sociological Methodology, vol. 31, 2001, pp. 305–59.
 }
 \seealso{
 Other flow: 

@@ -47,6 +47,10 @@ with a single edge (and potentially many isolates).
 \code{centralize()} implements general centralization formula to calculate
 a graph-level score from vertex-level scores.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_centralization}{\code{centralization()}}
+}
+
 \examples{
 # A BA graph is quite centralized
 g <- sample_pa(1000, m = 4)

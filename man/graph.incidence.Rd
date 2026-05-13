@@ -50,7 +50,11 @@ type) will be added.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{graph.incidence()} was renamed to \code{graph_from_biadjacency_matrix()} to create a more
+\code{graph.incidence()} was renamed to \code{\link[=graph_from_biadjacency_matrix]{graph_from_biadjacency_matrix()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Bipartite.html#igraph_biadjacency}{\code{biadjacency()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_create}{\code{create()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_empty}{\code{empty()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_famous}{\code{famous()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify}{\code{simplify()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \keyword{internal}

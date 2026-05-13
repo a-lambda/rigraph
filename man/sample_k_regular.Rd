@@ -31,6 +31,10 @@ least one of k and the number of vertices must be even.
 The game simply uses \code{\link[=sample_degseq]{sample_degseq()}} with appropriately
 constructed degree sequences.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_k_regular_game}{\code{k_regular_game()}}
+}
+
 \examples{
 
 ## A simple ring
@@ -48,9 +52,11 @@ sapply(k10, plot, vertex.label = NA)
 sequence.
 
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

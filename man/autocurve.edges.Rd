@@ -15,7 +15,11 @@ curvature between \code{-start} and \code{start}, spaced equally.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{autocurve.edges()} was renamed to \code{curve_multiple()} to create a more
+\code{autocurve.edges()} was renamed to \code{\link[=curve_multiple]{curve_multiple()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

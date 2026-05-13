@@ -2,15 +2,12 @@
 % Please edit documentation in R/layout.R
 \name{layout_on_grid}
 \alias{layout_on_grid}
-\alias{layout.grid.3d}
 \alias{on_grid}
 \title{Simple grid layout}
 \usage{
 layout_on_grid(graph, width = 0, height = 0, dim = 2)
 
 on_grid(...)
-
-layout.grid.3d(graph, width = 0, height = 0)
 }
 \arguments{
 \item{graph}{The input graph.}
@@ -40,6 +37,10 @@ The function places the vertices on a simple rectangular grid, one after the
 other. If you want to change the order of the vertices, then see the
 \code{\link[=permute]{permute()}} function.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_grid}{\code{layout_grid()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_grid_3d}{\code{layout_grid_3d()}}
+}
+
 \examples{
 
 g <- make_lattice(c(3, 3))
@@ -84,4 +85,3 @@ Tamas Nepusz \email{ntamas@gmail.com}
 }
 \concept{graph layouts}
 \keyword{graphs}
-\keyword{internal}

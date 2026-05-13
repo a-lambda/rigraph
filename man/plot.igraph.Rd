@@ -9,13 +9,14 @@
   x,
   axes = FALSE,
   add = FALSE,
-  xlim = c(-1, 1),
-  ylim = c(-1, 1),
+  xlim = NULL,
+  ylim = NULL,
   mark.groups = list(),
   mark.shape = 1/2,
   mark.col = rainbow(length(mark.groups), alpha = 0.3),
   mark.border = rainbow(length(mark.groups), alpha = 1),
   mark.expand = 15,
+  mark.lwd = 1,
   loop.size = 1,
   ...
 )
@@ -58,6 +59,11 @@ the marked vertex groups. It is in the same units as the vertex sizes. If a
 vector is given, then different values are used for the different vertex
 groups.}
 
+\item{mark.lwd}{A numeric scalar or vector, the linewidth of the border around
+the marked vertex groups.  If a
+vector is given, then different values are used for the different vertex
+groups.}
+
 \item{loop.size}{A numeric scalar that allows the user to scale the loop edges
 of the network. The default loop size is 1. Larger values will produce larger
 loops.}
@@ -78,6 +84,10 @@ first, handtune the placement of the vertices, query the coordinates by the
 \code{\link[=tk_coords]{tk_coords()}} function and use them with \code{\link[=plot]{plot()}} to
 plot the graph to any R device.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_edgelist}{\code{get_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_incident}{\code{incident()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_loop}{\code{is_loop()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Nongraph.html#igraph_convex_hull_2d}{\code{convex_hull_2d()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}
+}
+
 \examples{
 
 g <- make_ring(10)

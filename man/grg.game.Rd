@@ -20,7 +20,11 @@ as vertex attributes called \sQuote{\code{x}} and \sQuote{\code{y}}.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{grg.game()} was renamed to \code{sample_grg()} to create a more
+\code{grg.game()} was renamed to \code{\link[=sample_grg]{sample_grg()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

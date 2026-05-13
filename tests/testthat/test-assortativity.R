@@ -1,7 +1,7 @@
 test_that("assortativity works", {
   g <- read_graph(f <- gzfile("celegansneural.gml.gz"), format = "gml")
 
-  assR <- function(graph) {
+  reference_assortativity <- function(graph) {
     indeg <- degree(graph, mode = "in")
     outdeg <- degree(graph, mode = "out")
     el <- as_edgelist(graph, names = FALSE)
@@ -13,29 +13,30 @@ test_that("assortativity works", {
     num / sqrt(den1) / sqrt(den2)
   }
 
-  asd <- assortativity_degree(g)
-  as <- assortativity(g, values = degree(g, mode = "out"), values.in = degree(g, mode = "in"))
-  as2 <- assR(g)
+  assortativity_igraph <- assortativity(
+    g,
+    values = degree(g, mode = "out"),
+    values.in = degree(g, mode = "in")
+  )
 
-  expect_that(asd, equals(as))
-  expect_that(asd, equals(as2))
+  expect_equal(assortativity_degree(g), assortativity_igraph)
+  expect_equal(assortativity_degree(g), reference_assortativity(g))
 
-  asu <- assortativity_degree(simplify(as.undirected(g, mode = "collapse")))
-  expect_that(asu, equals(-0.16319921031570466807))
+  asu <- assortativity_degree(simplify(as_undirected(g, mode = "collapse")))
+  expect_equal(asu, -0.16319921031570466807)
 
   p <- read_graph(f <- gzfile("power.gml.gz"), format = "gml")
-  p.asd <- assortativity_degree(p)
-  p.as <- assortativity(p, degree(p))
-  p.as2 <- assR(as.directed(p, mode = "mutual"))
-
-  expect_that(p.asd, equals(p.as))
-  expect_that(p.asd, equals(p.as2))
+  expect_equal(assortativity_degree(p), assortativity(p, degree(p)))
+  expect_equal(
+    assortativity_degree(p),
+    reference_assortativity(as_directed(p, mode = "mutual"))
+  )
 })
 
 test_that("nominal assortativity works", {
   o <- read_graph(f <- gzfile("football.gml.gz"), format = "gml")
   o <- simplify(o)
-  an <- assortativity_nominal(o, V(o)$value + 1)
+  nominal_assortativity <- assortativity_nominal(o, V(o)$value + 1)
 
   el <- as_edgelist(o, names = FALSE)
   etm <- matrix(0, nrow = max(V(o)$value) + 1, ncol = max(V(o)$value) + 1)
@@ -46,7 +47,37 @@ test_that("nominal assortativity works", {
     etm[t2, t1] <- etm[t2, t1] + 1
   }
   etm <- etm / sum(etm)
-  an2 <- (sum(diag(etm)) - sum(etm %*% etm)) / (1 - sum(etm %*% etm))
+  reference_nominal_assortativity <- (sum(diag(etm)) - sum(etm %*% etm)) /
+    (1 - sum(etm %*% etm))
 
-  expect_that(an, equals(an2))
+  expect_equal(nominal_assortativity, reference_nominal_assortativity)
+})
+
+test_that("nominal assortativity works with character types", {
+  set.seed(2)
+  g <- sample_gnm(10, 20)
+
+  # Test with numeric types
+  V(g)$random1 <- sample(c(1, 2), 10, replace = TRUE)
+  result1 <- assortativity_nominal(g, types = V(g)$random1)
+  expect_type(result1, "double")
+  expect_false(is.na(result1))
+
+  # Test with string numeric types
+  V(g)$random2 <- sample(c('1', '2'), 10, replace = TRUE)
+  result2 <- assortativity_nominal(g, types = V(g)$random2)
+  expect_type(result2, "double")
+  expect_false(is.na(result2))
+
+  # Test with string letter types - this was failing before the fix
+  V(g)$random3 <- sample(c('A', 'B'), 10, replace = TRUE)
+  result3 <- assortativity_nominal(g, types = V(g)$random3)
+  expect_type(result3, "double")
+  expect_false(is.na(result3))
+
+  # Verify that equivalent representations produce the same result
+  # Convert character labels to numeric equivalents
+  numeric_from_char <- as.integer(as.factor(V(g)$random3))
+  result_numeric <- assortativity_nominal(g, types = numeric_from_char)
+  expect_equal(result3, result_numeric)
 })

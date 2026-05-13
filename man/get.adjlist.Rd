@@ -29,7 +29,11 @@ of each set of parallel edges.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{get.adjlist()} was renamed to \code{as_adj_list()} to create a more
+\code{get.adjlist()} was renamed to \code{\link[=as_adj_list]{as_adj_list()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

@@ -24,7 +24,11 @@ thanks Peter.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{vertex.connectivity()} was renamed to \code{vertex_connectivity()} to create a more
+\code{vertex.connectivity()} was renamed to \code{\link[=vertex_connectivity]{vertex_connectivity()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_st_vertex_connectivity}{\code{st_vertex_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_vertex_connectivity}{\code{vertex_connectivity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

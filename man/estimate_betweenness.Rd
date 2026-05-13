@@ -21,8 +21,8 @@ calculated.}
 \item{directed}{Logical, whether directed paths should be considered while
 determining the shortest paths.}
 
-\item{cutoff}{The maximum path length to consider when calculating the
-betweenness. If zero or negative then there is no such limit.}
+\item{cutoff}{The maximum shortest path length to consider when calculating
+betweenness. If negative, then there is no such limit.}
 
 \item{weights}{Optional positive weight vector for calculating weighted
 betweenness. If the graph has a \code{weight} edge attribute, then this is
@@ -34,4 +34,8 @@ so they are interpreted as distances.}
 
 Use \code{\link[=betweenness]{betweenness()}} with the \code{cutoff} argument instead.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_betweenness_cutoff}{\code{betweenness_cutoff()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \keyword{internal}

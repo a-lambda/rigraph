@@ -15,7 +15,11 @@ vertex ids.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{hrg.create()} was renamed to \code{hrg()} to create a more
+\code{hrg.create()} was renamed to \code{\link[=hrg]{hrg()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-HRG.html#igraph_hrg_create}{\code{hrg_create()}}
+}
+
 \keyword{internal}

@@ -19,14 +19,16 @@ should be even. For directed graphs its sum should be the same as the sum of
 \item{in.deg}{For directed graph, the in-degree sequence. By default this is
 \code{NULL} and an undirected graph is created.}
 
-\item{method}{Character, the method for generating the graph. Right now the
-\dQuote{simple}, \dQuote{simple.no.multiple} and \dQuote{vl} methods are
-implemented.}
+\item{method}{Character, the method for generating the graph. See Details.}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{degree.sequence.game()} was renamed to \code{sample_degseq()} to create a more
+\code{degree.sequence.game()} was renamed to \code{\link[=sample_degseq]{sample_degseq()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_degree_sequence_game}{\code{degree_sequence_game()}}
+}
+
 \keyword{internal}

@@ -21,6 +21,10 @@ graph.
 \code{is_dag()} checks whether there is a directed cycle in the graph. If not,
 the graph is a DAG.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_dag}{\code{is_dag()}}
+}
+
 \examples{
 
 g <- make_tree(10)
@@ -31,9 +35,12 @@ is_dag(g2)
 \seealso{
 Graph cycles
 \code{\link{feedback_arc_set}()},
+\code{\link{feedback_vertex_set}()},
+\code{\link{find_cycle}()},
 \code{\link{girth}()},
 \code{\link{has_eulerian_path}()},
-\code{\link{is_acyclic}()}
+\code{\link{is_acyclic}()},
+\code{\link{simple_cycles}()}
 
 Other structural.properties: 
 \code{\link{bfs}()},
@@ -46,6 +53,7 @@ Other structural.properties:
 \code{\link{distance_table}()},
 \code{\link{edge_density}()},
 \code{\link{feedback_arc_set}()},
+\code{\link{feedback_vertex_set}()},
 \code{\link{girth}()},
 \code{\link{is_acyclic}()},
 \code{\link{is_matching}()},

@@ -14,7 +14,7 @@ label.propagation.community(
 )
 }
 \arguments{
-\item{graph}{The input graph. Note that the algorithm wsa originally
+\item{graph}{The input graph. Note that the algorithm was originally
 defined for undirected graphs. You are advised to set \sQuote{mode} to
 \code{all} if you pass a directed graph here to treat it as
 undirected.}
@@ -47,7 +47,11 @@ will be ignored. Also note that vertices without labels cannot be fixed.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{label.propagation.community()} was renamed to \code{cluster_label_prop()} to create a more
+\code{label.propagation.community()} was renamed to \code{\link[=cluster_label_prop]{cluster_label_prop()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Community.html#igraph_community_label_propagation}{\code{community_label_propagation()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \keyword{internal}

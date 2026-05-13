@@ -68,13 +68,17 @@ the second.
 
 \code{bipartite_projection()} keeps vertex attributes.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Bipartite.html#igraph_bipartite_projection_size}{\code{bipartite_projection_size()}}
+}
+
 \examples{
 
 ## Projection of a full bipartite graph is a full graph
 g <- make_full_bipartite_graph(10, 5)
 proj <- bipartite_projection(g)
-graph.isomorphic(proj[[1]], make_full_graph(10))
-graph.isomorphic(proj[[2]], make_full_graph(5))
+isomorphic(proj[[1]], make_full_graph(10))
+isomorphic(proj[[2]], make_full_graph(5))
 
 ## The projection keeps the vertex attributes
 M <- matrix(0, nrow = 5, ncol = 3)

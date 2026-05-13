@@ -23,7 +23,11 @@ the new graph. Please see \code{\link[=attribute.combination]{attribute.combinat
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{contract.vertices()} was renamed to \code{contract()} to create a more
+\code{contract.vertices()} was renamed to \code{\link[=contract]{contract()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_contract_vertices}{\code{contract_vertices()}}
+}
+
 \keyword{internal}

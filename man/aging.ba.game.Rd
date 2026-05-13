@@ -68,7 +68,11 @@ attachment. See also details below.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{aging.ba.game()} was renamed to \code{sample_pa_age()} to create a more
+\code{aging.ba.game()} was renamed to \code{\link[=sample_pa_age]{sample_pa_age()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_barabasi_aging_game}{\code{barabasi_aging_game()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_recent_degree_aging_game}{\code{recent_degree_aging_game()}}
+}
+
 \keyword{internal}

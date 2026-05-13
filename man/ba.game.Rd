@@ -23,8 +23,9 @@ ba.game(
 \item{power}{The power of the preferential attachment, the default is one,
 i.e. linear preferential attachment.}
 
-\item{m}{Numeric constant, the number of edges to add in each time step This
-argument is only used if both \code{out.dist} and \code{out.seq} are omitted
+\item{m}{Numeric constant, the number of edges to add in each time step,
+defaults to 1.
+This argument is only used if both \code{out.dist} and \code{out.seq} are omitted
 or NULL.}
 
 \item{out.dist}{Numeric vector, the distribution of the number of edges to
@@ -67,7 +68,11 @@ contain the out degrees of the new vertices only, not the ones in the
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{ba.game()} was renamed to \code{sample_pa()} to create a more
+\code{ba.game()} was renamed to \code{\link[=sample_pa]{sample_pa()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_barabasi_game}{\code{barabasi_game()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

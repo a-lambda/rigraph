@@ -19,7 +19,11 @@ the complete list.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{tkplot.reshape()} was renamed to \code{tk_reshape()} to create a more
+\code{tkplot.reshape()} was renamed to \code{\link[=tk_reshape]{tk_reshape()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

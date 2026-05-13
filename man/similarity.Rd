@@ -2,9 +2,6 @@
 % Please edit documentation in R/similarity.R
 \name{similarity}
 \alias{similarity}
-\alias{similarity.jaccard}
-\alias{similarity.dice}
-\alias{similarity.invlogweighted}
 \title{Similarity measures of two vertices}
 \usage{
 similarity(
@@ -60,6 +57,10 @@ calculated.  See the following paper for more details: Lada A. Adamic and
 Eytan Adar: Friends and neighbors on the Web. Social Networks,
 25(3):211-230, 2003.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_similarity_dice}{\code{similarity_dice()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_similarity_inverse_log_weighted}{\code{similarity_inverse_log_weighted()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_similarity_jaccard}{\code{similarity_jaccard()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 g <- make_ring(5)

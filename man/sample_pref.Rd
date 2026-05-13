@@ -17,7 +17,15 @@ sample_pref(
   loops = FALSE
 )
 
-pref(...)
+pref(
+  nodes,
+  types,
+  type.dist = rep(1, types),
+  fixed.sizes = FALSE,
+  pref.matrix = matrix(1, types, types),
+  directed = FALSE,
+  loops = FALSE
+)
 
 sample_asym_pref(
   nodes,
@@ -27,7 +35,13 @@ sample_asym_pref(
   loops = FALSE
 )
 
-asym_pref(...)
+asym_pref(
+  nodes,
+  types,
+  type.dist.matrix = matrix(1, types, types),
+  pref.matrix = matrix(1, types, types),
+  loops = FALSE
+)
 }
 \arguments{
 \item{nodes}{The number of vertices in the graphs.}
@@ -46,12 +60,9 @@ vertices with the different labels) in this case.}
 types. The matrix has \sQuote{types} rows and columns. When generating
 an undirected graph, it must be symmetric.}
 
-\item{directed}{Logical constant, whether to create a directed graph.}
+\item{directed}{Logical scalar, whether to create a directed graph.}
 
-\item{loops}{Logical constant, whether self-loops are allowed in the graph.}
-
-\item{...}{Passed to the constructor, \code{sample_pref()} or
-\code{sample_asym_pref()}.}
+\item{loops}{Logical scalar, whether self-loops are allowed in the graph.}
 
 \item{type.dist.matrix}{The joint distribution of the in- and out-vertex
 types.}
@@ -81,11 +92,15 @@ The types of the generated vertices can be retrieved from the
 \code{type} vertex attribute for \code{sample_pref()} and from the
 \code{intype} and \code{outtype} vertex attribute for \code{sample_asym_pref()}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_preference_game}{\code{preference_game()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_asymmetric_preference_game}{\code{asymmetric_preference_game()}}
+}
+
 \examples{
 
 pf <- matrix(c(1, 0, 0, 1), nrow = 2)
 g <- sample_pref(20, 2, pref.matrix = pf)
-\dontshow{if (rlang::is_installed("tcltk") && rlang::is_interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rlang::is_installed("tcltk") && rlang::is_interactive()) withAutoprint(\{ # examplesIf}
 # example code
 
 tkplot(g, layout = layout_with_fr)
@@ -93,15 +108,17 @@ tkplot(g, layout = layout_with_fr)
 
 pf <- matrix(c(0, 1, 0, 0), nrow = 2)
 g <- sample_asym_pref(20, 2, pref.matrix = pf)
-\dontshow{if (rlang::is_installed("tcltk") && rlang::is_interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rlang::is_installed("tcltk") && rlang::is_interactive()) withAutoprint(\{ # examplesIf}
 tkplot(g, layout = layout_in_circle)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

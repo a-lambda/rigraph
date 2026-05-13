@@ -30,6 +30,10 @@ at random from the set of labelled trees.
 In other words, the function generates each possible labelled tree with the
 given number of nodes with the same probability.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_tree_game}{\code{tree_game()}}
+}
+
 \examples{
 
 g <- sample_tree(100, method = "lerw")
@@ -37,9 +41,11 @@ g <- sample_tree(100, method = "lerw")
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

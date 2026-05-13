@@ -30,16 +30,26 @@ partitions are also returned.}
 For \code{min_cut()} a nuieric constant, the value of the minimum
 cut, except if \code{value.only = FALSE}. In this case a named list with
 components:
-\item{value}{Numeric scalar, the cut value.}
-\item{cut}{Numeric vector, the edges in the cut.}
-\item{partition1}{The vertices in the first partition after the cut
-edges are removed. Note that these vertices might be actually in
-different components (after the cut edges are removed), as the graph
-may fall apart into more than two components.}
-\item{partition2}{The vertices in the second partition
-after the cut edges are removed. Note that these vertices might be
-actually in different components (after the cut edges are removed), as
-the graph may fall apart into more than two components.}
+\describe{
+\item{value}{
+Numeric scalar, the cut value.
+}
+\item{cut}{
+Numeric vector, the edges in the cut.
+}
+\item{partition1}{
+The vertices in the first partition after the cut edges are removed.
+Note that these vertices might be actually in different components
+(after the cut edges are removed),
+as the graph may fall apart into more than two components.
+}
+\item{partition2}{
+The vertices in the second partition after the cut edges are removed.
+Note that these vertices might be actually in different components
+(after the cut edges are removed),
+as the graph may fall apart into more than two components.
+}
+}
 }
 \description{
 \code{min_cut()} calculates the minimum st-cut between two vertices in a graph
@@ -64,6 +74,10 @@ possible minimum cuts is calculated.
 For undirected graphs the Stoer-Wagner algorithm (see reference below) is
 used to calculate the minimum cut.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_mincut}{\code{mincut()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_mincut_value}{\code{mincut_value()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_st_mincut}{\code{st_mincut()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_st_mincut_value}{\code{st_mincut_value()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}
+}
+
 \examples{
 g <- make_ring(100)
 min_cut(g, capacity = rep(1, vcount(g)))

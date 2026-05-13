@@ -14,13 +14,19 @@ st_cuts(graph, source, target)
 \item{target}{The target vertex.}
 }
 \value{
-A list with entries: \item{cuts}{A list of numeric vectors
-containing edge ids. Each vector is an \eqn{(s,t)}-cut.}
-\item{partition1s}{A list of numeric vectors containing vertex ids, they
-correspond to the edge cuts. Each vertex set is a generator of the
-corresponding cut, i.e. in the graph \eqn{G=(V,E)}, the vertex set \eqn{X}
-and its complementer \eqn{V-X}, generates the cut that contains exactly the
-edges that go from \eqn{X} to \eqn{V-X}.}
+A list with entries:
+\describe{
+\item{cuts}{
+A list of numeric vectors containing edge ids.
+Each vector is an \eqn{(s,t)}-cut.
+}
+\item{partition1s}{
+A list of numeric vectors containing vertex ids, they correspond to the edge cuts.
+Each vertex set is a generator of the corresponding cut, i.e. in the graph \eqn{G=(V,E)},
+the vertex set \eqn{X} and its complementer \eqn{V-X},
+generates the cut that contains exactly the edges that go from \eqn{X} to \eqn{V-X}.
+}
+}
 }
 \description{
 List all (s,t)-cuts in a directed graph.
@@ -31,6 +37,10 @@ Given a \eqn{G} directed graph and two, different and non-ajacent vertices,
 removing these edges from \eqn{G} there is no directed path from \eqn{s} to
 \eqn{t}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_all_st_cuts}{\code{all_st_cuts()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 # A very simple graph

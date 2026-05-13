@@ -3,7 +3,6 @@
 \name{ends}
 \alias{ends}
 \alias{get.edges}
-\alias{get.edge}
 \title{Incident vertices of some graph edges}
 \usage{
 ends(graph, es, names = TRUE)
@@ -22,6 +21,10 @@ A two column matrix of vertex names or vertex ids.
 \description{
 Incident vertices of some graph edges
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 g <- make_ring(5)
 ends(g, E(g))
@@ -32,7 +35,7 @@ Other structural queries:
 \code{\link{[[.igraph}()},
 \code{\link{adjacent_vertices}()},
 \code{\link{are_adjacent}()},
-\code{\link{get.edge.ids}()},
+\code{\link{get_edge_ids}()},
 \code{\link{gorder}()},
 \code{\link{gsize}()},
 \code{\link{head_of}()},

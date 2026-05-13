@@ -33,7 +33,11 @@ graph as a vertex attribute called \sQuote{\code{type}}.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{citing.cited.type.game()} was renamed to \code{sample_cit_cit_types()} to create a more
+\code{citing.cited.type.game()} was renamed to \code{\link[=sample_cit_cit_types]{sample_cit_cit_types()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_citing_cited_type_game}{\code{citing_cited_type_game()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

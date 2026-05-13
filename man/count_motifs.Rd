@@ -4,7 +4,7 @@
 \alias{count_motifs}
 \title{Graph motifs}
 \usage{
-count_motifs(graph, size = 3, cut.prob = rep(0, size))
+count_motifs(graph, size = 3, cut.prob = NULL)
 }
 \arguments{
 \item{graph}{Graph object, the input graph.}
@@ -13,7 +13,8 @@ count_motifs(graph, size = 3, cut.prob = rep(0, size))
 
 \item{cut.prob}{Numeric vector giving the probabilities that the search
 graph is cut at a certain level. Its length should be the same as the size
-of the motif (the \code{size} argument). By default no cuts are made.}
+of the motif (the \code{size} argument).
+If \code{NULL}, the default, no cuts are made.}
 }
 \value{
 \code{count_motifs()} returns  a numeric scalar.
@@ -26,6 +27,10 @@ structure.  These functions search a graph for various motifs.
 \code{count_motifs()} calculates the total number of motifs of a given
 size in graph.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Motifs.html#igraph_motifs_randesu_no}{\code{motifs_randesu_no()}}
+}
+
 \examples{
 g <- sample_pa(100)
 motifs(g, 3)

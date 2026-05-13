@@ -31,7 +31,11 @@ types. These should be probabilities, i.e. numbers between zero and one.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{callaway.traits.game()} was renamed to \code{sample_traits_callaway()} to create a more
+\code{callaway.traits.game()} was renamed to \code{\link[=sample_traits_callaway]{sample_traits_callaway()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_callaway_traits_game}{\code{callaway_traits_game()}}
+}
+
 \keyword{internal}

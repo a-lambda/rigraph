@@ -32,11 +32,17 @@ number for a more accurate prediction.}
 }
 \value{
 A list with entries:
-\item{edges}{The predicted edges, in a two-column matrix of vertex
-ids.}
-\item{prob}{Probabilities of these edges, according to the fitted
-model.}
-\item{hrg}{The (supplied or fitted) hierarchical random graph model.}
+\describe{
+\item{edges}{
+The predicted edges, in a two-column matrix of vertex ids.
+}
+\item{prob}{
+Probabilities of these edges, according to the fitted model.
+}
+\item{hrg}{
+The (supplied or fitted) hierarchical random graph model.
+}
+}
 }
 \description{
 \code{predict_edges()} uses a hierarchical random graph model to predict
@@ -46,8 +52,12 @@ sampling is stated from \code{hrg()}, if it is given and the \code{start}
 argument is set to \code{TRUE}. Otherwise a HRG is fitted to the graph
 first.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-HRG.html#igraph_hrg_predict}{\code{hrg_predict()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
-\dontshow{if (rlang::is_interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rlang::is_interactive()) withAutoprint(\{ # examplesIf}
 
 ## A graph with two dense groups
 g <- sample_gnp(10, p = 1 / 2) + sample_gnp(10, p = 1 / 2)

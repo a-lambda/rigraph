@@ -34,7 +34,7 @@ or only the maximal ones (\code{TRUE}).}
 \value{
 \code{weighted_cliques()} and \code{largest_weighted_cliques()} return a
 list containing numeric vectors of vertex IDs. Each list element is a weighted
-clique, i.e. a vertex sequence of class \code{\link[=V]{igraph.vs()}}.
+clique, i.e. a vertex sequence of class \link[=V]{igraph.vs}.
 
 \code{weighted_clique_num()} returns an integer scalar.
 }
@@ -54,6 +54,10 @@ weight is larger than the weight of this clique.
 
 \code{weighted_clique_num()} calculates the weight of the largest weighted clique(s).
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Cliques.html#igraph_weighted_cliques}{\code{weighted_cliques()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 g <- make_graph("zachary")
@@ -67,6 +71,7 @@ weighted_clique_num(g)
 \seealso{
 Other cliques: 
 \code{\link{cliques}()},
+\code{\link{is_complete}()},
 \code{\link{ivs}()}
 }
 \author{

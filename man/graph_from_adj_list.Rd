@@ -44,19 +44,23 @@ The idea is that you convert your graph to an adjacency list by
 \code{\link[=as_adj_list]{as_adj_list()}}, do your modifications to the graphs and finally
 create again an igraph graph by calling \code{graph_from_adj_list()}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_adjlist}{\code{adjlist()}}
+}
+
 \examples{
 
 ## Directed
 g <- make_ring(10, directed = TRUE)
 al <- as_adj_list(g, mode = "out")
 g2 <- graph_from_adj_list(al)
-graph.isomorphic(g, g2)
+isomorphic(g, g2)
 
 ## Undirected
 g <- make_ring(10)
 al <- as_adj_list(g)
 g2 <- graph_from_adj_list(al, mode = "all")
-graph.isomorphic(g, g2)
+isomorphic(g, g2)
 ecount(g2)
 g3 <- graph_from_adj_list(al, mode = "all", duplicate = FALSE)
 ecount(g3)
@@ -66,12 +70,12 @@ which_multiple(g3)
 \code{\link[=as_edgelist]{as_edgelist()}}
 
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as.matrix.igraph}()},
 \code{\link{as_adj_list}()},
 \code{\link{as_adjacency_matrix}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{as_long_data_frame}()},

@@ -17,7 +17,11 @@ named graphs.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{adjacent.triangles()} was renamed to \code{count_triangles()} to create a more
+\code{adjacent.triangles()} was renamed to \code{\link[=count_triangles]{count_triangles()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Motifs.html#igraph_count_adjacent_triangles}{\code{count_adjacent_triangles()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

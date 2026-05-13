@@ -2,23 +2,13 @@
 % Please edit documentation in R/conversion.R
 \name{as_adjacency_matrix}
 \alias{as_adjacency_matrix}
-\alias{as_adj}
 \title{Convert a graph to an adjacency matrix}
 \usage{
 as_adjacency_matrix(
   graph,
   type = c("both", "upper", "lower"),
   attr = NULL,
-  edges = FALSE,
-  names = TRUE,
-  sparse = igraph_opt("sparsematrices")
-)
-
-as_adj(
-  graph,
-  type = c("both", "upper", "lower"),
-  attr = NULL,
-  edges = FALSE,
+  edges = deprecated(),
   names = TRUE,
   sparse = igraph_opt("sparsematrices")
 )
@@ -70,6 +60,10 @@ regular matrix if \code{sparse} is \code{FALSE}, or a sparse matrix, as
 defined in the \sQuote{\code{Matrix}} package, if \code{sparse} if
 \code{TRUE}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency}{\code{get_adjacency()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency_sparse}{\code{get_adjacency_sparse()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 g <- sample_gnp(10, 2 / 10)
@@ -83,11 +77,11 @@ as_adjacency_matrix(g, attr = "weight")
 \code{\link[=graph_from_adjacency_matrix]{graph_from_adjacency_matrix()}}, \code{\link[=read_graph]{read_graph()}}
 
 Other conversion: 
-\code{\link{as.directed}()},
 \code{\link{as.matrix.igraph}()},
 \code{\link{as_adj_list}()},
 \code{\link{as_biadjacency_matrix}()},
 \code{\link{as_data_frame}()},
+\code{\link{as_directed}()},
 \code{\link{as_edgelist}()},
 \code{\link{as_graphnel}()},
 \code{\link{as_long_data_frame}()},

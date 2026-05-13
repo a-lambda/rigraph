@@ -28,8 +28,12 @@ Place vertices on a circle, in the order of their vertex ids.
 If you want to order the vertices differently, then permute them using the
 \code{\link[=permute]{permute()}} function.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_circle}{\code{layout_circle()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
-\dontshow{if (igraph:::has_glpk()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (igraph:::has_glpk() && rlang::is_installed("igraphdata")) withAutoprint(\{ # examplesIf}
 
 ## Place vertices on a circle, order them according to their
 ## community

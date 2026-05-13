@@ -10,14 +10,24 @@ convex_hull(data)
 \item{data}{The data points, a numeric matrix with two columns.}
 }
 \value{
-A named list with components: \item{resverts}{The indices of the
-input vertices that constritute the convex hull.} \item{rescoords}{The
-coordinates of the corners of the convex hull.}
+A named list with components:
+\describe{
+\item{resverts}{
+The indices of the input vertices that constritute the convex hull.
+}
+\item{rescoords}{
+The coordinates of the corners of the convex hull.
+}
+}
 }
 \description{
 Calculate the convex hull of a set of points, i.e. the covering polygon that
 has the smallest area.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Nongraph.html#igraph_convex_hull_2d}{\code{convex_hull_2d()}}
+}
+
 \examples{
 
 M <- cbind(runif(100), runif(100))

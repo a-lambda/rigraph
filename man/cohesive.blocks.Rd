@@ -22,7 +22,11 @@ cohesive blocks.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{cohesive.blocks()} was renamed to \code{cohesive_blocks()} to create a more
+\code{cohesive.blocks()} was renamed to \code{\link[=cohesive_blocks]{cohesive_blocks()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_cohesive_blocks}{\code{cohesive_blocks()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

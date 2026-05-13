@@ -18,6 +18,10 @@ Numeric scalar, the number of edges.
 \description{
 \code{ecount()} and \code{gsize()} are aliases.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 g <- sample_gnp(100, 2 / 100)
 gsize(g)
@@ -35,7 +39,7 @@ Other structural queries:
 \code{\link{adjacent_vertices}()},
 \code{\link{are_adjacent}()},
 \code{\link{ends}()},
-\code{\link{get.edge.ids}()},
+\code{\link{get_edge_ids}()},
 \code{\link{gorder}()},
 \code{\link{head_of}()},
 \code{\link{incident}()},

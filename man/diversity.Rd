@@ -35,6 +35,10 @@ sum(w[i,l], l=1..k[i]),} and \eqn{k_i}{k[i]} is the (total) degree of vertex
 
 For vertices with degree less than two the function returns \code{NaN}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_diversity}{\code{diversity()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 g1 <- sample_gnp(20, 2 / 20)
@@ -54,11 +58,12 @@ and Economic Development, \emph{Science} \strong{328}, 1029--1031, 2010.
 \seealso{
 Centrality measures
 \code{\link{alpha_centrality}()},
+\code{\link{authority_score}()},
 \code{\link{betweenness}()},
 \code{\link{closeness}()},
 \code{\link{eigen_centrality}()},
 \code{\link{harmonic_centrality}()},
-\code{\link{hub_score}()},
+\code{\link{hits_scores}()},
 \code{\link{page_rank}()},
 \code{\link{power_centrality}()},
 \code{\link{spectrum}()},

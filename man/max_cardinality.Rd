@@ -11,12 +11,18 @@ max_cardinality(graph)
 ignored, as the algorithm is defined for undirected graphs.}
 }
 \value{
-A list with two components: \item{alpha}{Numeric vector. The
-1-based rank of each vertex in the graph such that the vertex with rank 1
-is visited first, the vertex with rank 2 is visited second and so on.}
-\item{alpham1}{Numeric vector. The inverse of \code{alpha}. In other words,
-the elements of this vector are the vertices in reverse maximum cardinality
-search order.}
+A list with two components:
+\describe{
+\item{alpha}{
+Numeric vector. The 1-based rank of each vertex in the graph
+such that the vertex with rank 1 is visited first,
+the vertex with rank 2 is visited second and so on.
+}
+\item{alpham1}{
+Numeric vector. The inverse of \code{alpha}.
+In other words, the elements of this vector are the vertices in reverse maximum cardinality search order.
+}
+}
 }
 \description{
 Maximum cardinality search is a simple ordering a vertices that is useful in
@@ -30,6 +36,10 @@ broken randomly.
 The algorithm provides a simple basis for deciding whether a graph is
 chordal, see References below, and also \code{\link[=is_chordal]{is_chordal()}}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_maximum_cardinality_search}{\code{maximum_cardinality_search()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 ## The examples from the Tarjan-Yannakakis paper

@@ -23,7 +23,11 @@ MCMC procedure is performed until convergence.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{hrg.fit()} was renamed to \code{fit_hrg()} to create a more
+\code{hrg.fit()} was renamed to \code{\link[=fit_hrg]{fit_hrg()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-HRG.html#igraph_hrg_fit}{\code{hrg_fit()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \keyword{internal}

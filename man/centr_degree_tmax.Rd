@@ -12,13 +12,12 @@ centr_degree_tmax(
 )
 }
 \arguments{
-\item{graph}{The input graph. It can also be \code{NULL}, if
-\code{nodes}, \code{mode} and \code{loops} are all given.}
+\item{graph}{The input graph. It can also be \code{NULL} if \code{nodes} is given.}
 
 \item{nodes}{The number of vertices. This is ignored if the graph is given.}
 
-\item{mode}{This is the same as the \code{mode} argument of
-\code{degree()}.}
+\item{mode}{This is the same as the \code{mode} argument of \code{degree()}. Ignored
+if \code{graph} is given and the graph is undirected.}
 
 \item{loops}{Logical scalar, whether to consider loops edges when
 calculating the degree.}
@@ -30,6 +29,10 @@ centrality score for graphs with given order and other parameters.
 \description{
 See \code{\link[=centralize]{centralize()}} for a summary of graph centralization.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_centralization_degree_tmax}{\code{centralization_degree_tmax()}}
+}
+
 \examples{
 # A BA graph is quite centralized
 g <- sample_pa(1000, m = 4)

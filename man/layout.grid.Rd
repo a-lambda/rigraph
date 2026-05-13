@@ -23,7 +23,11 @@ determinted automatically.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\code{layout.grid()} was renamed to \code{layout_on_grid()} to create a more
+\code{layout.grid()} was renamed to \code{\link[=layout_on_grid]{layout_on_grid()}} to create a more
 consistent API.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_grid}{\code{layout_grid()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_grid_3d}{\code{layout_grid_3d()}}
+}
+
 \keyword{internal}

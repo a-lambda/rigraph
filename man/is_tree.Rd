@@ -21,10 +21,14 @@ or also a possible root (\code{TRUE})}
 When \code{details} is \code{FALSE}, a logical value that indicates
 whether the graph is a tree. When \code{details} is \code{TRUE}, a named
 list with two entries:
-\item{res}{Logical value that indicates whether the
-graph is a tree.}
-\item{root}{The root vertex of the tree; undefined if
-the graph is not a tree.}
+\describe{
+\item{res}{
+Logical value that indicates whether the graph is a tree.
+}
+\item{root}{
+The root vertex of the tree; undefined if the graph is not a tree.
+}
+}
 }
 \description{
 \code{is_tree()} decides whether a graph is a tree, and optionally returns a
@@ -40,6 +44,10 @@ controlled using the mode parameter.
 By convention, the null graph (i.e. the graph with no vertices) is considered
 not to be a tree.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_tree}{\code{is_tree()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 
 g <- make_tree(7, 2)

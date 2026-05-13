@@ -24,6 +24,10 @@ The graph, with the vertex attribute added or set.
 \description{
 Set vertex attributes
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}
+}
+
 \examples{
 g <- make_ring(10) \%>\%
   set_vertex_attr("label", value = LETTERS[1:10])
@@ -46,6 +50,7 @@ Vertex, edge and graph attributes
 \code{\link{igraph-vs-attributes}},
 \code{\link{set_edge_attr}()},
 \code{\link{set_graph_attr}()},
+\code{\link{set_vertex_attrs}()},
 \code{\link{vertex_attr}()},
 \code{\link{vertex_attr<-}()},
 \code{\link{vertex_attr_names}()}

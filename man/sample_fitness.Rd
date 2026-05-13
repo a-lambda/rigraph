@@ -65,6 +65,10 @@ achieve this, you have to draw the fitness scores from the desired power-law
 distribution. Alternatively, you may use \code{\link[=sample_fitness_pl]{sample_fitness_pl()}}
 which generates the fitnesses for you with a given exponent.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_static_fitness_game}{\code{static_fitness_game()}}
+}
+
 \examples{
 
 N <- 10000
@@ -79,9 +83,11 @@ distribution in scale-free networks. \emph{Phys Rev Lett} 87(27):278701,
 }
 \seealso{
 Random graph models (games)
+\code{\link{bipartite_gnm}()},
 \code{\link{erdos.renyi.game}()},
 \code{\link{sample_}()},
 \code{\link{sample_bipartite}()},
+\code{\link{sample_chung_lu}()},
 \code{\link{sample_correlated_gnp}()},
 \code{\link{sample_correlated_gnp_pair}()},
 \code{\link{sample_degseq}()},

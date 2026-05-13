@@ -27,19 +27,23 @@ of a graph.
 
 \code{permute()} keeps all graph, vertex and edge attributes of the graph.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Isomorphism.html#igraph_permute_vertices}{\code{permute_vertices()}}
+}
+
 \examples{
 
 # Random permutation of a random graph
 g <- sample_gnm(20, 50)
 g2 <- permute(g, sample(vcount(g)))
-graph.isomorphic(g, g2)
+isomorphic(g, g2)
 
 # Permutation keeps all attributes
 g$name <- "Random graph, Gnm, 20, 50"
 V(g)$name <- letters[1:vcount(g)]
 E(g)$weight <- sample(1:5, ecount(g), replace = TRUE)
 g2 <- permute(g, sample(vcount(g)))
-graph.isomorphic(g, g2)
+isomorphic(g, g2)
 g2$name
 V(g2)$name
 E(g2)$weight
@@ -69,6 +73,7 @@ Other functions for manipulating graph structure:
 \code{\link{rep.igraph}()},
 \code{\link{reverse_edges}()},
 \code{\link{simplify}()},
+\code{\link{transitive_closure}()},
 \code{\link{union}()},
 \code{\link{union.igraph}()},
 \code{\link{vertex}()}

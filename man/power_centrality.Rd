@@ -83,6 +83,15 @@ One interesting feature of this measure is its relative instability to
 changes in exponent magnitude (particularly in the negative case).  If your
 theory motivates use of this measure, you should be very careful to choose a
 decay parameter on a non-ad hoc basis.
+
+For directed networks, the Bonacich power measure can be understood as
+similar to status in the network where higher status nodes have more edges
+that point from them to others with status. Node A's centrality depends
+on the centrality of all the nodes that A points toward, and their centrality
+depends on the nodes they point toward, etc. Note, this means that a node
+with an out-degree of 0 will have a Bonacich power centrality of 0 as they
+do not point towards anyone. When using this with directed network it
+is important to think about the edge direction and what it represents.
 }
 \note{
 This function was ported (i.e. copied) from the SNA package.
@@ -90,9 +99,11 @@ This function was ported (i.e. copied) from the SNA package.
 \section{Warning }{
  Singular adjacency matrices cause no end of headaches for
 this algorithm; thus, the routine may fail in certain cases.  This will be
-fixed when I get a better algorithm.  \code{power_centrality()} will not symmetrize your
-data before extracting eigenvectors; don't send this routine asymmetric
-matrices unless you really mean to do so.
+fixed when we get a better algorithm.
+}
+
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify}{\code{simplify()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_degree}{\code{degree()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency}{\code{get_adjacency()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_adjacency_sparse}{\code{get_adjacency_sparse()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
 }
 
 \examples{
@@ -136,12 +147,13 @@ Bonacich, P.  (1987).  ``Power and Centrality: A Family of Measures.''
 
 Centrality measures
 \code{\link{alpha_centrality}()},
+\code{\link{authority_score}()},
 \code{\link{betweenness}()},
 \code{\link{closeness}()},
 \code{\link{diversity}()},
 \code{\link{eigen_centrality}()},
 \code{\link{harmonic_centrality}()},
-\code{\link{hub_score}()},
+\code{\link{hits_scores}()},
 \code{\link{page_rank}()},
 \code{\link{spectrum}()},
 \code{\link{strength}()},
@@ -149,7 +161,7 @@ Centrality measures
 }
 \author{
 Carter T. Butts
-(\url{http://www.faculty.uci.edu/profile.cfm?faculty_id=5057}), ported to
+(\url{https://www.faculty.uci.edu/profile.cfm?faculty_id=5057}), ported to
 igraph by Gabor Csardi \email{csardi.gabor@gmail.com}
 }
 \concept{centrality}

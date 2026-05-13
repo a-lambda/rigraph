@@ -30,6 +30,10 @@ to the newly created graphs.
 
 See the examples and the various constructor modifiers below.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify}{\code{simplify()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 r <- make_(ring(10))
 l <- make_(lattice(c(3, 3, 3)))
@@ -37,11 +41,38 @@ l <- make_(lattice(c(3, 3, 3)))
 r2 <- make_(ring(10), with_vertex_(color = "red", name = LETTERS[1:10]))
 l2 <- make_(lattice(c(3, 3, 3)), with_edge_(weight = 2))
 
-ran <- sample_(degseq(c(3, 3, 3, 3, 3, 3), method = "simple"), simplified())
+ran <- sample_(degseq(c(3, 3, 3, 3, 3, 3), method = "configuration"), simplified())
 degree(ran)
 is_simple(ran)
 }
 \seealso{
-simplified with_edge_ with_graph_ with_vertex_
-without_loops without_multiples
+Other deterministic constructors: 
+\code{\link{graph_from_atlas}()},
+\code{\link{graph_from_edgelist}()},
+\code{\link{graph_from_literal}()},
+\code{\link{make_chordal_ring}()},
+\code{\link{make_circulant}()},
+\code{\link{make_empty_graph}()},
+\code{\link{make_full_citation_graph}()},
+\code{\link{make_full_graph}()},
+\code{\link{make_full_multipartite}()},
+\code{\link{make_graph}()},
+\code{\link{make_lattice}()},
+\code{\link{make_ring}()},
+\code{\link{make_star}()},
+\code{\link{make_tree}()},
+\code{\link{make_turan}()},
+\code{\link{make_wheel}()}
+
+Constructor modifiers (and related functions)
+\code{\link{sample_}()},
+\code{\link{simplified}()},
+\code{\link{with_edge_}()},
+\code{\link{with_graph_}()},
+\code{\link{with_vertex_}()},
+\code{\link{without_attr}()},
+\code{\link{without_loops}()},
+\code{\link{without_multiples}()}
 }
+\concept{constructor modifiers}
+\concept{deterministic constructors}

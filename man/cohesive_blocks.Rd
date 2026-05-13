@@ -226,6 +226,10 @@ and the vertices are shown in groups of ten.
 The generic function \code{\link[=plot]{plot()}} plots the graph, showing one or more
 cohesive blocks in it.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Flows.html#igraph_cohesive_blocks}{\code{cohesive_blocks()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_edgelist}{\code{write_graph_edgelist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_pajek}{\code{write_graph_pajek()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_graphml}{\code{write_graph_graphml()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_gml}{\code{write_graph_gml()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_dot}{\code{write_graph_dot()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Foreign.html#igraph_write_graph_leda}{\code{write_graph_leda()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}
+}
+
 \examples{
 
 ## The graph from the Moody-White paper
@@ -282,7 +286,7 @@ plot(campBlocks, camp,
 \references{
 J. Moody and D. R. White. Structural cohesion and embeddedness:
 A hierarchical concept of social groups. \emph{American Sociological
-Review}, 68(1):103--127, Feb 2003.
+Review}, 68(1):103--127, Feb 2003, \doi{10.2307/3088904}.
 }
 \seealso{
 \code{\link[=cohesion]{cohesion()}}

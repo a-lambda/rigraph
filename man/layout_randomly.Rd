@@ -5,7 +5,7 @@
 \alias{randomly}
 \title{Randomly place vertices on a plane or in 3d space}
 \usage{
-layout_randomly(graph, dim = 2)
+layout_randomly(graph, dim = c(2, 3))
 
 randomly(...)
 }
@@ -29,6 +29,10 @@ Randomly places vertices on a [-1,1] square (in 2d) or in a cube (in 3d). It
 is probably a useless layout, but it can use as a starting point for other
 layout generators.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_random}{\code{layout_random()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Layout.html#igraph_layout_random_3d}{\code{layout_random_3d()}}
+}
+
 \seealso{
 Other graph layouts: 
 \code{\link{add_layout_}()},

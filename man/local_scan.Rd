@@ -12,6 +12,7 @@ local_scan(
   weighted = FALSE,
   mode = c("out", "in", "all"),
   neighborhoods = NULL,
+  weights = NULL,
   ...
 )
 }
@@ -53,6 +54,8 @@ calculated on \code{graph.us} and used with multiple graphs. In
 practice, this is currently slower than simply using \code{graph.them}
 multiple times.}
 
+\item{weights}{Numeric vector, edge weights to use for the scan instead of the edge attribute weight. If \code{NULL} (the default) the edge weight attribute is used.}
+
 \item{\dots}{Arguments passed to \code{FUN}, the function that computes
 the local statistics.}
 }
@@ -80,6 +83,10 @@ variant is computed using \code{graph.us} to extract the neighborhood
 information, and applying \code{FUN} on these neighborhoods in
 \code{graph.them}.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_0}{\code{local_scan_0()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_0_them}{\code{local_scan_0_them()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_1_ecount}{\code{local_scan_1_ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_1_ecount_them}{\code{local_scan_1_ecount_them()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_k_ecount}{\code{local_scan_k_ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_k_ecount_them}{\code{local_scan_k_ecount_them()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_local_scan_neighborhood_ecount}{\code{local_scan_neighborhood_ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_induced_subgraph}{\code{induced_subgraph()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 pair <- sample_correlated_gnp_pair(n = 10^3, corr = 0.8, p = 0.1)
 local_0_us <- local_scan(graph.us = pair$graph1, k = 0)

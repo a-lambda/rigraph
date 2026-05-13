@@ -2,12 +2,12 @@
 % Please edit documentation in R/centrality.R
 \name{eigen_centrality}
 \alias{eigen_centrality}
-\title{Find Eigenvector Centrality Scores of Network Positions}
+\title{Eigenvector centrality of vertices}
 \usage{
 eigen_centrality(
   graph,
   directed = FALSE,
-  scale = TRUE,
+  scale = deprecated(),
   weights = NULL,
   options = arpack_defaults()
 )
@@ -18,9 +18,8 @@ eigen_centrality(
 \item{directed}{Logical scalar, whether to consider direction of the edges
 in directed graphs. It is ignored for undirected graphs.}
 
-\item{scale}{Logical scalar, whether to scale the result to have a maximum
-score of one. If no scaling is used then the result vector has unit length
-in the Euclidean norm.}
+\item{scale}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Normalization will always take
+place.}
 
 \item{weights}{A numerical vector or \code{NULL}. This argument can be used
 to give edge weights for calculating the weighted eigenvector centrality of
@@ -38,46 +37,53 @@ weights spread the centrality better.}
 \code{\link[=arpack]{arpack()}} for details.}
 }
 \value{
-A named list with components: \item{vector}{A vector containing the
-centrality scores.} \item{value}{The eigenvalue corresponding to the
-calculated eigenvector, i.e. the centrality scores.} \item{options}{A named
-list, information about the underlying ARPACK computation. See
-\code{\link[=arpack]{arpack()}} for the details.}
+A named list with components:
+\describe{
+\item{vector}{
+A vector containing the centrality scores.
+}
+\item{value}{
+The eigenvalue corresponding to the calculated eigenvector, i.e. the centrality scores.
+}
+\item{options}{
+A named list, information about the underlying ARPACK computation. See \code{\link[=arpack]{arpack()}} for the details.
+}
+}
 }
 \description{
 \code{eigen_centrality()} takes a graph (\code{graph}) and returns the
-eigenvector centralities of positions \code{v} within it
+eigenvector centralities of the vertices \code{v} within it.
 }
 \details{
-Eigenvector centrality scores correspond to the values of the first
-eigenvector of the graph adjacency matrix; these scores may, in turn, be
+Eigenvector centrality scores correspond to the values of the principal
+eigenvector of the graph's adjacency matrix; these scores may, in turn, be
 interpreted as arising from a reciprocal process in which the centrality of
 each actor is proportional to the sum of the centralities of those actors to
 whom he or she is connected.  In general, vertices with high eigenvector
 centralities are those which are connected to many other vertices which are,
-in turn, connected to many others (and so on).  (The perceptive may realize
+in turn, connected to many others (and so on).  The perceptive may realize
 that this implies that the largest values will be obtained by individuals in
 large cliques (or high-density substructures).  This is also intelligible
 from an algebraic point of view, with the first eigenvector being closely
 related to the best rank-1 approximation of the adjacency matrix (a
 relationship which is easy to see in the special case of a diagonalizable
 symmetric real matrix via the \eqn{SLS^-1}{$S \Lambda S^{-1}$}
-decomposition).)
+decomposition).
 
 The adjacency matrix used in the eigenvector centrality calculation assumes
-that loop edges are counted \emph{twice}; this is because each loop edge has
-\emph{two} endpoints that are both connected to the same vertex, and you
-could traverse the loop edge via either endpoint.
+that loop edges are counted \emph{twice} in undirected graphs; this is because
+each loop edge has \emph{two} endpoints that are both connected to the same vertex,
+and you could traverse the loop edge via either endpoint.
 
 In the directed case, the left eigenvector of the adjacency matrix is
 calculated. In other words, the centrality of a vertex is proportional to
 the sum of centralities of vertices pointing to it.
 
-Eigenvector centrality is meaningful only for connected graphs. Graphs that
-are not connected should be decomposed into connected components, and the
-eigenvector centrality calculated for each separately. This function does
-not verify that the graph is connected. If it is not, in the undirected case
-the scores of all but one component will be zeros.
+Eigenvector centrality is meaningful only for (strongly) connected graphs.
+Undirected graphs that are not connected should be decomposed into connected
+components, and the eigenvector centrality calculated for each separately.
+This function does not verify that the graph is connected. If it is not, in
+the undirected case the scores of all but one component will be zeros.
 
 Also note that the adjacency matrix of a directed acyclic graph or the
 adjacency matrix of an empty graph does not possess positive eigenvalues,
@@ -90,6 +96,10 @@ whether the eigenvalue is very close to zero.
 From igraph version 0.5 this function uses ARPACK for the underlying
 computation, see \code{\link[=arpack]{arpack()}} for more about ARPACK in igraph.
 }
+\section{Related documentation in the C library}{
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_eigenvector_centrality}{\code{eigenvector_centrality()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}
+}
+
 \examples{
 
 # Generate some test data
@@ -104,11 +114,12 @@ Measures. \emph{American Journal of Sociology}, 92, 1170-1182.
 \seealso{
 Centrality measures
 \code{\link{alpha_centrality}()},
+\code{\link{authority_score}()},
 \code{\link{betweenness}()},
 \code{\link{closeness}()},
 \code{\link{diversity}()},
 \code{\link{harmonic_centrality}()},
-\code{\link{hub_score}()},
+\code{\link{hits_scores}()},
 \code{\link{page_rank}()},
 \code{\link{power_centrality}()},
 \code{\link{spectrum}()},
@@ -117,7 +128,7 @@ Centrality measures
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com} and Carter T. Butts
-(\url{http://www.faculty.uci.edu/profile.cfm?faculty_id=5057}) for the
+(\url{https://www.faculty.uci.edu/profile.cfm?faculty_id=5057}) for the
 manual page.
 }
 \concept{centrality}
