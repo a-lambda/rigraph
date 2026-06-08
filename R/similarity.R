@@ -26,7 +26,7 @@
 #' 25(3):211-230, 2003.
 #'
 #' @param graph The input graph.
-#' @param vids The vertex ids for which the similarity is calculated.
+#' @param vids The vertex IDs for which the similarity is calculated.
 #' @param mode The type of neighboring vertices to use for the calculation,
 #'   possible values: \sQuote{`out`}, \sQuote{`in`},
 #'   \sQuote{`all`}.
@@ -104,7 +104,7 @@ similarity.jaccard <- function(
   mode = c("all", "out", "in", "total"),
   loops = FALSE
 ) {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.1.0",
     "similarity.jaccard()",
     "similarity(method)",
@@ -135,7 +135,7 @@ similarity.dice <- function(
   mode = c("all", "out", "in", "total"),
   loops = FALSE
 ) {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.1.0",
     "similarity.dice()",
     "similarity(method)",
@@ -165,7 +165,7 @@ similarity.invlogweighted <- function(
   vids = V(graph),
   mode = c("all", "out", "in", "total")
 ) {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.1.0",
     "similarity.invlogweighted()",
     "similarity(method)",

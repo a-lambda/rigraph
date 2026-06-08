@@ -10,7 +10,7 @@
 #' @export
 is.directed <- function(graph) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.directed()", "is_directed()")
+  lifecycle::deprecate_warn("2.0.0", "is.directed()", "is_directed()")
   is_directed(graph = graph)
 } # nocov end
 
@@ -26,7 +26,7 @@ is.directed <- function(graph) {
 #' @export
 delete.vertices <- function(graph, v) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "delete.vertices()", "delete_vertices()")
+  lifecycle::deprecate_warn("2.0.0", "delete.vertices()", "delete_vertices()")
   delete_vertices(graph = graph, v = v)
 } # nocov end
 
@@ -42,7 +42,7 @@ delete.vertices <- function(graph, v) {
 #' @export
 delete.edges <- function(graph, edges) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "delete.edges()", "delete_edges()")
+  lifecycle::deprecate_warn("2.0.0", "delete.edges()", "delete_edges()")
   delete_edges(graph = graph, edges = edges)
 } # nocov end
 
@@ -58,7 +58,7 @@ delete.edges <- function(graph, edges) {
 #' @export
 add.vertices <- function(graph, nv, ..., attr = list()) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "add.vertices()", "add_vertices()")
+  lifecycle::deprecate_warn("2.0.0", "add.vertices()", "add_vertices()")
   add_vertices(graph = graph, nv = nv, attr = attr, ...)
 } # nocov end
 
@@ -74,7 +74,7 @@ add.vertices <- function(graph, nv, ..., attr = list()) {
 #' @export
 add.edges <- function(graph, edges, ..., attr = list()) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "add.edges()", "add_edges()")
+  lifecycle::deprecate_warn("2.0.0", "add.edges()", "add_edges()")
   add_edges(graph = graph, edges = edges, attr = attr, ...)
 } # nocov end
 #   IGraph R package
@@ -105,7 +105,7 @@ add.edges <- function(graph, edges, ..., attr = list()) {
 #' Add edges to a graph
 #'
 #' The new edges are given as a vertex sequence, e.g. internal
-#' numeric vertex ids, or vertex names. The first edge points from
+#' numeric vertex IDs, or vertex names. The first edge points from
 #' `edges[1]` to `edges[2]`, the second from `edges[3]`
 #' to `edges[4]`, etc.
 #'
@@ -145,7 +145,7 @@ add_edges <- function(graph, edges, ..., attr = list()) {
   attrs <- list(...)
   attrs <- append(attrs, attr)
   nam <- names(attrs)
-  if (length(attrs) != 0 && (is.null(nam) || any(nam == ""))) {
+  if (length(attrs) != 0 && (is.null(nam) || any(!nzchar(nam)))) {
     cli::cli_abort("All attributes must be named.")
   }
 
@@ -212,7 +212,7 @@ add_vertices <- function(graph, nv, ..., attr = list()) {
   attrs <- list(...)
   attrs <- append(attrs, attr)
   nam <- names(attrs)
-  if (length(attrs) != 0 && (is.null(nam) || any(nam == ""))) {
+  if (length(attrs) != 0 && (is.null(nam) || any(!nzchar(nam)))) {
     cli::cli_abort("All attributes must be named.")
   }
 
@@ -419,8 +419,8 @@ is_directed <- function(graph) {
 #' @param graph The input graph
 #' @param es The sequence of edges to query
 #' @param names Whether to return vertex names or
-#'   numeric vertex ids. By default vertex names are used.
-#' @return A two column matrix of vertex names or vertex ids.
+#'   numeric vertex IDs. By default vertex names are used.
+#' @return A two column matrix of vertex names or vertex IDs.
 #'
 #' @aliases get.edges
 #' @family structural queries
@@ -474,12 +474,11 @@ el_to_vec <- function(x, call = rlang::caller_env()) {
         "get_edge_ids(vp = 'is not allowed to be a 2 times 2 matrix')"
       )
     } else if (nrow == 2) {
-      lifecycle::deprecate_warn(
+      lifecycle::deprecate_stop(
         "2.1.5",
         "get_edge_ids(vp = 'supplied as a matrix should be a n times 2 matrix, not 2 times n')",
         details = "either transpose the matrix with t() or convert it to a data.frame with two columns."
       )
-      c(x)
     } else if (ncol == 2) {
       c(t(x))
     } else {
@@ -498,13 +497,13 @@ el_to_vec <- function(x, call = rlang::caller_env()) {
 }
 
 
-#' Find the edge ids based on the incident vertices of the edges
+#' Find the edge IDs based on the incident vertices of the edges
 #'
 #' Find the edges in an igraph graph that have the specified end points. This
 #' function handles multi-graph (graphs with multiple edges) and can consider
 #' or ignore the edge directions in directed graphs.
 #'
-#' igraph vertex ids are natural numbers, starting from one, up to the number
+#' igraph vertex IDs are natural numbers, starting from one, up to the number
 #' of vertices in the graph. Similarly, edges are also numbered from one, up to
 #' the number of edges.
 #'
@@ -513,7 +512,7 @@ el_to_vec <- function(x, call = rlang::caller_env()) {
 #'
 #' @param graph The input graph.
 #' @param vp The incident vertices, given as a two-column data frame, two-column matrix,
-#'   or vector of vertex ids or symbolic vertex names.
+#'   or vector of vertex IDs or symbolic vertex names.
 #'   For a vector, the values are interpreted pairwise, i.e. the first and second are used for
 #'   the first edge, the third and fourth for the second, etc.
 #' @param directed Logical scalar, whether to consider edge directions in
@@ -521,7 +520,7 @@ el_to_vec <- function(x, call = rlang::caller_env()) {
 #' @param error Logical scalar, whether to report an error if an edge is not
 #'   found in the graph. If `FALSE`, then no error is reported, and zero is
 #'   returned for the non-existant edge(s).
-#' @return A numeric vector of edge ids, one for each pair of input vertices.
+#' @return A numeric vector of edge IDs, one for each pair of input vertices.
 #'   If there is no edge in the input graph for a given pair of vertices, then
 #'   zero is reported. (If the `error` argument is `FALSE`.)
 #' @author Gabor Csardi \email{csardi.gabor@@gmail.com}
@@ -560,7 +559,7 @@ get_edge_ids <- function(graph, vp, directed = TRUE, error = FALSE) {
   )
 }
 
-#' Find the edge ids based on the incident vertices of the edges
+#' Find the edge IDs based on the incident vertices of the edges
 #'
 #' @description
 #' `r lifecycle::badge("deprecated")`
@@ -584,9 +583,9 @@ get.edge.ids <- function(
       lifecycle::deprecate_stop("2.0.0", "get.edge.ids(multi = )")
     }
 
-    lifecycle::deprecate_soft("2.0.0", "get.edge.ids(multi = )")
+    lifecycle::deprecate_warn("2.0.0", "get.edge.ids(multi = )")
   }
-  lifecycle::deprecate_soft("2.1.0", "get.edge.ids()", "get_edge_ids()")
+  lifecycle::deprecate_warn("2.1.0", "get.edge.ids()", "get_edge_ids()")
   get_edge_ids(graph = graph, vp = vp, directed = directed, error = error)
 }
 

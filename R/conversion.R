@@ -10,7 +10,7 @@
 #' @export
 igraph.to.graphNEL <- function(graph) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "igraph.to.graphNEL()", "as_graphnel()")
+  lifecycle::deprecate_warn("2.0.0", "igraph.to.graphNEL()", "as_graphnel()")
   as_graphnel(graph = graph)
 } # nocov end
 
@@ -31,7 +31,7 @@ igraph.from.graphNEL <- function(
   unlist.attrs = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "igraph.from.graphNEL()",
     "graph_from_graphnel()"
@@ -60,7 +60,7 @@ graph.adjlist <- function(
   duplicate = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.adjlist()", "graph_from_adj_list()")
+  lifecycle::deprecate_warn("2.0.0", "graph.adjlist()", "graph_from_adj_list()")
   graph_from_adj_list(adjlist = adjlist, mode = mode, duplicate = duplicate)
 } # nocov end
 
@@ -82,7 +82,7 @@ get.incidence <- function(
   sparse = FALSE
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "get.incidence()",
     "as_biadjacency_matrix()"
@@ -108,7 +108,7 @@ get.incidence <- function(
 #' @export
 get.edgelist <- function(graph, names = TRUE) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.edgelist()", "as_edgelist()")
+  lifecycle::deprecate_warn("2.0.0", "get.edgelist()", "as_edgelist()")
   as_edgelist(graph = graph, names = names)
 } # nocov end
 
@@ -124,7 +124,7 @@ get.edgelist <- function(graph, names = TRUE) {
 #' @export
 get.data.frame <- function(x, what = c("edges", "vertices", "both")) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.data.frame()", "as_data_frame()")
+  lifecycle::deprecate_warn("2.0.0", "get.data.frame()", "as_data_frame()")
   as_data_frame(x = x, what = what)
 } # nocov end
 
@@ -147,7 +147,7 @@ get.adjacency <- function(
   sparse = igraph_opt("sparsematrices")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.adjacency()", "as_adjacency_matrix()")
+  lifecycle::deprecate_warn("2.0.0", "get.adjacency()", "as_adjacency_matrix()")
   as_adjacency_matrix(
     graph = graph,
     type = type,
@@ -175,7 +175,7 @@ get.adjlist <- function(
   multiple = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.adjlist()", "as_adj_list()")
+  lifecycle::deprecate_warn("2.0.0", "get.adjlist()", "as_adj_list()")
   as_adj_list(graph = graph, mode = mode, loops = loops, multiple = multiple)
 } # nocov end
 
@@ -195,7 +195,7 @@ get.adjedgelist <- function(
   loops = c("twice", "once", "ignore")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.adjedgelist()", "as_adj_edge_list()")
+  lifecycle::deprecate_warn("2.0.0", "get.adjedgelist()", "as_adj_edge_list()")
   as_adj_edge_list(graph = graph, mode = mode, loops = loops)
 } # nocov end
 #   IGraph R package
@@ -232,7 +232,7 @@ get.adjacency.dense <- function(
 
   if (is.logical(loops)) {
     loops <- ifelse(loops, "once", "ignore")
-    lifecycle::deprecate_soft(
+    lifecycle::deprecate_warn(
       "2.1.0",
       "get.adjacency.dense(loops = 'must be a character')",
       details = sprintf(
@@ -301,7 +301,7 @@ get.adjacency.sparse <- function(
   }
 
   # Use the library implementation
-  tmp <- get_adjacency_sparse_impl(
+  sparse_adjacency <- get_adjacency_sparse_impl(
     graph,
     type,
     weights,
@@ -309,7 +309,7 @@ get.adjacency.sparse <- function(
   )
 
   # Convert to proper Matrix object
-  res <- igraph.i.spMatrix(tmp)
+  res <- igraph.i.spMatrix(sparse_adjacency)
 
   if (names && "name" %in% vertex_attr_names(graph)) {
     colnames(res) <- rownames(res) <- V(graph)$name
@@ -346,7 +346,7 @@ get.adjacency.sparse <- function(
 #'   numeric. If the `sparse` argument is `FALSE`, then character is
 #'   also allowed. The reason for the difference is that the `Matrix`
 #'   package does not support character sparse matrices yet.
-#' @param edges `r lifecycle::badge("deprecated")` Logical scalar, whether to return the edge ids in the matrix.
+#' @param edges `r lifecycle::badge("deprecated")` Logical scalar, whether to return the edge IDs in the matrix.
 #'   For non-existant edges zero is returned.
 #' @param names Logical constant, whether to assign row and column names
 #'   to the matrix. These are only assigned if the `name` vertex attribute
@@ -412,7 +412,7 @@ as_adj <- function(
   names = TRUE,
   sparse = igraph_opt("sparsematrices")
 ) {
-  lifecycle::deprecate_soft("2.1.0", "as_adj()", "as_adjacency_matrix()")
+  lifecycle::deprecate_warn("2.1.0", "as_adj()", "as_adjacency_matrix()")
 
   as_adjacency_matrix(
     graph = graph,
@@ -433,7 +433,7 @@ as_adj <- function(
 #' @param graph The graph to convert.
 #' @param names Whether to return a character matrix containing vertex
 #'   names (i.e. the `name` vertex attribute) if they exist or numeric
-#'   vertex ids.
+#'   vertex IDs.
 #' @return A `ecount(graph)` by 2 numeric matrix.
 #' @seealso [graph_from_adjacency_matrix()], [read_graph()]
 #' @keywords graphs
@@ -601,12 +601,12 @@ as_undirected <- function(
 #' Create adjacency lists from a graph, either for adjacent edges or for
 #' neighboring vertices
 #'
-#' `as_adj_list()` returns a list of numeric vectors, which include the ids
+#' `as_adj_list()` returns a list of numeric vectors, which include the IDs
 #' of neighbor vertices (according to the `mode` argument) of all
 #' vertices.
 #'
 #' `as_adj_edge_list()` returns a list of numeric vectors, which include the
-#' ids of adjacent edges (according to the `mode` argument) of all
+#' IDs of adjacent edges (according to the `mode` argument) of all
 #' vertices.
 #'
 #' @param graph The input graph.
@@ -773,7 +773,7 @@ graph_from_graphnel <- function(
   v.n <- names(graph::nodeDataDefaults(graphNEL))
   for (n in v.n) {
     val <- unname(graph::nodeData(graphNEL, attr = n))
-    if (unlist.attrs && all(sapply(val, length) == 1)) {
+    if (unlist.attrs && all(lengths(val) == 1)) {
       val <- unlist(val)
     }
     g <- set_vertex_attr(g, n, value = val)
@@ -789,7 +789,7 @@ graph_from_graphnel <- function(
     el <- paste(sep = "|", el[, 1], el[, 2])
     for (n in e.n) {
       val <- unname(graph::edgeData(graphNEL, attr = n)[el])
-      if (unlist.attrs && all(sapply(val, length) == 1)) {
+      if (unlist.attrs && all(lengths(val) == 1)) {
         val <- unlist(val)
       }
       g <- set_edge_attr(g, n, value = val)
@@ -808,7 +808,7 @@ graph_from_graphnel <- function(
 #' `as_graphnel()` converts an igraph graph to a graphNEL graph. It
 #' converts all graph/vertex/edge attributes. If the igraph graph has a
 #' vertex attribute \sQuote{`name`}, then it will be used to assign
-#' vertex names in the graphNEL graph. Otherwise numeric igraph vertex ids
+#' vertex names in the graphNEL graph. Otherwise numeric igraph vertex IDs
 #' will be used for this purpose.
 #'
 #' @param graph An igraph graph object.
@@ -1070,7 +1070,7 @@ get.incidence.sparse <- function(
 #' @param names Logical scalar, if `TRUE` and the vertices in the graph
 #'   are named (i.e. the graph has a vertex attribute called `name`), then
 #'   vertex names will be added to the result as row and column names. Otherwise
-#'   the ids of the vertices are used as row and column names.
+#'   the IDs of the vertices are used as row and column names.
 #' @param sparse Logical scalar, if it is `TRUE` then a sparse matrix is
 #'   created, you will need the `Matrix` package for this.
 #' @return A sparse or dense matrix.
@@ -1129,7 +1129,7 @@ as_biadjacency_matrix <- function(
 #' @export
 as_incidence_matrix <- function(...) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "1.6.0",
     "as_incidence_matrix()",
     "as_biadjacency_matrix()"
@@ -1254,8 +1254,8 @@ graph_from_adj_list <- function(
 #' in that row. The names of the columns that contain the metadata
 #' of the incident vertices are prefixed with `from_` and `to_`.
 #' The first two columns are always named `from` and `to` and
-#' they contain the numeric ids of the incident vertices. The rows are
-#' listed in the order of numeric vertex ids.
+#' they contain the numeric IDs of the incident vertices. The rows are
+#' listed in the order of numeric vertex IDs.
 #'
 #' @param graph Input graph
 #' @return A long data frame.
@@ -1367,7 +1367,7 @@ as.directed <- function(
   graph,
   mode = c("mutual", "arbitrary", "random", "acyclic")
 ) {
-  lifecycle::deprecate_soft("2.1.0", "as.directed()", "as_directed()")
+  lifecycle::deprecate_warn("2.1.0", "as.directed()", "as_directed()")
   as_directed(graph, mode = mode)
 }
 
@@ -1386,7 +1386,7 @@ as.undirected <- function(
   mode = c("collapse", "each", "mutual"),
   edge.attr.comb = igraph_opt("edge.attr.comb")
 ) {
-  lifecycle::deprecate_soft("2.1.0", "as.undirected()", "as_undirected()")
+  lifecycle::deprecate_warn("2.1.0", "as.undirected()", "as_undirected()")
   as_undirected(graph = graph, mode = mode, edge.attr.comb = edge.attr.comb)
 }
 
@@ -1402,7 +1402,7 @@ as.undirected <- function(
 #' @export
 graph.edgelist <- function(el, directed = TRUE) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "graph.edgelist()",
     "graph_from_edgelist()"
@@ -1422,7 +1422,7 @@ graph.edgelist <- function(el, directed = TRUE) {
 #' @export
 graph.data.frame <- function(d, directed = TRUE, vertices = NULL) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "graph.data.frame()",
     "graph_from_data_frame()"
@@ -1488,14 +1488,14 @@ graph.data.frame <- function(d, directed = TRUE, vertices = NULL) {
 #' the graph and also the edge attributes are returned. The edges will be in
 #' the first two columns, named `from` and `to`. (This also denotes
 #' edge direction for directed graphs.)  For named graphs, the vertex names
-#' will be included in these columns, for other graphs, the numeric vertex ids.
+#' will be included in these columns, for other graphs, the numeric vertex IDs.
 #' The edge attributes will be in the other columns. It is not a good idea to
 #' have an edge attribute named `from` or `to`, because then the
 #' column named in the data frame will not be unique. The edges are listed in
-#' the order of their numeric ids.
+#' the order of their numeric IDs.
 #'
 #' If the `what` argument is `vertices`, then vertex attributes are
-#' returned. Vertices are listed in the order of their numeric vertex ids.
+#' returned. Vertices are listed in the order of their numeric vertex IDs.
 #'
 #' If the `what` argument is `both`, then both vertex and edge data
 #' is returned, in a list with named entries `vertices` and `edges`.
@@ -1567,7 +1567,7 @@ graph_from_data_frame <- function(d, directed = TRUE, vertices = NULL) {
   ## Handle if some elements are 'NA' (first two columns are interpreted as from/to)
   ensure_no_na(d[, 1:2], "edge data frame")
 
-  if (!is.null(vertices) && any(is.na(vertices[, 1]))) {
+  if (!is.null(vertices) && anyNA(vertices[, 1])) {
     cli::cli_warn(
       "In {.code vertices[,1]}, {.code NA} elements were replaced with string {.str NA}."
     )
@@ -1582,10 +1582,10 @@ graph_from_data_frame <- function(d, directed = TRUE, vertices = NULL) {
       cli::cli_abort("{.arg vertices} contains no rows")
     }
     names <- as.character(vertices[, 1])
-    if (any(duplicated(names))) {
+    if (anyDuplicated(names) > 0) {
       cli::cli_abort("{.arg vertices} contains duplicated vertex names")
     }
-    if (any(!names2 %in% names)) {
+    if (!all(names2 %in% names)) {
       cli::cli_abort(
         "Some vertex names in {.arg d} are not listed in {.arg vertices}"
       )
@@ -1639,9 +1639,9 @@ from_data_frame <- function(...) constructor_spec(graph_from_data_frame, ...)
 #'
 #' `graph_from_edgelist()` creates a graph from an edge list. Its argument
 #' is a two-column matrix, each row defines one edge. If it is
-#' a numeric matrix then its elements are interpreted as vertex ids. If
+#' a numeric matrix then its elements are interpreted as vertex IDs. If
 #' it is a character matrix then it is interpreted as symbolic vertex
-#' names and a vertex id will be assigned to each name, and also a
+#' names and a vertex ID will be assigned to each name, and also a
 #' `name` vertex attribute will be added.
 #'
 #' @concept Edge list

@@ -10,7 +10,7 @@
 #' @export
 bipartite.projection.size <- function(graph, types = NULL) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "bipartite.projection.size()",
     "bipartite_projection_size()"
@@ -37,7 +37,7 @@ bipartite.projection <- function(
   remove.type = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "bipartite.projection()",
     "bipartite_projection()"
@@ -64,7 +64,7 @@ bipartite.projection <- function(
 #' @export
 bipartite.mapping <- function(graph) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "bipartite.mapping()",
     "bipartite_mapping()"
@@ -124,7 +124,7 @@ bipartite.mapping <- function(graph) {
 #'   graph), then the multiplicity of the A-B edge in the projection will be 2.
 #' @param probe1 This argument can be used to specify the order of the
 #'   projections in the resulting list. If given, then it is considered as a
-#'   vertex id (or a symbolic vertex name); the projection containing this vertex
+#'   vertex ID (or a symbolic vertex name); the projection containing this vertex
 #'   will be the first one in the result list.  This argument is ignored if only
 #'   one projection is requested in argument `which`.
 #' @param which A character scalar to specify which projection(s) to calculate.

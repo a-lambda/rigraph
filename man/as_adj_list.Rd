@@ -43,12 +43,12 @@ Create adjacency lists from a graph, either for adjacent edges or for
 neighboring vertices
 }
 \details{
-\code{as_adj_list()} returns a list of numeric vectors, which include the ids
+\code{as_adj_list()} returns a list of numeric vectors, which include the IDs
 of neighbor vertices (according to the \code{mode} argument) of all
 vertices.
 
 \code{as_adj_edge_list()} returns a list of numeric vectors, which include the
-ids of adjacent edges (according to the \code{mode} argument) of all
+IDs of adjacent edges (according to the \code{mode} argument) of all
 vertices.
 
 If \code{igraph_opt("return.vs.es")} is true (default), the numeric
@@ -69,17 +69,17 @@ as_adj_edge_list(g)
 \seealso{
 \code{\link[=as_edgelist]{as_edgelist()}}, \code{\link[=as_adjacency_matrix]{as_adjacency_matrix()}}
 
-Other conversion: 
-\code{\link{as.matrix.igraph}()},
-\code{\link{as_adjacency_matrix}()},
-\code{\link{as_biadjacency_matrix}()},
-\code{\link{as_data_frame}()},
-\code{\link{as_directed}()},
-\code{\link{as_edgelist}()},
-\code{\link{as_graphnel}()},
-\code{\link{as_long_data_frame}()},
-\code{\link{graph_from_adj_list}()},
-\code{\link{graph_from_graphnel}()}
+Other conversion:
+\code{\link[=as.matrix.igraph]{as.matrix.igraph()}},
+\code{\link[=as_adjacency_matrix]{as_adjacency_matrix()}},
+\code{\link[=as_biadjacency_matrix]{as_biadjacency_matrix()}},
+\code{\link[=as_data_frame]{as_data_frame()}},
+\code{\link[=as_directed]{as_directed()}},
+\code{\link[=as_edgelist]{as_edgelist()}},
+\code{\link[=as_graphnel]{as_graphnel()}},
+\code{\link[=as_long_data_frame]{as_long_data_frame()}},
+\code{\link[=graph_from_adj_list]{graph_from_adj_list()}},
+\code{\link[=graph_from_graphnel]{graph_from_graphnel()}}
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com}

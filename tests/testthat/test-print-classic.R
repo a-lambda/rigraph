@@ -1,4 +1,4 @@
-test_that("print.igraph() works", {
+test_that("classic: print.igraph() works", {
   local_igraph_options(print.full = TRUE)
   withr::local_options(width = 76)
 
@@ -71,9 +71,64 @@ test_that("print.igraph() works", {
   expect_output(print(kite), "A -- ")
 })
 
-test_that("print.igraph.es() uses vertex names", {
-  local_igraph_options(print.id = FALSE)
+test_that("classic: print.igraph() respects max.print for adjacency list formats", {
+  local_igraph_options(print.full = TRUE)
+  withr::local_options(width = 76, max.print = 3)
 
+  g <- make_full_graph(6)
+  joined <- paste(capture.output(print(g)), collapse = "\n")
+  expect_match(
+    joined,
+    'reached getOption\\("max.print"\\) -- omitted 3 vertices'
+  )
+  # First three source vertices shown, fourth onwards omitted
+  expect_match(joined, "1 -- ")
+  expect_match(joined, "3 -- ")
+  expect_false(grepl("4 -- ", joined))
+
+  V(g)$name <- letters[1:vcount(g)]
+  joined <- paste(capture.output(print(g)), collapse = "\n")
+  expect_match(
+    joined,
+    'reached getOption\\("max.print"\\) -- omitted 3 vertices'
+  )
+  expect_match(joined, "a -- ")
+  expect_match(joined, "c -- ")
+  expect_false(grepl("d -- ", joined))
+})
+
+test_that("classic: print.igraph() omits no message when vcount <= max.print", {
+  local_igraph_options(print.full = TRUE)
+  withr::local_options(width = 76, max.print = 10)
+
+  g <- make_full_graph(6)
+  joined <- paste(capture.output(print(g)), collapse = "\n")
+  expect_false(grepl("reached getOption", joined))
+
+  V(g)$name <- letters[1:vcount(g)]
+  joined <- paste(capture.output(print(g)), collapse = "\n")
+  expect_false(grepl("reached getOption", joined))
+})
+
+test_that("classic: print.igraph() respects max.print in the adjlist wrapping branch", {
+  local_igraph_options(print.full = TRUE)
+  withr::local_options(width = 40, max.print = 2)
+
+  g <- make_full_graph(20)
+  out <- capture.output(print(g))
+  joined <- paste(out, collapse = "\n")
+  expect_match(
+    joined,
+    'reached getOption\\("max.print"\\) -- omitted 18 vertices'
+  )
+  # Wrapped continuation lines should appear (lines starting with spaces before a number)
+  expect_true(any(grepl("^ +[0-9]+ ", out)))
+  expect_true(any(grepl("^1 -- ", out)))
+  expect_true(any(grepl("^2 -- ", out)))
+  expect_false(any(grepl("^3 -- ", out)))
+})
+
+test_that("classic: print.igraph.es() uses vertex names", {
   g <- make_directed_graph(c("A", "B"))
   expect_snapshot({
     E(g)
@@ -81,9 +136,7 @@ test_that("print.igraph.es() uses vertex names", {
 })
 
 
-test_that("vs printing", {
-  local_igraph_options(print.id = FALSE)
-
+test_that("classic: vs printing", {
   local_rng_version("3.5.0")
   withr::local_seed(42)
   g <- make_graph(~ A - A:B:C, B - A:B:C) %>%
@@ -98,9 +151,7 @@ test_that("vs printing", {
   })
 })
 
-test_that("vs printing, complex attributes", {
-  local_igraph_options(print.id = FALSE)
-
+test_that("classic: vs printing, complex attributes", {
   local_rng_version("3.5.0")
   withr::local_seed(42)
   g <- make_graph(~ A - A:B:C, B - A:B:C) %>%
@@ -114,9 +165,7 @@ test_that("vs printing, complex attributes", {
   })
 })
 
-test_that("es printing", {
-  local_igraph_options(print.id = FALSE)
-
+test_that("classic: es printing", {
   local_rng_version("3.5.0")
   withr::local_seed(42)
   g <- make_graph(~ A - A:B:C, B - A:B:C) %>%
@@ -129,9 +178,7 @@ test_that("es printing", {
   })
 })
 
-test_that("es printing, complex attributes", {
-  local_igraph_options(print.id = FALSE)
-
+test_that("classic: es printing, complex attributes", {
   local_rng_version("3.5.0")
   withr::local_seed(42)
   g <- make_graph(~ A - A:B:C, B - A:B:C) %>%

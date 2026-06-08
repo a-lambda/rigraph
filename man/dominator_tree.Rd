@@ -11,7 +11,7 @@ dominator_tree(graph, root, mode = c("out", "in", "all", "total"))
 some vertices not reachable from the root vertex, then these vertices will
 be collected and returned as part of the result.}
 
-\item{root}{The id of the root (or source) vertex, this will be the root of
+\item{root}{The ID of the root (or source) vertex, this will be the root of
 the tree.}
 
 \item{mode}{Constant, must be \sQuote{\verb{in}} or \sQuote{\code{out}}. If
@@ -28,11 +28,11 @@ For the root vertex itself it contains minus one.
 }
 \item{domtree}{
 A graph object, the dominator tree.
-Its vertex ids are the as the vertex ids of the input graph.
+Its vertex IDs are the as the vertex IDs of the input graph.
 Isolate vertices are the ones that are unreachable from the root.
 }
 \item{leftout}{
-A numeric vector containing the vertex ids that are unreachable from the root.
+A numeric vector containing the vertex IDs that are unreachable from the root.
 }
 }
 }
@@ -78,17 +78,17 @@ finding dominators in a flowgraph, \emph{ACM Transactions on Programming
 Languages and Systems (TOPLAS)} I/1, 121--141, 1979.
 }
 \seealso{
-Other flow: 
-\code{\link{edge_connectivity}()},
-\code{\link{is_min_separator}()},
-\code{\link{is_separator}()},
-\code{\link{max_flow}()},
-\code{\link{min_cut}()},
-\code{\link{min_separators}()},
-\code{\link{min_st_separators}()},
-\code{\link{st_cuts}()},
-\code{\link{st_min_cuts}()},
-\code{\link{vertex_connectivity}()}
+Other flow:
+\code{\link[=edge_connectivity]{edge_connectivity()}},
+\code{\link[=is_min_separator]{is_min_separator()}},
+\code{\link[=is_separator]{is_separator()}},
+\code{\link[=max_flow]{max_flow()}},
+\code{\link[=min_cut]{min_cut()}},
+\code{\link[=min_separators]{min_separators()}},
+\code{\link[=min_st_separators]{min_st_separators()}},
+\code{\link[=st_cuts]{st_cuts()}},
+\code{\link[=st_min_cuts]{st_min_cuts()}},
+\code{\link[=vertex_connectivity]{vertex_connectivity()}}
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com}

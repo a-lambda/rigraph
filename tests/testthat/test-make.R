@@ -66,7 +66,6 @@ test_that("we pass arguments unevaluated", {
 })
 
 test_that("graph_from_literal() and simple undirected graphs", {
-  local_igraph_options(print.id = FALSE)
   expect_snapshot({
     graph_from_literal(A - B)
     graph_from_literal(A - B - C)
@@ -75,7 +74,6 @@ test_that("graph_from_literal() and simple undirected graphs", {
 })
 
 test_that("graph_from_literal() and undirected explosion", {
-  local_igraph_options(print.id = FALSE)
   expect_snapshot({
     graph_from_literal(A:B:C - D:E, B:D - C:E)
     graph_from_literal(A:B:C - D:E - F:G:H - I - J:K:L:M)
@@ -83,7 +81,6 @@ test_that("graph_from_literal() and undirected explosion", {
 })
 
 test_that("graph_from_literal() and simple directed graphs", {
-  local_igraph_options(print.id = FALSE)
   expect_snapshot({
     graph_from_literal(A -+ B)
     graph_from_literal(A -+ B -+ C)
@@ -93,7 +90,6 @@ test_that("graph_from_literal() and simple directed graphs", {
 })
 
 test_that("graph_from_literal() and directed explosion", {
-  local_igraph_options(print.id = FALSE)
   expect_snapshot({
     graph_from_literal(A:B:C -+ D:E, B:D +- C:E)
     graph_from_literal(A:B:C -+ D:E +- F:G:H -+ I +- J:K:L:M)
@@ -101,7 +97,6 @@ test_that("graph_from_literal() and directed explosion", {
 })
 
 test_that("graph_from_literal(simplify = FALSE)", {
-  local_igraph_options(print.id = FALSE)
   expect_snapshot({
     graph_from_literal(1 - 1, 1 - 2, 1 - 2)
     graph_from_literal(1 - 1, 1 - 2, 1 - 2, simplify = FALSE)
@@ -393,7 +388,7 @@ test_that("make_bipartite_graph works", {
 
 test_that("make_bipartite_graph works with vertex names", {
   types <- c(0, 1, 0, 1, 0, 1)
-  names(types) <- LETTERS[1:length(types)]
+  names(types) <- LETTERS[seq_along(types)]
   edges <- c("A", "B", "C", "D", "E", "F", "A", "D", "D", "E", "B", "C", "C", "F")
   bip_grap <- make_bipartite_graph(types, edges)
 

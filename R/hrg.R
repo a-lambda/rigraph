@@ -16,7 +16,7 @@ hrg.predict <- function(
   num.bins = 25
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.predict()", "predict_edges()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.predict()", "predict_edges()")
   predict_edges(
     graph = graph,
     hrg = hrg,
@@ -38,7 +38,7 @@ hrg.predict <- function(
 #' @export
 hrg.fit <- function(graph, hrg = NULL, start = FALSE, steps = 0) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.fit()", "fit_hrg()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.fit()", "fit_hrg()")
   fit_hrg(graph = graph, hrg = hrg, start = start, steps = steps)
 } # nocov end
 
@@ -54,7 +54,7 @@ hrg.fit <- function(graph, hrg = NULL, start = FALSE, steps = 0) {
 #' @export
 hrg.game <- function(hrg) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.game()", "sample_hrg()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.game()", "sample_hrg()")
   sample_hrg(hrg = hrg)
 } # nocov end
 
@@ -70,7 +70,7 @@ hrg.game <- function(hrg) {
 #' @export
 hrg.dendrogram <- function(hrg) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.dendrogram()", "hrg_tree()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.dendrogram()", "hrg_tree()")
   hrg_tree(hrg = hrg)
 } # nocov end
 
@@ -86,7 +86,7 @@ hrg.dendrogram <- function(hrg) {
 #' @export
 hrg.create <- function(graph, prob) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.create()", "hrg()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.create()", "hrg()")
   hrg(graph = graph, prob = prob)
 } # nocov end
 
@@ -107,7 +107,7 @@ hrg.consensus <- function(
   num.samples = 10000
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "hrg.consensus()", "consensus_tree()")
+  lifecycle::deprecate_warn("2.0.0", "hrg.consensus()", "consensus_tree()")
   consensus_tree(
     graph = graph,
     hrg = hrg,
@@ -291,10 +291,10 @@ fit_hrg <- function(graph, hrg = NULL, start = FALSE, steps = 0) {
 #'   following members:
 #'   \describe{
 #'     \item{parents}{
-#'       For each vertex, the id of its parent vertex is stored,
+#'       For each vertex, the ID of its parent vertex is stored,
 #'       or zero, if the vertex is the root vertex in the tree.
-#'       The first n vertex ids (from 0) refer to the original vertices of the graph,
-#'       the other ids refer to vertex groups.
+#'       The first n vertex IDs (from 0) refer to the original vertices of the graph,
+#'       the other IDs refer to vertex groups.
 #'     }
 #'     \item{weights}{
 #'       Numeric vector, counts the number of times a given tree split
@@ -328,7 +328,7 @@ consensus_tree <- function(
 #'
 #' @param graph The igraph graph to create the HRG from.
 #' @param prob A vector of probabilities, one for each vertex, in the order of
-#'   vertex ids.
+#'   vertex IDs.
 #' @return `hrg()` returns an `igraphHRG` object.
 #'
 #' @family hierarchical random graph functions
@@ -412,7 +412,7 @@ sample_hrg <- function(hrg) {
 #' @return A list with entries:
 #'   \describe{
 #'     \item{edges}{
-#'       The predicted edges, in a two-column matrix of vertex ids.
+#'       The predicted edges, in a two-column matrix of vertex IDs.
 #'     }
 #'     \item{prob}{
 #'       Probabilities of these edges, according to the fitted model.
@@ -549,6 +549,7 @@ buildMerges <- function(object) {
 }
 
 #' @method as.dendrogram igraphHRG
+#' @export
 as.dendrogram.igraphHRG <- function(object, hang = 0.01, ...) {
   nMerge <- length(object$left)
   merges <- buildMerges(object)
@@ -562,16 +563,19 @@ as.dendrogram.igraphHRG <- function(object, hang = 0.01, ...) {
     r
   }
 
-  oHgt <- 1:nrow(merges)
+  oHgt <- seq_len(nrow(merges))
   hMax <- oHgt[length(oHgt)]
   mynames <- if (is.null(object$names)) 1:(nMerge + 1) else object$names
   z <- list()
 
   for (k in 1:nMerge) {
     x <- merges[k, 1:2]
-    if (any(neg <- x >= 0)) {
+    neg <- (x >= 0)
+
+    if (any(neg)) {
       h0 <- if (hang < 0) 0 else max(0, oHgt[k] - hang * hMax)
     }
+
     if (all(neg)) {
       # two leaves
       zk <- as.list(x + 1)
@@ -607,7 +611,8 @@ as.dendrogram.igraphHRG <- function(object, hang = 0.01, ...) {
         2
     }
     attr(zk, "height") <- oHgt[k]
-    z[[k <- paste0("g", -merges[k, 3])]] <- zk
+    k <- paste0("g", -merges[k, 3])
+    z[[k]] <- zk
   }
   z <- z[[k]]
   class(z) <- "dendrogram"
@@ -634,7 +639,7 @@ as.hclust.igraphHRG <- function(x, ...) {
   ## the left node.
   map2 <- numeric(nrow(merge))
   mergeInto <- merge
-  for (i in 1:nrow(merge)) {
+  for (i in seq_len(nrow(merge))) {
     mr <- mergeInto[i, ]
     mr[mr > 0] <- -map2[mr[mr > 0]]
     mergeInto[i, ] <- -mr
@@ -650,7 +655,7 @@ as.hclust.igraphHRG <- function(x, ...) {
   mynames <- if (is.null(x$names)) 1:n else x$names
   res <- list(
     merge = merge,
-    height = 1:nrow(merge),
+    height = seq_len(nrow(merge)),
     order = order,
     labels = mynames,
     method = NA_character_,
@@ -785,7 +790,7 @@ hrgPlotHclust <- function(
   x,
   rect = 0,
   colbar = rainbow(rect),
-  hang = .01,
+  hang = 0.01,
   ann = FALSE,
   main = "",
   sub = "",
@@ -819,7 +824,7 @@ hrgPlotDendrogram <- function(x, ...) {
 #' @importFrom grDevices rainbow
 hrgPlotPhylo <- function(
   x,
-  colbar = rainbow(11, start = .7, end = .1),
+  colbar = rainbow(11, start = 0.7, end = 0.1),
   edge.color = NULL,
   use.edge.length = FALSE,
   ...

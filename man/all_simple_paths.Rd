@@ -32,7 +32,7 @@ no cutoff is used.}
 \value{
 A list of integer vectors, each integer vector is a path from
 the source vertex to one of the target vertices. A path is given by its
-vertex ids.
+vertex IDs.
 }
 \description{
 This function lists all simple paths from one source vertex to another
@@ -57,12 +57,12 @@ all_simple_paths(g, 1, c(3, 5))
 
 }
 \seealso{
-Other paths: 
-\code{\link{diameter}()},
-\code{\link{distance_table}()},
-\code{\link{eccentricity}()},
-\code{\link{graph_center}()},
-\code{\link{radius}()}
+Other paths:
+\code{\link[=diameter]{diameter()}},
+\code{\link[=distance_table]{distance_table()}},
+\code{\link[=eccentricity]{eccentricity()}},
+\code{\link[=graph_center]{graph_center()}},
+\code{\link[=radius]{radius()}}
 }
 \concept{paths}
 \keyword{graphs}

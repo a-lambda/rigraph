@@ -20,7 +20,7 @@ get.shortest.paths <- function(
   algorithm = c("automatic", "unweighted", "dijkstra", "bellman-ford")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.shortest.paths()", "shortest_paths()")
+  lifecycle::deprecate_warn("2.0.0", "get.shortest.paths()", "shortest_paths()")
   shortest_paths(
     graph = graph,
     from = from,
@@ -52,7 +52,7 @@ get.all.shortest.paths <- function(
   weights = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "get.all.shortest.paths()",
     "all_shortest_paths()"
@@ -83,7 +83,7 @@ get.diameter <- function(
   weights = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "get.diameter()", "get_diameter()")
+  lifecycle::deprecate_warn("2.0.0", "get.diameter()", "get_diameter()")
   get_diameter(
     graph = graph,
     directed = directed,
@@ -104,7 +104,7 @@ get.diameter <- function(
 #' @export
 unfold.tree <- function(graph, mode = c("all", "out", "in", "total"), roots) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "unfold.tree()", "unfold_tree()")
+  lifecycle::deprecate_warn("2.0.0", "unfold.tree()", "unfold_tree()")
   unfold_tree(graph = graph, mode = mode, roots = roots)
 } # nocov end
 
@@ -120,7 +120,7 @@ unfold.tree <- function(graph, mode = c("all", "out", "in", "total"), roots) {
 #' @export
 topological.sort <- function(graph, mode = c("out", "all", "in")) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "topological.sort()", "topo_sort()")
+  lifecycle::deprecate_warn("2.0.0", "topological.sort()", "topo_sort()")
   topo_sort(graph = graph, mode = mode)
 } # nocov end
 
@@ -149,7 +149,7 @@ shortest.paths <- function(
   )
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "shortest.paths()", "distances()")
+  lifecycle::deprecate_warn("2.0.0", "shortest.paths()", "distances()")
   algorithm <- igraph_match_arg(algorithm)
   mode <- igraph_match_arg(mode)
   distances(
@@ -180,7 +180,7 @@ neighborhood.size <- function(
   mindist = 0
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "neighborhood.size()", "ego_size()")
+  lifecycle::deprecate_warn("2.0.0", "neighborhood.size()", "ego_size()")
   ego_size(
     graph = graph,
     order = order,
@@ -207,7 +207,7 @@ maximum.bipartite.matching <- function(
   eps = .Machine$double.eps
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "maximum.bipartite.matching()",
     "max_bipartite_match()"
@@ -232,7 +232,7 @@ maximum.bipartite.matching <- function(
 #' @export
 is.mutual <- function(graph, eids = E(graph), loops = TRUE) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.mutual()", "which_mutual()")
+  lifecycle::deprecate_warn("2.0.0", "is.mutual()", "which_mutual()")
   which_mutual(graph = graph, eids = eids, loops = loops)
 } # nocov end
 
@@ -248,7 +248,7 @@ is.mutual <- function(graph, eids = E(graph), loops = TRUE) {
 #' @export
 is.multiple <- function(graph, eids = E(graph)) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.multiple()", "which_multiple()")
+  lifecycle::deprecate_warn("2.0.0", "is.multiple()", "which_multiple()")
   which_multiple(graph = graph, eids = eids)
 } # nocov end
 
@@ -264,7 +264,7 @@ is.multiple <- function(graph, eids = E(graph)) {
 #' @export
 is.maximal.matching <- function(graph, matching, types = NULL) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "is.maximal.matching()",
     "is_max_matching()"
@@ -284,7 +284,7 @@ is.maximal.matching <- function(graph, matching, types = NULL) {
 #' @export
 is.matching <- function(graph, matching, types = NULL) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.matching()", "is_matching()")
+  lifecycle::deprecate_warn("2.0.0", "is.matching()", "is_matching()")
   is_matching(graph = graph, matching = matching, types = types)
 } # nocov end
 
@@ -300,7 +300,7 @@ is.matching <- function(graph, matching, types = NULL) {
 #' @export
 is.loop <- function(graph, eids = E(graph)) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.loop()", "which_loop()")
+  lifecycle::deprecate_warn("2.0.0", "is.loop()", "which_loop()")
   which_loop(graph = graph, eids = eids)
 } # nocov end
 
@@ -316,7 +316,7 @@ is.loop <- function(graph, eids = E(graph)) {
 #' @export
 is.connected <- function(graph, mode = c("weak", "strong")) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.connected()", "is_connected()")
+  lifecycle::deprecate_warn("2.0.0", "is.connected()", "is_connected()")
   is_connected(graph = graph, mode = mode)
 } # nocov end
 
@@ -336,7 +336,7 @@ induced.subgraph <- function(
   impl = c("auto", "copy_and_delete", "create_from_scratch")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "induced.subgraph()", "induced_subgraph()")
+  lifecycle::deprecate_warn("2.0.0", "induced.subgraph()", "induced_subgraph()")
   induced_subgraph(graph = graph, vids = vids, impl = impl)
 } # nocov end
 
@@ -352,7 +352,7 @@ induced.subgraph <- function(
 #' @export
 has.multiple <- function(graph) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "has.multiple()", "any_multiple()")
+  lifecycle::deprecate_warn("2.0.0", "has.multiple()", "any_multiple()")
   any_multiple(graph = graph)
 } # nocov end
 
@@ -374,7 +374,7 @@ graph.neighborhood <- function(
   mindist = 0
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.neighborhood()", "make_ego_graph()")
+  lifecycle::deprecate_warn("2.0.0", "graph.neighborhood()", "make_ego_graph()")
   make_ego_graph(
     graph = graph,
     order = order,
@@ -401,7 +401,7 @@ graph.laplacian <- function(
   sparse = igraph_opt("sparsematrices")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.laplacian()", "laplacian_matrix()")
+  lifecycle::deprecate_warn("2.0.0", "graph.laplacian()", "laplacian_matrix()")
   laplacian_matrix(
     graph = graph,
     normalized = normalized,
@@ -428,7 +428,7 @@ graph.knn <- function(
   weights = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.knn()", "knn()")
+  lifecycle::deprecate_warn("2.0.0", "graph.knn()", "knn()")
   knn(
     graph = graph,
     vids = vids,
@@ -465,7 +465,7 @@ graph.dfs <- function(
   neimode
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.dfs()", "dfs()")
+  lifecycle::deprecate_warn("2.0.0", "graph.dfs()", "dfs()")
   dfs(
     graph = graph,
     root = root,
@@ -495,7 +495,7 @@ graph.dfs <- function(
 #' @export
 graph.density <- function(graph, loops = FALSE) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.density()", "edge_density()")
+  lifecycle::deprecate_warn("2.0.0", "graph.density()", "edge_density()")
   edge_density(graph = graph, loops = loops)
 } # nocov end
 
@@ -511,7 +511,7 @@ graph.density <- function(graph, loops = FALSE) {
 #' @export
 graph.coreness <- function(graph, mode = c("all", "out", "in")) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.coreness()", "coreness()")
+  lifecycle::deprecate_warn("2.0.0", "graph.coreness()", "coreness()")
   coreness(graph = graph, mode = mode)
 } # nocov end
 
@@ -544,7 +544,7 @@ graph.bfs <- function(
   neimode
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.bfs()", "bfs()")
+  lifecycle::deprecate_warn("2.0.0", "graph.bfs()", "bfs()")
   bfs(
     graph = graph,
     root = root,
@@ -581,7 +581,7 @@ farthest.nodes <- function(
   weights = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "farthest.nodes()", "farthest_vertices()")
+  lifecycle::deprecate_warn("2.0.0", "farthest.nodes()", "farthest_vertices()")
   farthest_vertices(
     graph = graph,
     directed = directed,
@@ -602,7 +602,7 @@ farthest.nodes <- function(
 #' @export
 degree.distribution <- function(graph, cumulative = FALSE, ...) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "degree.distribution()",
     "degree_distribution()"
@@ -622,7 +622,7 @@ degree.distribution <- function(graph, cumulative = FALSE, ...) {
 #' @export
 count.multiple <- function(graph, eids = E(graph)) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "count.multiple()", "count_multiple()")
+  lifecycle::deprecate_warn("2.0.0", "count.multiple()", "count_multiple()")
   count_multiple(graph = graph, eids = eids)
 } # nocov end
 
@@ -638,7 +638,7 @@ count.multiple <- function(graph, eids = E(graph)) {
 #' @export
 clusters <- function(graph, mode = c("weak", "strong")) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "clusters()", "components()")
+  lifecycle::deprecate_warn("2.0.0", "clusters()", "components()")
   components(graph = graph, mode = mode)
 } # nocov end
 
@@ -660,7 +660,7 @@ average.path.length <- function(
   details = FALSE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "average.path.length()", "mean_distance()")
+  lifecycle::deprecate_warn("2.0.0", "average.path.length()", "mean_distance()")
   mean_distance(
     graph = graph,
     weights = weights,
@@ -704,7 +704,7 @@ average.path.length <- function(
 #' many shortest paths of the length of the diameter, then it returns the first
 #' one found.
 #'
-#' `farthest_vertices()` returns two vertex ids, the vertices which are
+#' `farthest_vertices()` returns two vertex IDs, the vertices which are
 #' connected by the diameter path.
 #'
 #' @param graph The graph to analyze.
@@ -761,7 +761,7 @@ diameter <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -790,7 +790,7 @@ get_diameter <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -826,7 +826,7 @@ farthest_vertices <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -874,7 +874,7 @@ mean_distance <- function(
 #'
 #'
 #' @param graph The graph to analyze.
-#' @param v The ids of vertices of which the degree will be calculated.
+#' @param v The IDs of vertices of which the degree will be calculated.
 #' @param mode Character string, \dQuote{out} for out-degree, \dQuote{in} for
 #'   in-degree or \dQuote{total} for the sum of the two. For undirected graphs
 #'   this argument is ignored. \dQuote{all} is a synonym of \dQuote{total}.
@@ -1084,7 +1084,7 @@ degree_distribution <- function(graph, cumulative = FALSE, ...) {
 #'
 #'   For `shortest_paths()` a named list with four entries is returned:
 #'   \item{vpath}{This itself is a list, of length `length(to)`; list
-#'   element `i` contains the vertex ids on the path from vertex `from`
+#'   element `i` contains the vertex IDs on the path from vertex `from`
 #'   to vertex `to[i]` (or the other way for directed graphs depending on
 #'   the `mode` argument). The vector also contains `from` and `i`
 #'   as the first and last elements. If `from` is the same as `i` then
@@ -1092,8 +1092,8 @@ degree_distribution <- function(graph, cumulative = FALSE, ...) {
 #'   numeric vector of length zero is returned as the list element. If this
 #'   output is not requested in the `output` argument, then it will be
 #'   `NULL`.} \item{epath}{This is a list similar to `vpath`, but the
-#'   vectors of the list contain the edge ids along the shortest paths, instead
-#'   of the vertex ids. This entry is set to `NULL` if it is not requested
+#'   vectors of the list contain the edge IDs along the shortest paths, instead
+#'   of the vertex IDs. This entry is set to `NULL` if it is not requested
 #'   in the `output` argument.} \item{predecessors}{Numeric vector, the
 #'   predecessor of each vertex in the `to` argument, or `NULL` if it
 #'   was not requested.} \item{inbound_edges}{Numeric vector, the inbound edge
@@ -1108,7 +1108,7 @@ degree_distribution <- function(graph, cumulative = FALSE, ...) {
 #'     }
 #'     \item{epaths}{
 #'       This is a list similar to vpaths, but the vectors of the list
-#'       contain the edge ids along the shortest paths, instead of the vertex ids.
+#'       contain the edge IDs along the shortest paths, instead of the vertex IDs.
 #'     }
 #'     \item{nrgeo}{
 #'       A vector in which each element is the number of shortest paths (geodesics)
@@ -1261,7 +1261,7 @@ distances <- function(
 
 #' @rdname distances
 #' @param from Numeric constant, the vertex from or to the shortest paths will
-#'   be calculated. Note that right now this is not a vector of vertex ids, but
+#'   be calculated. Note that right now this is not a vector of vertex IDs, but
 #'   only a single vertex.
 #' @param output Character scalar, defines how to report the shortest paths.
 #'   \dQuote{vpath} means that the vertices along the paths are reported, this
@@ -1504,7 +1504,7 @@ k_shortest_paths <- function(
 #'   are listed. If \dQuote{out} all vertices reachable from `v` are
 #'   returned. If \dQuote{all} returns the union of these. It is ignored for
 #'   undirected graphs.
-#' @return Numeric vector, the ids of the vertices in the same component as
+#' @return Numeric vector, the IDs of the vertices in the same component as
 #'   `v`.
 #' @author Gabor Csardi \email{csardi.gabor@@gmail.com}
 #' @seealso [components()]
@@ -1606,7 +1606,7 @@ induced_subgraph <- function(
 }
 
 #' @rdname subgraph
-#' @param eids The edge ids of the edges that will be kept in the result graph.
+#' @param eids The edge IDs of the edges that will be kept in the result graph.
 #' @param delete.vertices Logical scalar, whether to remove vertices that do
 #'   not have any adjacent edges in `eids`.
 #' @export
@@ -1639,7 +1639,7 @@ subgraph_from_edges <- function(graph, eids, delete.vertices = TRUE) {
 #' @export
 subgraph.edges <- function(graph, eids, delete.vertices = TRUE) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.1.0",
     "subgraph.edges()",
     "subgraph_from_edges()"
@@ -1710,7 +1710,7 @@ subgraph.edges <- function(graph, eids, delete.vertices = TRUE) {
 #'       The same as `barrat`.
 #'     }
 #'   }
-#' @param vids The vertex ids for the local transitivity will be calculated.
+#' @param vids The vertex IDs for the local transitivity will be calculated.
 #'   This will be ignored for global transitivity types.  The default value is
 #'   `NULL`, in this case all vertices are considered. It is slightly faster
 #'   to supply `NULL` here than `V(graph)`.
@@ -1802,7 +1802,7 @@ transitivity <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2415,7 +2415,7 @@ feedback_vertex_set <- function(graph, weights = NULL, algo = c("exact_ip")) {
 #'       Integer constant, the girth of the graph, or `Inf` if the graph is acyclic.
 #'     }
 #'     \item{circle}{
-#'       Numeric vector with the vertex ids in the shortest circle.
+#'       Numeric vector with the vertex IDs in the shortest circle.
 #'     }
 #'   }
 #' @author Gabor Csardi \email{csardi.gabor@@gmail.com}
@@ -2596,7 +2596,10 @@ count_loops <- function(graph) {
 #'
 #' @param graph The input graph.
 #' @param root Numeric vector, usually of length one. The root vertex, or root
-#'   vertices to start the search from.
+#'   vertices to start the search from. When several roots are given, they are
+#'   considered in the order they appear. If a root vertex was already reached
+#'   while searching from an earlier root, no separate search is started from
+#'   it, so it keeps the distance it was first found at rather than `0`.
 #' @param mode For directed graphs specifies the type of edges to follow.
 #'   \sQuote{out} follows outgoing, \sQuote{in} incoming edges. \sQuote{all}
 #'   ignores edge directions completely. \sQuote{total} is a synonym for
@@ -2606,7 +2609,7 @@ count_loops <- function(graph) {
 #'   `TRUE`, then additional searches are performed until all vertices are
 #'   visited.
 #' @param restricted `NULL` (=no restriction), or a vector of vertices
-#'   (ids or symbolic names). In the latter case, the search is restricted to the
+#'   (IDs or symbolic names). In the latter case, the search is restricted to the
 #'   given vertices.
 #' @param order Logical scalar, whether to return the ordering of the vertices.
 #' @param rank Logical scalar, whether to return the rank of the vertices.
@@ -2629,29 +2632,38 @@ count_loops <- function(graph) {
 #' @return A named list with the following entries:
 #'   \describe{
 #'     \item{root}{
-#'       Numeric scalar. The root vertex that was used as the starting point of the search.
+#'       Numeric vector. The root vertex (or vertices) that was used as the
+#'       starting point of the search, as supplied in the `root` argument.
 #'     }
 #'     \item{neimode}{
 #'       Character scalar. The `mode` argument of the function call.
 #'       Note that for undirected graphs this is always \sQuote{all}, irrespectively of the supplied value.
 #'     }
 #'     \item{order}{
-#'       Numeric vector. The vertex ids, in the order in which they were visited by the search.
+#'       The vertex IDs, in the order in which they were visited by the search.
+#'       A vertex sequence (`igraph.vs`), or a numeric vector if the
+#'       `return.vs.es` option (see [igraph_options()]) is `FALSE`.
 #'     }
 #'     \item{rank}{
 #'       Numeric vector. The rank for each vertex, zero for unreachable vertices.
 #'     }
 #'     \item{parent}{
-#'       Numeric vector. The parent of each vertex, i.e. the vertex it was discovered from.
+#'       The parent of each vertex, i.e. the vertex it was discovered from.
+#'       A vertex sequence (`igraph.vs`), or a numeric vector if the
+#'       `return.vs.es` option is `FALSE`.
 #'     }
 #'     \item{father}{
 #'       Like parent, kept for compatibility for now.
 #'     }
 #'     \item{pred}{
-#'       Numeric vector. The previously visited vertex for each vertex, or 0 if there was no such vertex.
+#'       The previously visited vertex for each vertex, or 0 if there was no such vertex.
+#'       A vertex sequence (`igraph.vs`), or a numeric vector if the
+#'       `return.vs.es` option is `FALSE`.
 #'     }
 #'     \item{succ}{
-#'       Numeric vector. The next vertex that was visited after the current one, or 0 if there was no such vertex.
+#'       The next vertex that was visited after the current one, or 0 if there was no such vertex.
+#'       A vertex sequence (`igraph.vs`), or a numeric vector if the
+#'       `return.vs.es` option is `FALSE`.
 #'     }
 #'     \item{dist}{
 #'       Numeric vector, for each vertex its distance from the root of the search tree.
@@ -2725,10 +2737,7 @@ bfs <- function(
   }
 
   if (lifecycle::is_present(father)) {
-    lifecycle::deprecate_warn("2.2.0", "bfs(father = )", "bfs(parent = )")
-    if (missing(parent)) {
-      parent <- father
-    }
+    lifecycle::deprecate_stop("2.2.0", "bfs(father = )", "bfs(parent = )")
   }
 
   if (length(root) == 1) {
@@ -2738,6 +2747,10 @@ bfs <- function(
     roots <- as_igraph_vs(graph, root) - 1
     root <- 0 # ignored anyway
   }
+  # Keep a copy of the requested root vertices (1-based) so that the result
+  # can report all of them; the C code only returns the scalar `root`, which
+  # is meaningless when multiple roots are supplied.
+  requested_roots <- if (is.null(roots)) root + 1 else roots + 1
   mode <- switch(
     igraph_match_arg(mode),
     "out" = 1,
@@ -2772,6 +2785,12 @@ bfs <- function(
     extra,
     rho
   )
+
+  # The C implementation only returns the scalar `root` it was passed, which is
+  # always 0 (reported as 1) when multiple roots are supplied. Report all of the
+  # requested root vertices instead. See
+  # https://github.com/igraph/rigraph/issues/1639
+  res$root <- requested_roots
 
   # Remove in 1.4.0
   res$neimode <- res$mode
@@ -2897,10 +2916,10 @@ bfs <- function(
 #'       Note that for undirected graphs this is always \sQuote{all}, irrespectively of the supplied value.
 #'     }
 #'     \item{order}{
-#'       Numeric vector. The vertex ids, in the order in which they were visited by the search.
+#'       Numeric vector. The vertex IDs, in the order in which they were visited by the search.
 #'     }
 #'     \item{order.out}{
-#'       Numeric vector, the vertex ids, in the order of the completion of their subtree.
+#'       Numeric vector, the vertex IDs, in the order of the completion of their subtree.
 #'     }
 #'     \item{parent}{
 #'       Numeric vector. The parent of each vertex, i.e. the vertex it was discovered from.
@@ -2987,10 +3006,7 @@ dfs <- function(
   }
 
   if (lifecycle::is_present(father)) {
-    lifecycle::deprecate_warn("2.2.0", "dfs(father = )", "dfs(parent = )")
-    if (missing(parent)) {
-      parent <- father
-    }
+    lifecycle::deprecate_stop("2.2.0", "dfs(father = )", "dfs(parent = )")
   }
 
   root <- as_igraph_vs(graph, root) - 1
@@ -3103,7 +3119,7 @@ dfs <- function(
 #'   For `components()` a named list with three components:
 #'   \describe{
 #'     \item{membership}{
-#'       numeric vector giving the cluster id to which each vertex belongs.
+#'       numeric vector giving the cluster ID to which each vertex belongs.
 #'     }
 #'     \item{csize}{
 #'       numeric vector giving the sizes of the clusters.
@@ -3336,7 +3352,7 @@ laplacian_matrix <- function(
 ) {
   # Argument checks
   if (lifecycle::is_present(normalized)) {
-    lifecycle::deprecate_soft(
+    lifecycle::deprecate_warn(
       "2.0.3",
       "make_lattice(normalized = 'provide normalization instead')",
       details = c(
@@ -3358,7 +3374,7 @@ laplacian_matrix <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -3457,7 +3473,7 @@ laplacian_matrix <- function(
 #'     }
 #'     \item{matching}{
 #'       The matching itself.
-#'       Numeric vertex id, or vertex names if the graph was named.
+#'       Numeric vertex ID, or vertex names if the graph was named.
 #'       Non-matched vertices are denoted by `NA`.
 #'     }
 #'   }
@@ -3560,7 +3576,7 @@ max_bipartite_match <- function(
 #'
 #' @param graph The input graph.
 #' @param eids Edge sequence, the edges that will be probed. By default is
-#'   includes all edges in the order of their ids.
+#'   includes all edges in the order of their IDs.
 #' @param loops Logical, whether to consider directed self-loops to be mutual.
 #' @return A logical vector of the same length as the number of edges supplied.
 #' @author Gabor Csardi \email{csardi.gabor@@gmail.com}

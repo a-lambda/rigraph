@@ -98,7 +98,7 @@ i.e. if there are no edge weights, then the unweighted algorithm will be
 used, regardless of this argument.}
 
 \item{from}{Numeric constant, the vertex from or to the shortest paths will
-be calculated. Note that right now this is not a vector of vertex ids, but
+be calculated. Note that right now this is not a vector of vertex IDs, but
 only a single vertex.}
 
 \item{output}{Character scalar, defines how to report the shortest paths.
@@ -129,7 +129,7 @@ itself is always zero. For unreachable vertices \code{Inf} is included.
 
 For \code{shortest_paths()} a named list with four entries is returned:
 \item{vpath}{This itself is a list, of length \code{length(to)}; list
-element \code{i} contains the vertex ids on the path from vertex \code{from}
+element \code{i} contains the vertex IDs on the path from vertex \code{from}
 to vertex \code{to[i]} (or the other way for directed graphs depending on
 the \code{mode} argument). The vector also contains \code{from} and \code{i}
 as the first and last elements. If \code{from} is the same as \code{i} then
@@ -137,8 +137,8 @@ it is only included once. If there is no path between two vertices then a
 numeric vector of length zero is returned as the list element. If this
 output is not requested in the \code{output} argument, then it will be
 \code{NULL}.} \item{epath}{This is a list similar to \code{vpath}, but the
-vectors of the list contain the edge ids along the shortest paths, instead
-of the vertex ids. This entry is set to \code{NULL} if it is not requested
+vectors of the list contain the edge IDs along the shortest paths, instead
+of the vertex IDs. This entry is set to \code{NULL} if it is not requested
 in the \code{output} argument.} \item{predecessors}{Numeric vector, the
 predecessor of each vertex in the \code{to} argument, or \code{NULL} if it
 was not requested.} \item{inbound_edges}{Numeric vector, the inbound edge
@@ -153,7 +153,7 @@ The shortest paths to the same vertex are collected into consecutive elements of
 }
 \item{epaths}{
 This is a list similar to vpaths, but the vectors of the list
-contain the edge ids along the shortest paths, instead of the vertex ids.
+contain the edge IDs along the shortest paths, instead of the vertex IDs.
 }
 \item{nrgeo}{
 A vector in which each element is the number of shortest paths (geodesics)
@@ -248,7 +248,7 @@ directions are considered, so every pair of vertices appears twice in the
 histogram.
 }
 \section{Related documentation in the C library}{
-\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_path_length_hist}{\code{path_length_hist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_average_path_length_dijkstra}{\code{average_path_length_dijkstra()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_all_shortest_paths}{\code{get_all_shortest_paths()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_all_shortest_paths_dijkstra}{\code{get_all_shortest_paths_dijkstra()}}
+\href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_path_length_hist}{\code{path_length_hist()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_average_path_length_dijkstra}{\code{average_path_length_dijkstra()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_edges}{\code{edges()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_get_eids}{\code{get_eids()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount}{\code{vcount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_ecount}{\code{ecount()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_is_directed}{\code{is_directed()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_all_shortest_paths_dijkstra}{\code{get_all_shortest_paths_dijkstra()}}, \href{https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_get_all_shortest_paths}{\code{get_all_shortest_paths()}}
 }
 
 \examples{
@@ -293,38 +293,38 @@ West, D.B. (1996). \emph{Introduction to Graph Theory.} Upper
 Saddle River, N.J.: Prentice Hall.
 }
 \seealso{
-Other structural.properties: 
-\code{\link{bfs}()},
-\code{\link{component_distribution}()},
-\code{\link{connect}()},
-\code{\link{constraint}()},
-\code{\link{coreness}()},
-\code{\link{degree}()},
-\code{\link{dfs}()},
-\code{\link{edge_density}()},
-\code{\link{feedback_arc_set}()},
-\code{\link{feedback_vertex_set}()},
-\code{\link{girth}()},
-\code{\link{is_acyclic}()},
-\code{\link{is_dag}()},
-\code{\link{is_matching}()},
-\code{\link{k_shortest_paths}()},
-\code{\link{knn}()},
-\code{\link{reciprocity}()},
-\code{\link{subcomponent}()},
-\code{\link{subgraph}()},
-\code{\link{topo_sort}()},
-\code{\link{transitivity}()},
-\code{\link{unfold_tree}()},
-\code{\link{which_multiple}()},
-\code{\link{which_mutual}()}
+Other structural.properties:
+\code{\link[=bfs]{bfs()}},
+\code{\link[=component_distribution]{component_distribution()}},
+\code{\link[=connect]{connect()}},
+\code{\link[=constraint]{constraint()}},
+\code{\link[=coreness]{coreness()}},
+\code{\link[=degree]{degree()}},
+\code{\link[=dfs]{dfs()}},
+\code{\link[=edge_density]{edge_density()}},
+\code{\link[=feedback_arc_set]{feedback_arc_set()}},
+\code{\link[=feedback_vertex_set]{feedback_vertex_set()}},
+\code{\link[=girth]{girth()}},
+\code{\link[=is_acyclic]{is_acyclic()}},
+\code{\link[=is_dag]{is_dag()}},
+\code{\link[=is_matching]{is_matching()}},
+\code{\link[=k_shortest_paths]{k_shortest_paths()}},
+\code{\link[=knn]{knn()}},
+\code{\link[=reciprocity]{reciprocity()}},
+\code{\link[=subcomponent]{subcomponent()}},
+\code{\link[=subgraph]{subgraph()}},
+\code{\link[=topo_sort]{topo_sort()}},
+\code{\link[=transitivity]{transitivity()}},
+\code{\link[=unfold_tree]{unfold_tree()}},
+\code{\link[=which_multiple]{which_multiple()}},
+\code{\link[=which_mutual]{which_mutual()}}
 
-Other paths: 
-\code{\link{all_simple_paths}()},
-\code{\link{diameter}()},
-\code{\link{eccentricity}()},
-\code{\link{graph_center}()},
-\code{\link{radius}()}
+Other paths:
+\code{\link[=all_simple_paths]{all_simple_paths()}},
+\code{\link[=diameter]{diameter()}},
+\code{\link[=eccentricity]{eccentricity()}},
+\code{\link[=graph_center]{graph_center()}},
+\code{\link[=radius]{radius()}}
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com}

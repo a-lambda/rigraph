@@ -25,7 +25,7 @@ write.graph <- function(
   ...
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "write.graph()", "write_graph()")
+  lifecycle::deprecate_warn("2.0.0", "write.graph()", "write_graph()")
   write_graph(graph = graph, file = file, format = format, ...)
 } # nocov end
 
@@ -55,7 +55,7 @@ read.graph <- function(
   ...
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "read.graph()", "read_graph()")
+  lifecycle::deprecate_warn("2.0.0", "read.graph()", "read_graph()")
   read_graph(file = file, format = format, ...)
 } # nocov end
 
@@ -81,7 +81,7 @@ graph.graphdb <- function(
   directed = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "graph.graphdb()", "graph_from_graphdb()")
+  lifecycle::deprecate_warn("2.0.0", "graph.graphdb()", "graph_from_graphdb()")
   graph_from_graphdb(
     url = url,
     prefix = prefix,
@@ -214,7 +214,7 @@ write.graph.fromraw <- function(buffer, file) {
 #'       then vertex IDs will be assigned to vertex names in the order of
 #'       their appearance in the .ncol file.
 #'       If it is not `character(0)` and some unknown vertex names are found
-#'       in the .ncol file then new vertex ids will be assigned to them.
+#'       in the .ncol file then new vertex IDs will be assigned to them.
 #'     }
 #'     \item{names}{
 #'       Logical value, if `TRUE` (the default)
@@ -415,7 +415,7 @@ read_graph <- function(
 #' @section GML format:
 #' GML is a quite general textual format.
 #' \describe{
-#'   \item{id}{Optional numeric vertex IDs to use.}
+#'   \item{ID}{Optional numeric vertex IDs to use.}
 #'   \item{creator}{Optional string specifying the creator of the file.}
 #' }
 #'

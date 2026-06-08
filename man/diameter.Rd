@@ -51,7 +51,7 @@ The diameter is calculated by using a breadth-first search like method.
 many shortest paths of the length of the diameter, then it returns the first
 one found.
 
-\code{farthest_vertices()} returns two vertex ids, the vertices which are
+\code{farthest_vertices()} returns two vertex IDs, the vertices which are
 connected by the diameter path.
 }
 \section{Related documentation in the C library}{
@@ -78,12 +78,12 @@ get_diameter(g, weights = NA)
 \seealso{
 \code{\link[=distances]{distances()}}
 
-Other paths: 
-\code{\link{all_simple_paths}()},
-\code{\link{distance_table}()},
-\code{\link{eccentricity}()},
-\code{\link{graph_center}()},
-\code{\link{radius}()}
+Other paths:
+\code{\link[=all_simple_paths]{all_simple_paths()}},
+\code{\link[=distance_table]{distance_table()}},
+\code{\link[=eccentricity]{eccentricity()}},
+\code{\link[=graph_center]{graph_center()}},
+\code{\link[=radius]{radius()}}
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com}

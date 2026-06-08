@@ -16,7 +16,7 @@ create.communities <- function(
   modularity = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "create.communities()", "make_clusters()")
+  lifecycle::deprecate_warn("2.0.0", "create.communities()", "make_clusters()")
   make_clusters(
     graph = graph,
     membership = membership,
@@ -45,7 +45,7 @@ walktrap.community <- function(
   membership = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "walktrap.community()",
     "cluster_walktrap()"
@@ -85,7 +85,7 @@ spinglass.community <- function(
   gamma.minus = 1.0
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "spinglass.community()",
     "cluster_spinglass()"
@@ -118,7 +118,7 @@ spinglass.community <- function(
 #' @export
 showtrace <- function(communities) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "showtrace()", "show_trace()")
+  lifecycle::deprecate_warn("2.0.0", "showtrace()", "show_trace()")
   show_trace(communities = communities)
 } # nocov end
 
@@ -134,7 +134,7 @@ showtrace <- function(communities) {
 #' @export
 optimal.community <- function(graph, weights = NULL) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "optimal.community()", "cluster_optimal()")
+  lifecycle::deprecate_warn("2.0.0", "optimal.community()", "cluster_optimal()")
   cluster_optimal(graph = graph, weights = weights)
 } # nocov end
 
@@ -150,7 +150,7 @@ optimal.community <- function(graph, weights = NULL) {
 #' @export
 multilevel.community <- function(graph, weights = NULL, resolution = 1) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "multilevel.community()",
     "cluster_louvain()"
@@ -176,7 +176,7 @@ mod.matrix <- function(
   directed = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "mod.matrix()", "modularity_matrix()")
+  lifecycle::deprecate_warn("2.0.0", "mod.matrix()", "modularity_matrix()")
   modularity_matrix(
     graph = graph,
     membership = membership,
@@ -207,7 +207,7 @@ leading.eigenvector.community <- function(
   env = parent.frame()
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "leading.eigenvector.community()",
     "cluster_leading_eigen()"
@@ -243,7 +243,7 @@ label.propagation.community <- function(
   fixed = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "label.propagation.community()",
     "cluster_label_prop()"
@@ -270,7 +270,7 @@ label.propagation.community <- function(
 #' @export
 is.hierarchical <- function(communities) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "is.hierarchical()", "is_hierarchical()")
+  lifecycle::deprecate_warn("2.0.0", "is.hierarchical()", "is_hierarchical()")
   is_hierarchical(communities = communities)
 } # nocov end
 
@@ -292,7 +292,7 @@ infomap.community <- function(
   modularity = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "infomap.community()", "cluster_infomap()")
+  lifecycle::deprecate_warn("2.0.0", "infomap.community()", "cluster_infomap()")
   cluster_infomap(
     graph = graph,
     e.weights = e.weights,
@@ -320,7 +320,7 @@ fastgreedy.community <- function(
   weights = NULL
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "fastgreedy.community()",
     "cluster_fast_greedy()"
@@ -355,7 +355,7 @@ edge.betweenness.community <- function(
   membership = TRUE
 ) {
   # nocov start
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "2.0.0",
     "edge.betweenness.community()",
     "cluster_edge_betweenness()"
@@ -384,7 +384,7 @@ edge.betweenness.community <- function(
 #' @export
 dendPlot <- function(x, mode = igraph_opt("dend.plot.type"), ...) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "dendPlot()", "plot_dendrogram()")
+  lifecycle::deprecate_warn("2.0.0", "dendPlot()", "plot_dendrogram()")
   plot_dendrogram(x = x, mode = mode, ...)
 } # nocov end
 
@@ -400,7 +400,7 @@ dendPlot <- function(x, mode = igraph_opt("dend.plot.type"), ...) {
 #' @export
 cutat <- function(communities, no, steps) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "cutat()", "cut_at()")
+  lifecycle::deprecate_warn("2.0.0", "cutat()", "cut_at()")
   cut_at(communities = communities, no = no, steps = steps)
 } # nocov end
 
@@ -420,7 +420,7 @@ contract.vertices <- function(
   vertex.attr.comb = igraph_opt("vertex.attr.comb")
 ) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "contract.vertices()", "contract()")
+  lifecycle::deprecate_warn("2.0.0", "contract.vertices()", "contract()")
   contract(
     graph = graph,
     mapping = mapping,
@@ -440,7 +440,7 @@ contract.vertices <- function(
 #' @export
 code.length <- function(communities) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "code.length()", "code_len()")
+  lifecycle::deprecate_warn("2.0.0", "code.length()", "code_len()")
   code_len(communities = communities)
 } # nocov end
 #   IGraph R package
@@ -491,11 +491,11 @@ code.length <- function(communities) {
 #' returns the number of communities.
 #'
 #' The `sizes()` function returns the community sizes, in the order of their
-#' ids.
+#' IDs.
 #'
 #' `membership()` gives the division of the vertices, into communities. It
-#' returns a numeric vector, one value for each vertex, the id of its
-#' community. Community ids start from one. Note that some algorithms calculate
+#' returns a numeric vector, one value for each vertex, the ID of its
+#' community. Community IDs start from one. Note that some algorithms calculate
 #' the complete (or incomplete) hierarchical structure of the communities, and
 #' not just a single partitioning. For these algorithms typically the
 #' membership for the highest modularity value is returned, but see also the
@@ -504,7 +504,7 @@ code.length <- function(communities) {
 #' `communities()` is also the name of a function, that returns a list of
 #' communities, each identified by their vertices. The vertices will have
 #' symbolic names if the `add.vertex.names` igraph option is set, and the
-#' graph itself was named. Otherwise numeric vertex ids are used.
+#' graph itself was named. Otherwise numeric vertex IDs are used.
 #'
 #' `modularity()` gives the modularity score of the partitioning. (See
 #' [modularity.igraph()] for details. For algorithms that do not
@@ -514,7 +514,7 @@ code.length <- function(communities) {
 #' the community structure.
 #'
 #' `crossing()` returns a logical vector, with one value for each edge,
-#' ordered according to the edge ids. The value is `TRUE` iff the edge
+#' ordered according to the edge IDs. The value is `TRUE` iff the edge
 #' connects two different communities, according to the (best) membership
 #' vector, as returned by `membership()`.
 #'
@@ -744,7 +744,7 @@ print.communities <- function(x, ...) {
 #'
 #' @param graph The graph of the community structure.
 #' @param membership The membership vector of the community structure, a
-#'   numeric vector denoting the id of the community for each vertex. It
+#'   numeric vector denoting the ID of the community for each vertex. It
 #'   might be `NULL` for hierarchical community structures.
 #' @param algorithm Character string, the algorithm that generated
 #'   the community structure, it can be arbitrary.
@@ -756,7 +756,7 @@ print.communities <- function(x, ...) {
 #' @return A `communities` object.
 #'   \describe{
 #'     \item{membership}{
-#'       A numeric vector giving the community id for each vertex.
+#'       A numeric vector giving the community ID for each vertex.
 #'     }
 #'     \item{modularity}{
 #'       The modularity score of the partition.
@@ -951,7 +951,7 @@ modularity_matrix <- function(
   ensure_igraph(graph)
 
   if (!missing(membership)) {
-    lifecycle::deprecate_warn(
+    lifecycle::deprecate_stop(
       "2.1.0",
       "modularity_matrix(membership = 'is no longer used')"
     )
@@ -960,7 +960,7 @@ modularity_matrix <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -1090,12 +1090,13 @@ as.dendrogram.communities <- function(
   }
   z <- list()
   if (!use.modularity || is.null(object$modularity)) {
-    object$height <- 1:nrow(merges)
+    object$height <- seq_len(nrow(merges))
   } else {
     object$height <- object$modularity[-1]
     object$height <- cumsum(object$height - min(object$height))
   }
-  nMerge <- length(oHgt <- object$height)
+  oHgt <- object$height
+  nMerge <- length(oHgt)
   if (nMerge != nrow(merges)) {
     cli::cli_abort("'merge' and 'height' do not fit!")
   }
@@ -1105,7 +1106,8 @@ as.dendrogram.communities <- function(
   leafs <- nrow(merges) + 1
   for (k in 1:nMerge) {
     x <- merges[k, ] # no sort() anymore!
-    if (any(neg <- x < leafs + 1)) {
+    neg <- (x < (leafs + 1))
+    if (any(neg)) {
       h0 <- if (hang < 0) 0 else max(0, oHgt[k] - hang * hMax)
     }
     if (all(neg)) {
@@ -1154,7 +1156,8 @@ as.dendrogram.communities <- function(
         2
     }
     attr(zk, "height") <- oHgt[k]
-    z[[k <- format(k + leafs, scientific = FALSE)]] <- zk
+    k <- format(k + leafs, scientific = FALSE)
+    z[[k]] <- zk
   }
   z <- z[[k]]
   class(z) <- "dendrogram"
@@ -1178,7 +1181,7 @@ as.phylo.communities <- function(x, use.modularity = FALSE, ...) {
   merges <- complete.dend(x, use.modularity)
 
   if (!use.modularity || is.null(x$modularity)) {
-    height <- 1:nrow(merges)
+    height <- seq_len(nrow(merges))
   } else {
     height <- x$modularity[-1]
     height <- cumsum(height - min(height))
@@ -1241,15 +1244,44 @@ cut_at <- function(communities, no, steps) {
     cli::cli_abort("Please use either {.arg no} or {.arg steps} (but not both)")
   }
 
+  mm <- merges(communities)
+
+  # The leading eigenvector algorithm uses a different merges format:
+  # merges operate on communities rather than vertices, so we need the
+  # dedicated igraph_le_community_to_membership function.
+  if (isTRUE(communities$algorithm == "leading eigenvector")) {
+    n_initial <- max(communities$membership)
+    if (!missing(steps)) {
+      if (steps > nrow(mm)) {
+        cli::cli_warn("Cannot make that many steps.")
+        steps <- nrow(mm)
+      }
+    } else {
+      min_communities <- n_initial - nrow(mm) # minimum number of communities after all merges
+      if (no > n_initial) {
+        cli::cli_warn("Cannot have that many communities.")
+        no <- n_initial
+      } else if (no < min_communities) {
+        cli::cli_warn("Cannot have that few communities.")
+        no <- min_communities
+      }
+      steps <- n_initial - no
+    }
+    res <- le_community_to_membership_impl(
+      merges = mm - 1L,
+      steps = steps,
+      membership = communities$membership - 1L
+    )
+    return(res$membership + 1L)
+  }
+
   if (!missing(steps)) {
-    mm <- merges(communities)
     if (steps > nrow(mm)) {
       cli::cli_warn("Cannot make that many steps.")
       steps <- nrow(mm)
     }
     community.to.membership2(mm, communities$vcount, steps)
   } else {
-    mm <- merges(communities)
     noc <- communities$vcount - nrow(mm) # final number of communities
     if (no < noc) {
       cli::cli_warn("Cannot have that few communities.")
@@ -1341,7 +1373,7 @@ community.to.membership2 <- function(merges, vcount, steps) {
 #' optimizing the an energy function.
 #'
 #' If the `vertex` argument is given and it is not `NULL`, then it
-#' must be a vertex id, and the same energy function is used to find the
+#' must be a vertex ID, and the same energy function is used to find the
 #' community of the the given vertex. See also the examples below.
 #'
 #' @param graph The input graph. Edge directions are ignored in directed graphs.
@@ -1404,7 +1436,7 @@ community.to.membership2 <- function(merges, vcount, steps) {
 #'   named list is returned with the following components:
 #'   \describe{
 #'     \item{community}{
-#'       Numeric vector giving the ids of the vertices in the same community as `vertex`.
+#'       Numeric vector giving the IDs of the vertices in the same community as `vertex`.
 #'     }
 #'     \item{cohesion}{
 #'       The cohesion score of the result, see references.
@@ -1464,7 +1496,7 @@ cluster_spinglass <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -1636,7 +1668,7 @@ cluster_leiden <- function(
   check_dots_empty()
 
   if (lifecycle::is_present(resolution_parameter)) {
-    lifecycle::deprecate_soft(
+    lifecycle::deprecate_warn(
       "2.1.0",
       "cluster_leiden(resolution_parameter)",
       "cluster_leiden(resolution)"
@@ -1654,21 +1686,21 @@ cluster_leiden <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && !any(is.na(weights))) {
+  if (!is.null(weights) && !anyNA(weights)) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
   }
 
   # Parse initial_membership argument
-  if (!is.null(initial_membership) && !any(is.na(initial_membership))) {
+  if (!is.null(initial_membership) && !anyNA(initial_membership)) {
     initial_membership <- as.numeric(initial_membership)
   } else {
     initial_membership <- NULL
   }
 
   # Parse node weights argument
-  if (!is.null(vertex_weights) && !any(is.na(vertex_weights))) {
+  if (!is.null(vertex_weights) && !anyNA(vertex_weights)) {
     vertex_weights <- as.numeric(vertex_weights)
     if (objective_function == 1) {
       # Using modularity
@@ -1851,7 +1883,7 @@ cluster_walktrap <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && !any(is.na(weights))) {
+  if (!is.null(weights) && !anyNA(weights)) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -1924,7 +1956,7 @@ cluster_walktrap <- function(
 #'   itself is divisive and not agglomerative: it builds the tree from top to
 #'   bottom. There is one line for each merge (i.e. split) in matrix, the first
 #'   line is the first merge (last split). The communities are identified by
-#'   integer number starting from one. Community ids smaller than or equal to
+#'   integer number starting from one. Community IDs smaller than or equal to
 #'   \eqn{N}, the number of vertices in the graph, belong to singleton
 #'   communities, i.e. individual vertices. Before the first merge we have \eqn{N}
 #'   communities numbered from one to \eqn{N}. The first merge, the first line of
@@ -1979,7 +2011,7 @@ cluster_edge_betweenness <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2071,7 +2103,7 @@ cluster_fast_greedy <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2229,7 +2261,7 @@ cluster_leading_eigen <- function(
   env = parent.frame()
 ) {
   if (is.function(options)) {
-    lifecycle::deprecate_soft(
+    lifecycle::deprecate_warn(
       "1.6.0",
       "cluster_leading_eigen(options = 'must be a list')",
       details = c(
@@ -2246,7 +2278,7 @@ cluster_leading_eigen <- function(
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2358,7 +2390,7 @@ cluster_label_prop <- function(
   fixed = NULL
 ) {
   if (...length() > 0) {
-    lifecycle::deprecate_soft(
+    lifecycle::deprecate_warn(
       "1.6.0",
       "cluster_label_prop(... = )",
       details = "Arguments `initial` and `fixed` must be named."
@@ -2491,7 +2523,7 @@ cluster_louvain <- function(graph, weights = NULL, resolution = 1) {
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2583,7 +2615,7 @@ cluster_optimal <- function(graph, weights = NULL) {
   if (is.null(weights) && "weight" %in% edge_attr_names(graph)) {
     weights <- E(graph)$weight
   }
-  if (!is.null(weights) && any(!is.na(weights))) {
+  if (!is.null(weights) && !all(is.na(weights))) {
     weights <- as.numeric(weights)
   } else {
     weights <- NULL
@@ -2915,7 +2947,7 @@ dendPlotPhylo <- function(
 #' @aliases compare.communities compare.membership
 #' @param comm1 A [communities()] object containing a community
 #'   structure; or a numeric vector, the membership vector of the first community
-#'   structure. The membership vector should contain the community id of each
+#'   structure. The membership vector should contain the community ID of each
 #'   vertex, the numbering of the communities starts with one.
 #' @param comm2 A [communities()] object containing a community
 #'   structure; or a numeric vector, the membership vector of the second
@@ -3108,7 +3140,7 @@ split_join_distance <- function(comm1, comm2) {
 #'   below.
 #' @return A named list of numeric or character vectors. The names are just
 #'   numbers that refer to the groups. The vectors themselves are numeric or
-#'   symbolic vertex ids.
+#'   symbolic vertex IDs.
 #' @seealso [components()] and the various community finding
 #' functions.
 #' @examples
@@ -3173,7 +3205,7 @@ communities <- groups.communities
 #'
 #' @param graph The input graph, it can be directed or undirected.
 #' @param mapping A numeric vector that specifies the mapping. Its elements
-#'   correspond to the vertices, and for each element the id in the new graph is
+#'   correspond to the vertices, and for each element the ID in the new graph is
 #'   given.
 #' @param vertex.attr.comb Specifies how to combine the vertex attributes in
 #'   the new graph. Please see [attribute.combination()] for details.
@@ -3236,7 +3268,7 @@ contract <- function(
 #' @return A named list with two components:
 #'   \describe{
 #'     \item{membership}{
-#'       numeric vector giving the cluster id to which each vertex belongs.
+#'       numeric vector giving the cluster ID to which each vertex belongs.
 #'     }
 #'     \item{distances}{
 #'       numeric vector giving the distance of each vertex from its generator

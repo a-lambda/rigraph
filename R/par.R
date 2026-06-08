@@ -10,7 +10,7 @@
 #' @export
 igraph.options <- function(...) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "igraph.options()", "igraph_options()")
+  lifecycle::deprecate_warn("2.0.0", "igraph.options()", "igraph_options()")
   igraph_i_options(...)
 } # nocov end
 
@@ -26,7 +26,7 @@ igraph.options <- function(...) {
 #' @export
 getIgraphOpt <- function(x, default = NULL) {
   # nocov start
-  lifecycle::deprecate_soft("2.0.0", "getIgraphOpt()", "igraph_opt()")
+  lifecycle::deprecate_warn("2.0.0", "getIgraphOpt()", "igraph_opt()")
 
   if (missing(default)) {
     get_config(paste0("igraph::", x), .igraph.pars[[x]])
@@ -71,7 +71,8 @@ getIgraphOpt <- function(x, default = NULL) {
   "annotate.plot" = FALSE,
   "auto.print.lines" = 10,
   "return.vs.es" = TRUE,
-  "print.id" = TRUE
+  "print.id" = TRUE,
+  "print.style" = "cli"
 )
 
 igraph.pars.set.verbose <- function(verbose) {
@@ -156,6 +157,14 @@ igraph.pars.callbacks <- list("verbose" = igraph.pars.set.verbose)
 #'     \item{print.vertex.attributes}{
 #'       Logical constant, whether to print vertex attributes when printing graphs. Defaults to `FALSE`.
 #'     }
+#'     \item{print.style}{
+#'       Character string controlling the visual style used by
+#'       [print.igraph()], [summary.igraph()], [print.igraph.vs()] and
+#'       [print.igraph.es()]. Possible values are `"cli"` (default, a
+#'       cli-styled output with section rules, Unicode arrows for edges and
+#'       typed attribute listings) and `"classic"` (the historical
+#'       `IGRAPH ... DNW-` header relied on by tutorials and parsers).
+#'     }
 #'     \item{return.vs.es}{
 #'       Whether functions that return a set or sequence of vertices/edges
 #'       should return formal vertex/edge sequence objects.
@@ -224,13 +233,18 @@ igraph_i_options <- function(..., .in = parent.frame()) {
   temp <- list(...)
   if (length(temp) == 1 && is.null(names(temp))) {
     arg <- temp[[1]]
-    switch(
-      mode(arg),
-      list = temp <- arg,
-      character = return(.igraph.pars[arg]),
+
+    if (mode(arg) == "character") {
+      return(.igraph.pars[arg])
+    }
+
+    if (mode(arg) != "list") {
       cli::cli_abort("invalid argument: {arg}.")
-    )
+    }
+
+    temp <- arg
   }
+
   if (length(temp) == 0) {
     return(get_all_options())
   }

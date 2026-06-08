@@ -32,7 +32,7 @@ graph), then the multiplicity of the A-B edge in the projection will be 2.}
 
 \item{probe1}{This argument can be used to specify the order of the
 projections in the resulting list. If given, then it is considered as a
-vertex id (or a symbolic vertex name); the projection containing this vertex
+vertex ID (or a symbolic vertex name); the projection containing this vertex
 will be the first one in the result list.  This argument is ignored if only
 one projection is requested in argument \code{which}.}
 
@@ -94,10 +94,10 @@ print(proj2[[2]], g = TRUE, e = TRUE)
 
 }
 \seealso{
-Bipartite graphs
-\code{\link{bipartite_mapping}()},
-\code{\link{is_bipartite}()},
-\code{\link{make_bipartite_graph}()}
+Bipartite graphs:
+\code{\link[=bipartite_mapping]{bipartite_mapping()}},
+\code{\link[=is_bipartite]{is_bipartite()}},
+\code{\link[=make_bipartite_graph]{make_bipartite_graph()}}
 }
 \author{
 Gabor Csardi \email{csardi.gabor@gmail.com}
