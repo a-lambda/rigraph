@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Conversion to igraph — as.igraph"><meta name="description" content="These functions convert various objects to igraph graphs."><meta property="og:description" content="These functions convert various objects to igraph graphs."><meta property="og:image" content="https://r.igraph.org/logo.png"></head><body>
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Conversion to igraph — as.igraph"><meta name="description" content="These functions convert various objects to igraph graphs."><meta property="og:description" content="These functions convert various objects to igraph graphs."><meta property="og:image" content="https://r.igraph.org/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">igraph</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.1.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.2.9013</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@ These objects are created by the <code><a href="fit_hrg.html">fit_hrg()</a></cod
 </ul></div>
     <div class="section level2">
     <h2 id="related-documentation-in-the-c-library">Related documentation in the C library<a class="anchor" aria-label="anchor" href="#related-documentation-in-the-c-library"></a></h2>
-    <p><a href="https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_create" class="external-link"><code>create()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount" class="external-link"><code>vcount()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_famous" class="external-link"><code>famous()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_empty" class="external-link"><code>empty()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify" class="external-link"><code>simplify()</code></a></p>
+    <p><a href="https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_create" class="external-link"><code>create()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_vcount" class="external-link"><code>vcount()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Generators.html#igraph_famous" class="external-link"><code>famous()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Basic.html#igraph_empty" class="external-link"><code>empty()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Operators.html#igraph_simplify" class="external-link"><code>simplify()</code></a>, <a href="https://igraph.org/c/html/0.10.17/igraph-Structural.html#igraph_is_simple" class="external-link"><code>is_simple()</code></a></p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -96,11 +96,18 @@ These objects are created by the <code><a href="fit_hrg.html">fit_hrg()</a></cod
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="make_full_graph.html">make_full_graph</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="make_full_graph.html">make_full_graph</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">hrg</span> <span class="op">&lt;-</span> <span class="fu"><a href="fit_hrg.html">fit_hrg</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">as.igraph</span><span class="op">(</span><span class="va">hrg</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> IGRAPH 2699313 DN-- 19 18 -- Fitted HRG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> + attr: name (g/c), name (v/c), prob (v/n)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> + edges from 2699313 (vertex names):</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] g1-&gt;g6 g2-&gt;8  g3-&gt;g4 g4-&gt;6  g5-&gt;g3 g6-&gt;g7 g7-&gt;1  g8-&gt;2  g9-&gt;4  g1-&gt;g5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] g2-&gt;9  g3-&gt;7  g4-&gt;10 g5-&gt;g2 g6-&gt;3  g7-&gt;g8 g8-&gt;g9 g9-&gt;5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── &lt;igraph&gt; Fitted HRG ────────────────────────────────────────────── 61558ff ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> directed · named</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 19 vertices · 18 edges</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── Attributes ──────────────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> → graph:  <span style="color: #00BB00;">name</span> <span style="color: #0000BB;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> → vertex: <span style="color: #00BB00;">name</span> <span style="color: #0000BB;">&lt;chr&gt;</span>, <span style="color: #00BB00;">prob</span> <span style="color: #0000BB;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── Edges (vertex names) ────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] g1 → g6  g2 → 8   g3 → g4  g4 → 6   g5 → g3  g6 → g7  g7 → 1   g8 → 2  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] g9 → 4   g1 → g5  g2 → 9   g3 → 7   g4 → 10  g5 → g2  g6 → 3   g7 → g8 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] g8 → g9  g9 → 5  </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -67,24 +67,39 @@ Other functions for manipulating graph structure:
 g <- make_ring(10) %>%
   delete_edges(seq(1, 9, by = 2))
 g
-#> IGRAPH 81de616 U--- 10 5 -- Ring graph
-#> + attr: name (g/c), mutual (g/l), circular (g/l)
-#> + edges from 81de616:
-#> [1] 2-- 3 4-- 5 6-- 7 8-- 9 1--10
+#> ── <igraph> Ring graph ────────────────────────────────────────────── c2a4c8d ──
+#> ℹ undirected
+#> ℹ 10 vertices · 5 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mutual <lgl>, circular <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 2 ─ 3   4 ─ 5   6 ─ 7   8 ─ 9   1 ─ 10 
 
 g <- make_ring(10) %>%
   delete_edges("10|1")
 g
-#> IGRAPH edd75e4 U--- 10 9 -- Ring graph
-#> + attr: name (g/c), mutual (g/l), circular (g/l)
-#> + edges from edd75e4:
-#> [1] 1-- 2 2-- 3 3-- 4 4-- 5 5-- 6 6-- 7 7-- 8 8-- 9 9--10
+#> ── <igraph> Ring graph ────────────────────────────────────────────── d6cbc62 ──
+#> ℹ undirected
+#> ℹ 10 vertices · 9 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mutual <lgl>, circular <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 ─ 2   2 ─ 3   3 ─ 4   4 ─ 5   5 ─ 6   6 ─ 7   7 ─ 8   8 ─ 9   9 ─ 10 
 
 g <- make_ring(5)
 g <- delete_edges(g, get_edge_ids(g, c(1, 5, 4, 5)))
 g
-#> IGRAPH 20dd151 U--- 5 3 -- Ring graph
-#> + attr: name (g/c), mutual (g/l), circular (g/l)
-#> + edges from 20dd151:
-#> [1] 1--2 2--3 3--4
+#> ── <igraph> Ring graph ────────────────────────────────────────────── 1ec20d8 ──
+#> ℹ undirected
+#> ℹ 5 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mutual <lgl>, circular <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 ─ 2  2 ─ 3  3 ─ 4 
 ```

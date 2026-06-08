@@ -96,10 +96,15 @@ We can print the graph to get a summary of its nodes and edges:
 g
 ```
 
-    ## IGRAPH 55da8b0 UN-- 10 2 -- 
-    ## + attr: name (v/c)
-    ## + edges from 55da8b0 (vertex names):
-    ## [1] 1--2 1--5
+    ## ── <igraph> ───────────────────────────────────────────────────────── 7ad7f31 ──
+    ## ℹ undirected · named
+    ## ℹ 10 vertices · 2 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → vertex: name <chr>
+    ## 
+    ## ── Edges (vertex names) ────────────────────────────────────────────────────────
+    ## [1] 1 ─ 2  1 ─ 5
 
 This means: **U**ndirected **N**amed graph with **10** vertices and
 **2** edges, with the exact edges listed out. If the graph has a
@@ -118,8 +123,12 @@ edges:
 summary(g)
 ```
 
-    ## IGRAPH 55da8b0 UN-- 10 2 -- 
-    ## + attr: name (v/c)
+    ## ── <igraph> ───────────────────────────────────────────────────────── 7ad7f31 ──
+    ## ℹ undirected · named
+    ## ℹ 10 vertices · 2 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → vertex: name <chr>
 
 The same function
 [`make_graph()`](https://r.igraph.org/reference/make_graph.md) can
@@ -243,17 +252,24 @@ g <- g %>%
 g
 ```
 
-    ## IGRAPH ad8b0ab U--- 40 86 -- Zachary
-    ## + attr: name (g/c)
-    ## + edges from ad8b0ab:
-    ##  [1]  1-- 2  1-- 3  1-- 4  1-- 5  1-- 6  1-- 7  1-- 8  1-- 9  1--11  1--12
-    ## [11]  1--13  1--14  1--18  1--20  1--22  1--32  2-- 3  2-- 4  2-- 8  2--14
-    ## [21]  2--18  2--20  2--22  2--31  3-- 4  3-- 8  3--28  3--29  3--33  3--10
-    ## [31]  3-- 9  3--14  4-- 8  4--13  4--14  5-- 7  5--11  6-- 7  6--11  6--17
-    ## [41]  7--17  9--31  9--33  9--34 10--34 14--34 15--33 15--34 16--33 16--34
-    ## [51] 19--33 19--34 20--34 21--33 21--34 23--33 23--34 24--26 24--28 24--33
-    ## [61] 24--34 24--30 25--26 25--28 25--32 26--32 27--30 27--34 28--34 29--32
-    ## [71] 29--34 30--33 30--34 31--33 31--34 32--33 32--34 33--34  1--35  1--36
+    ## ── <igraph> Zachary ───────────────────────────────────────────────── ab5ae1e ──
+    ## ℹ undirected
+    ## ℹ 40 vertices · 86 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → graph:  name <chr>
+    ## 
+    ## ── Edges ───────────────────────────────────────────────────────────────────────
+    ##  [1] 1 ─ 2    1 ─ 3    1 ─ 4    1 ─ 5    1 ─ 6    1 ─ 7    1 ─ 8    1 ─ 9   
+    ##  [9] 1 ─ 11   1 ─ 12   1 ─ 13   1 ─ 14   1 ─ 18   1 ─ 20   1 ─ 22   1 ─ 32  
+    ## [17] 2 ─ 3    2 ─ 4    2 ─ 8    2 ─ 14   2 ─ 18   2 ─ 20   2 ─ 22   2 ─ 31  
+    ## [25] 3 ─ 4    3 ─ 8    3 ─ 28   3 ─ 29   3 ─ 33   3 ─ 10   3 ─ 9    3 ─ 14  
+    ## [33] 4 ─ 8    4 ─ 13   4 ─ 14   5 ─ 7    5 ─ 11   6 ─ 7    6 ─ 11   6 ─ 17  
+    ## [41] 7 ─ 17   9 ─ 31   9 ─ 33   9 ─ 34   10 ─ 34  14 ─ 34  15 ─ 33  15 ─ 34 
+    ## [49] 16 ─ 33  16 ─ 34  19 ─ 33  19 ─ 34  20 ─ 34  21 ─ 33  21 ─ 34  23 ─ 33 
+    ## [57] 23 ─ 34  24 ─ 26  24 ─ 28  24 ─ 33  24 ─ 34  24 ─ 30  25 ─ 26  25 ─ 28 
+    ## [65] 25 ─ 32  26 ─ 32  27 ─ 30  27 ─ 34  28 ─ 34  29 ─ 32  29 ─ 34  30 ─ 33 
+    ## [73] 30 ─ 34  31 ─ 33  31 ─ 34  32 ─ 33  32 ─ 34  33 ─ 34  1 ─ 35   1 ─ 36  
     ## + ... omitted several edges
 
 We now have an undirected graph with 40 vertices and 86 edges. Vertex
@@ -377,8 +393,12 @@ graph1 <- make_tree(127, 2, mode = "undirected")
 summary(graph1)
 ```
 
-    ## IGRAPH ff682d1 U--- 127 126 -- Tree
-    ## + attr: name (g/c), children (g/n), mode (g/c)
+    ## ── <igraph> Tree ──────────────────────────────────────────────────── f912797 ──
+    ## ℹ undirected
+    ## ℹ 127 vertices · 126 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → graph:  name <chr>, children <dbl>, mode <chr>
 
 This generates a regular tree graph with 127 vertices, each vertex
 having two children. No matter how many times you call
@@ -407,8 +427,12 @@ graph1 <- sample_grg(100, 0.2)
 summary(graph1)
 ```
 
-    ## IGRAPH 3582762 U--- 100 499 -- Geometric random graph
-    ## + attr: name (g/c), radius (g/n), torus (g/l)
+    ## ── <igraph> Geometric random graph ────────────────────────────────── 30d27aa ──
+    ## ℹ undirected
+    ## ℹ 100 vertices · 499 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → graph:  name <chr>, radius <dbl>, torus <lgl>
 
 This generates a geometric random graph: *n* points are chosen randomly
 and uniformly inside the unit square and pairs of points closer to each
@@ -480,8 +504,13 @@ E(g)$is_formal <- c(FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE)
 summary(g)
 ```
 
-    ## IGRAPH 1180b13 UN-- 7 9 -- 
-    ## + attr: name (v/c), age (v/n), gender (v/c), is_formal (e/l)
+    ## ── <igraph> ───────────────────────────────────────────────────────── 03d0f93 ──
+    ## ℹ undirected · named
+    ## ℹ 7 vertices · 9 edges
+    ## 
+    ## ── Attributes ──────────────────────────────────────────────────────────────────
+    ## → vertex: name <chr>, age <dbl>, gender <chr>
+    ## → edge:   is_formal <lgl>
 
 [`V()`](https://r.igraph.org/reference/V.md) and
 [`E()`](https://r.igraph.org/reference/E.md) are the standard way to
@@ -556,7 +585,7 @@ V(g)$name[1:3] <- c("Alejandra", "Bruno", "Carmina")
 V(g)
 ```
 
-    ## + 7/7 vertices, named, from 1180b13:
+    ## ── <vertex sequence> 7/7 · named · from 03d0f93 ────────────────────────────────
     ## [1] Alejandra Bruno     Carmina   Moshe     Nang      Samira    Ibrahim
 
 To delete attributes:
@@ -731,7 +760,7 @@ seq <- V(graph)[2, 3, 7]
 seq
 ```
 
-    ## + 3/10 vertices, from 32fd829:
+    ## ── <vertex sequence> 3/10 · from 0594392 ───────────────────────────────────────
     ## [1] 2 3 7
 
 ``` r
@@ -740,7 +769,7 @@ seq <- seq[1, 3] # filtering an existing vertex set
 seq
 ```
 
-    ## + 2/10 vertices, from 32fd829:
+    ## ── <vertex sequence> 2/10 · from 0594392 ───────────────────────────────────────
     ## [1] 2 7
 
 Selecting a vertex that does not exist results in an error:
@@ -824,8 +853,9 @@ Carmina (who has vertex index 3):
 E(g)[.from(3)]
 ```
 
-    ## + 4/9 edges from 1180b13 (vertex names):
-    ## [1] Alejandra--Carmina Carmina  --Moshe   Carmina  --Nang    Carmina  --Samira
+    ## ── <edge sequence> 4/9 · vertex names · from 03d0f93 ───────────────────────────
+    ## [1] Alejandra ─ Carmina  Carmina ─ Moshe      Carmina ─ Nang      
+    ## [4] Carmina ─ Samira
 
 Of course it also works with vertex names:
 
@@ -834,8 +864,9 @@ Of course it also works with vertex names:
 E(g)[.from("Carmina")]
 ```
 
-    ## + 4/9 edges from 1180b13 (vertex names):
-    ## [1] Alejandra--Carmina Carmina  --Moshe   Carmina  --Nang    Carmina  --Samira
+    ## ── <edge sequence> 4/9 · vertex names · from 03d0f93 ───────────────────────────
+    ## [1] Alejandra ─ Carmina  Carmina ─ Moshe      Carmina ─ Nang      
+    ## [4] Carmina ─ Samira
 
 Using [`.to()`](https://r.igraph.org/reference/inside-square-error.md)
 filters edge sequences based on the target vertices. This is different
@@ -856,8 +887,8 @@ index 3), Nang (vertex index 5) and Samira (vertex index 6):
 E(g)[3:5 %--% 5:6]
 ```
 
-    ## + 3/9 edges from 1180b13 (vertex names):
-    ## [1] Carmina--Nang   Carmina--Samira Nang   --Samira
+    ## ── <edge sequence> 3/9 · vertex names · from 03d0f93 ───────────────────────────
+    ## [1] Carmina ─ Nang    Carmina ─ Samira  Nang ─ Samira
 
 To make the `%--%` operator work with names, you can build string
 vectors containing the names and then use these vectors as operands. For
@@ -891,9 +922,9 @@ women
 E(g)[men %--% women]
 ```
 
-    ## + 5/9 edges from 1180b13 (vertex names):
-    ## [1] Alejandra--Bruno  Alejandra--Moshe  Carmina  --Moshe  Carmina  --Nang  
-    ## [5] Nang     --Samira
+    ## ── <edge sequence> 5/9 · vertex names · from 03d0f93 ───────────────────────────
+    ## [1] Alejandra ─ Bruno  Alejandra ─ Moshe  Carmina ─ Moshe    Carmina ─ Nang    
+    ## [5] Nang ─ Samira
 
 ## Treating a graph as an adjacency matrix
 
@@ -1182,15 +1213,15 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] igraph_2.3.1.9002
+    ## [1] igraph_2.3.2.9013
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] vctrs_0.7.3        cli_3.6.6          knitr_1.51         rlang_1.2.0       
-    ##  [5] xfun_0.57          otel_0.2.0         textshaping_1.0.5  jsonlite_2.0.0    
+    ##  [5] xfun_0.58          otel_0.2.0         textshaping_1.0.5  jsonlite_2.0.0    
     ##  [9] glue_1.8.1         htmltools_0.5.9    ragg_1.5.2         sass_0.4.10       
     ## [13] rmarkdown_2.31     grid_4.6.0         evaluate_1.0.5     jquerylib_0.1.4   
     ## [17] fastmap_1.2.0      yaml_2.3.12        lifecycle_1.0.5    compiler_4.6.0    
     ## [21] fs_2.1.0           htmlwidgets_1.6.4  pkgconfig_2.0.3    lattice_0.22-9    
     ## [25] systemfonts_1.3.2  digest_0.6.39      R6_2.6.1           pillar_1.11.1     
-    ## [29] magrittr_2.0.5     Matrix_1.7-5       bslib_0.10.0       tools_4.6.0       
+    ## [29] magrittr_2.0.5     Matrix_1.7-5       bslib_0.11.0       tools_4.6.0       
     ## [33] pkgdown_2.2.0.9000 cachem_1.1.0       desc_1.4.3

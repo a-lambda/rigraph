@@ -121,15 +121,15 @@ use graph/vertex/edge attributes in general.
 [`igraph_options()`](https://r.igraph.org/reference/igraph_options.md)
 on igraph parameters.
 
-Vertex, edge and graph attributes
+Vertex, edge and graph attributes:
 [`delete_edge_attr()`](https://r.igraph.org/reference/delete_edge_attr.md),
 [`delete_graph_attr()`](https://r.igraph.org/reference/delete_graph_attr.md),
 [`delete_vertex_attr()`](https://r.igraph.org/reference/delete_vertex_attr.md),
 [`edge_attr()`](https://r.igraph.org/reference/edge_attr.md),
-`edge_attr<-()`,
+[`edge_attr<-()`](https://r.igraph.org/reference/edge_attr-set.md),
 [`edge_attr_names()`](https://r.igraph.org/reference/edge_attr_names.md),
 [`graph_attr()`](https://r.igraph.org/reference/graph_attr.md),
-`graph_attr<-()`,
+[`graph_attr<-()`](https://r.igraph.org/reference/graph_attr-set.md),
 [`graph_attr_names()`](https://r.igraph.org/reference/graph_attr_names.md),
 [`igraph-dollar`](https://r.igraph.org/reference/igraph-dollar.md),
 [`igraph-vs-attributes`](https://r.igraph.org/reference/igraph-vs-attributes.md),
@@ -138,7 +138,7 @@ Vertex, edge and graph attributes
 [`set_vertex_attr()`](https://r.igraph.org/reference/set_vertex_attr.md),
 [`set_vertex_attrs()`](https://r.igraph.org/reference/set_vertex_attrs.md),
 [`vertex_attr()`](https://r.igraph.org/reference/vertex_attr.md),
-`vertex_attr<-()`,
+[`vertex_attr<-()`](https://r.igraph.org/reference/vertex_attr-set.md),
 [`vertex_attr_names()`](https://r.igraph.org/reference/vertex_attr_names.md)
 
 ## Author
@@ -159,42 +159,67 @@ igraph_options(print.edge.attributes = TRUE)
 
 ## new attribute is the sum of the old ones
 simplify(g, edge.attr.comb = "sum")
-#> IGRAPH 16c5345 D-W- 4 3 -- 
-#> + attr: weight (e/n)
-#> + edges from 16c5345:
-#> [1] 1->2 2->3 3->4
+#> ── <igraph> ───────────────────────────────────────────────────────── a254c97 ──
+#> ℹ directed · weighted
+#> ℹ 4 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → edge:   weight <dbl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2  2 → 3  3 → 4 
 
 ## collect attributes into a string
 simplify(g, edge.attr.comb = toString)
-#> IGRAPH 249f05c D-W- 4 3 -- 
-#> + attr: weight (e/c)
-#> + edges from 249f05c:
-#> [1] 1->2 2->3 3->4
+#> ── <igraph> ───────────────────────────────────────────────────────── 2e669bb ──
+#> ℹ directed · weighted
+#> ℹ 4 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → edge:   weight <chr>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2  2 → 3  3 → 4 
 
 ## concatenate them into a vector, this creates a complex
 ## attribute
 simplify(g, edge.attr.comb = "concat")
-#> IGRAPH c2a401d D-W- 4 3 -- 
-#> + attr: weight (e/x)
-#> + edges from c2a401d:
-#> [1] 1->2 2->3 3->4
+#> ── <igraph> ───────────────────────────────────────────────────────── dc860fe ──
+#> ℹ directed · weighted
+#> ℹ 4 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → edge:   weight <list>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2  2 → 3  3 → 4 
 
 E(g)$name <- letters[seq_len(ecount(g))]
 
 ## both attributes are collected into strings
 simplify(g, edge.attr.comb = toString)
-#> IGRAPH e121a49 D-W- 4 3 -- 
-#> + attr: weight (e/c), name (e/c)
-#> + edges from e121a49:
-#> [1] 1->2 2->3 3->4
+#> ── <igraph> ───────────────────────────────────────────────────────── 497dbfb ──
+#> ℹ directed · weighted
+#> ℹ 4 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → edge:   weight <chr>, name <chr>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2  2 → 3  3 → 4 
 
 ## harmonic average of weights, names are dropped
 simplify(g, edge.attr.comb = list(
   weight = function(x) length(x) / sum(1 / x),
   name = "ignore"
 ))
-#> IGRAPH 9df1d55 D-W- 4 3 -- 
-#> + attr: weight (e/n)
-#> + edges from 9df1d55:
-#> [1] 1->2 2->3 3->4
+#> ── <igraph> ───────────────────────────────────────────────────────── 839983e ──
+#> ℹ directed · weighted
+#> ℹ 4 vertices · 3 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → edge:   weight <dbl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2  2 → 3  3 → 4 
 ```

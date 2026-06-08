@@ -10,7 +10,7 @@ without_loops()
 
 ## See also
 
-Constructor modifiers (and related functions)
+Constructor modifiers (and related functions):
 [`make_()`](https://r.igraph.org/reference/make_.md),
 [`sample_()`](https://r.igraph.org/reference/sample_.md),
 [`simplified()`](https://r.igraph.org/reference/simplified.md),
@@ -25,13 +25,24 @@ Constructor modifiers (and related functions)
 ``` r
 # An artificial example
 make_(full_graph(5, loops = TRUE))
-#> IGRAPH 9d8bba9 U--- 5 15 -- Full graph
-#> + attr: name (g/c), loops (g/l)
-#> + edges from 9d8bba9:
-#>  [1] 1--1 1--2 1--3 1--4 1--5 2--2 2--3 2--4 2--5 3--3 3--4 3--5 4--4 4--5 5--5
+#> ── <igraph> Full graph ────────────────────────────────────────────── 695bfca ──
+#> ℹ undirected
+#> ℹ 5 vertices · 15 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, loops <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#>  [1] 1 ─ 1  1 ─ 2  1 ─ 3  1 ─ 4  1 ─ 5  2 ─ 2  2 ─ 3  2 ─ 4  2 ─ 5  3 ─ 3 
+#> [11] 3 ─ 4  3 ─ 5  4 ─ 4  4 ─ 5  5 ─ 5 
 make_(full_graph(5, loops = TRUE), without_loops())
-#> IGRAPH 181028c U--- 5 10 -- Full graph
-#> + attr: name (g/c), loops (g/l)
-#> + edges from 181028c:
-#>  [1] 1--2 1--3 1--4 1--5 2--3 2--4 2--5 3--4 3--5 4--5
+#> ── <igraph> Full graph ────────────────────────────────────────────── f10e558 ──
+#> ℹ undirected
+#> ℹ 5 vertices · 10 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, loops <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#>  [1] 1 ─ 2  1 ─ 3  1 ─ 4  1 ─ 5  2 ─ 3  2 ─ 4  2 ─ 5  3 ─ 4  3 ─ 5  4 ─ 5 
 ```

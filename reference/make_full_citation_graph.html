@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Create a complete (full) citation graph — make_full_citation_graph"><meta name="description" content="make_full_citation_graph() creates a full citation graph. This is a
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Create a complete (full) citation graph — make_full_citation_graph"><meta name="description" content="make_full_citation_graph() creates a full citation graph. This is a
 directed graph, where every i-&amp;gt;j edge is present if and only if
 \(j&amp;lt;i\). If directed=FALSE then the graph is just a full graph."><meta property="og:description" content="make_full_citation_graph() creates a full citation graph. This is a
 directed graph, where every i-&amp;gt;j edge is present if and only if
@@ -17,7 +17,7 @@ directed graph, where every i-&amp;gt;j edge is present if and only if
 
     <a class="navbar-brand me-2" href="../index.html">igraph</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.1.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.2.9013</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,16 +110,23 @@ directed graph, where every <code>i-&gt;j</code> edge is present if and only if
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="print.igraph.html">print_all</a></span><span class="op">(</span><span class="fu">make_full_citation_graph</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> IGRAPH fa6554c D--- 10 45 -- Full citation graph</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> + attr: name (g/c)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> + graph attributes:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> | + name:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> |   [1] "Full citation graph"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> + edges:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1 -&gt;                      2 -&gt; 1                    3 -&gt; 1 2              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4 -&gt; 1 2 3                5 -&gt; 1 2 3 4              6 -&gt; 1 2 3 4 5        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7 -&gt; 1 2 3 4 5 6          8 -&gt; 1 2 3 4 5 6 7        9 -&gt; 1 2 3 4 5 6 7 8  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 -&gt; 1 2 3 4 5 6 7 8 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── &lt;igraph&gt; Full citation graph ───────────────────────────────────── e0769bb ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> directed</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 10 vertices · 45 edges</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── Attributes ──────────────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> → graph:  <span style="color: #00BB00;">name</span> <span style="color: #0000BB;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── Graph attributes ────────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">name</span>:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "Full citation graph"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ── Edges ───────────────────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2 → 1   3 → 1   3 → 2   4 → 1   4 → 2   4 → 3   5 → 1   5 → 2   5 → 3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] 5 → 4   6 → 1   6 → 2   6 → 3   6 → 4   6 → 5   7 → 1   7 → 2   7 → 3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 7 → 4   7 → 5   7 → 6   8 → 1   8 → 2   8 → 3   8 → 4   8 → 5   8 → 6  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] 8 → 7   9 → 1   9 → 2   9 → 3   9 → 4   9 → 5   9 → 6   9 → 7   9 → 8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 10 → 1  10 → 2  10 → 3  10 → 4  10 → 5  10 → 6  10 → 7  10 → 8  10 → 9 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

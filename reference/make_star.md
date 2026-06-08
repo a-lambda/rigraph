@@ -60,13 +60,23 @@ Other deterministic constructors:
 
 ``` r
 make_star(10, mode = "out")
-#> IGRAPH 6ce768b D--- 10 9 -- Out-star
-#> + attr: name (g/c), mode (g/c), center (g/n)
-#> + edges from 6ce768b:
-#> [1] 1-> 2 1-> 3 1-> 4 1-> 5 1-> 6 1-> 7 1-> 8 1-> 9 1->10
+#> ── <igraph> Out-star ──────────────────────────────────────────────── 55e54d1 ──
+#> ℹ directed
+#> ℹ 10 vertices · 9 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mode <chr>, center <dbl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 → 2   1 → 3   1 → 4   1 → 5   1 → 6   1 → 7   1 → 8   1 → 9   1 → 10 
 make_star(5, mode = "undirected")
-#> IGRAPH 6ed03fc U--- 5 4 -- Star
-#> + attr: name (g/c), mode (g/c), center (g/n)
-#> + edges from 6ed03fc:
-#> [1] 1--2 1--3 1--4 1--5
+#> ── <igraph> Star ──────────────────────────────────────────────────── c36ea4e ──
+#> ℹ undirected
+#> ℹ 5 vertices · 4 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mode <chr>, center <dbl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#> [1] 1 ─ 2  1 ─ 3  1 ─ 4  1 ─ 5 
 ```

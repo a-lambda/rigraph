@@ -54,10 +54,16 @@ Other structural queries:
 ``` r
 ug <- make_ring(10)
 ug
-#> IGRAPH 90da13d U--- 10 10 -- Ring graph
-#> + attr: name (g/c), mutual (g/l), circular (g/l)
-#> + edges from 90da13d:
-#>  [1] 1-- 2 2-- 3 3-- 4 4-- 5 5-- 6 6-- 7 7-- 8 8-- 9 9--10 1--10
+#> ── <igraph> Ring graph ────────────────────────────────────────────── b3ae99b ──
+#> ℹ undirected
+#> ℹ 10 vertices · 10 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mutual <lgl>, circular <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#>  [1] 1 ─ 2   2 ─ 3   3 ─ 4   4 ─ 5   5 ─ 6   6 ─ 7   7 ─ 8   8 ─ 9   9 ─ 10 
+#> [10] 1 ─ 10 
 are_adjacent(ug, 1, 2)
 #> [1] TRUE
 are_adjacent(ug, 2, 1)
@@ -65,10 +71,16 @@ are_adjacent(ug, 2, 1)
 
 dg <- make_ring(10, directed = TRUE)
 dg
-#> IGRAPH 7f0293e D--- 10 10 -- Ring graph
-#> + attr: name (g/c), mutual (g/l), circular (g/l)
-#> + edges from 7f0293e:
-#>  [1]  1-> 2  2-> 3  3-> 4  4-> 5  5-> 6  6-> 7  7-> 8  8-> 9  9->10 10-> 1
+#> ── <igraph> Ring graph ────────────────────────────────────────────── dc2965a ──
+#> ℹ directed
+#> ℹ 10 vertices · 10 edges
+#> 
+#> ── Attributes ──────────────────────────────────────────────────────────────────
+#> → graph:  name <chr>, mutual <lgl>, circular <lgl>
+#> 
+#> ── Edges ───────────────────────────────────────────────────────────────────────
+#>  [1] 1 → 2   2 → 3   3 → 4   4 → 5   5 → 6   6 → 7   7 → 8   8 → 9   9 → 10 
+#> [10] 10 → 1 
 are_adjacent(ug, 1, 2)
 #> [1] TRUE
 are_adjacent(ug, 2, 1)

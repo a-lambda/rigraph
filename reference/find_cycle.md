@@ -30,7 +30,7 @@ find_cycle(graph, mode = c("out", "in", "all", "total"))
 ## Value
 
 A list of integer vectors, each integer vector is a path from the source
-vertex to one of the target vertices. A path is given by its vertex ids.
+vertex to one of the target vertices. A path is given by its vertex IDs.
 
 ## Related documentation in the C library
 
@@ -42,7 +42,7 @@ vertex to one of the target vertices. A path is given by its vertex ids.
 
 ## See also
 
-Graph cycles
+Graph cycles:
 [`feedback_arc_set()`](https://r.igraph.org/reference/feedback_arc_set.md),
 [`feedback_vertex_set()`](https://r.igraph.org/reference/feedback_vertex_set.md),
 [`girth()`](https://r.igraph.org/reference/girth.md),
@@ -58,20 +58,20 @@ Graph cycles
 g <- make_lattice(c(3, 3))
 find_cycle(g)
 #> $vertices
-#> + 4/9 vertices, from 46f46cd:
+#> ── <vertex sequence> 4/9 · from 885d3f7 ────────────────────────────────────────
 #> [1] 9 6 5 8
 #> 
 #> $edges
-#> + 4/12 edges from 46f46cd:
-#> [1] 8--9 6--9 5--6 5--8
+#> ── <edge sequence> 4/12 · from 885d3f7 ─────────────────────────────────────────
+#> [1] 8 ─ 9  6 ─ 9  5 ─ 6  5 ─ 8 
 #> 
 
 # Empty results are returned for acyclic graphs
 find_cycle(sample_tree(5))
 #> $vertices
-#> + 0/5 vertices, from f361eb5:
+#> ── <vertex sequence> 0/5 · from fd0613a ────────────────────────────────────────
 #> 
 #> $edges
-#> + 0/4 edges from f361eb5:
+#> ── <edge sequence> 0/4 · from fd0613a ──────────────────────────────────────────
 #> 
 ```
